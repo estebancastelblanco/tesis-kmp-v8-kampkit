@@ -1,0 +1,2 @@
+[console_scripts]
+kmp-impact = kmp_impact_analyzer.cli:main
