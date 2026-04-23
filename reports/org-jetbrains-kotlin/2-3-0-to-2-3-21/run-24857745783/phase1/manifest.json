@@ -1,0 +1,27 @@
+{
+  "before_dir": "/tmp/output/phase1/before",
+  "after_dir": "/tmp/output/phase1/after",
+  "version_change": {
+    "dependency_group": "org.jetbrains.kotlin",
+    "version_key": "kotlin",
+    "before": "2.3.0",
+    "after": "2.3.21"
+  },
+  "init_script_injected": false,
+  "detekt_reports": {
+    "app": "/tmp/output/phase1/before/app/build/reports/detekt/detekt.xml"
+  },
+  "kover_reports": {
+    "shared": "/tmp/output/phase1/before/shared/build/reports/kover/report.xml",
+    "app": "/tmp/output/phase1/before/app/build/reports/kover/report.xml"
+  },
+  "compilation_after": {
+    "status": "failure",
+    "errors": [
+      "> Error: SKIE 0.10.11 does not support Kotlin 2.3.21."
+    ],
+    "tasks": [
+      ":shared:compileKotlinMetadata"
+    ]
+  }
+}

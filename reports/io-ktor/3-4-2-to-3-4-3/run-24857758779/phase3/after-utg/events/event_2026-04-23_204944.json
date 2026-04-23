@@ -1,0 +1,49 @@
+{
+  "tag": "2026-04-23_204944",
+  "event": {
+    "event_type": "touch",
+    "log_lines": null,
+    "x": null,
+    "y": null,
+    "view": {
+      "package": "co.touchlab.kampkit",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          45
+        ],
+        [
+          320,
+          67
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 6,
+      "temp_id": 11,
+      "size": "320*22",
+      "signature": "[class]android.view.View[resource_id]None[text]None[enabled,,]",
+      "view_str": "f2b0ec85cb47f465d3e59c91ab655a77",
+      "content_free_signature": "[class]android.view.View[resource_id]None"
+    }
+  },
+  "start_state": "84c6b42b9b745c70f16d87e5b4d05152",
+  "stop_state": "84c6b42b9b745c70f16d87e5b4d05152",
+  "event_str": "TouchEvent(state=84c6b42b9b745c70f16d87e5b4d05152, view=f2b0ec85cb47f465d3e59c91ab655a77(MainActivity/View-))"
+}

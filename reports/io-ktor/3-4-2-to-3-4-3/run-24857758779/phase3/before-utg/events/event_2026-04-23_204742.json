@@ -1,0 +1,55 @@
+{
+  "tag": "2026-04-23_204742",
+  "event": {
+    "event_type": "touch",
+    "log_lines": null,
+    "x": null,
+    "y": null,
+    "view": {
+      "package": "com.android.launcher3",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": "Apps list",
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          151,
+          509
+        ],
+        [
+          169,
+          515
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 5,
+      "temp_id": 6,
+      "size": "18*6",
+      "signature": "[class]android.view.View[resource_id]None[text]None[enabled,,]",
+      "view_str": "d87cd9a9bc19f3e611b086f272f4fbe7",
+      "content_free_signature": "[class]android.view.View[resource_id]None",
+      "allowed_actions": [
+        "touch"
+      ],
+      "special_attrs": [],
+      "local_id": "0",
+      "desc": "<button text='Apps list' bound_box=151,509,169,515></button>"
+    }
+  },
+  "start_state": "052812ac517ede05d7cb4f98a078dbb4",
+  "stop_state": "052812ac517ede05d7cb4f98a078dbb4",
+  "event_str": "TouchEvent(state=052812ac517ede05d7cb4f98a078dbb4, view=d87cd9a9bc19f3e611b086f272f4fbe7(QuickstepLauncher/View-))"
+}

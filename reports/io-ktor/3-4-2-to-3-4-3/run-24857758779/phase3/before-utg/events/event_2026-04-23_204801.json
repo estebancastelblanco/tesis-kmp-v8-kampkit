@@ -1,0 +1,49 @@
+{
+  "tag": "2026-04-23_204801",
+  "event": {
+    "event_type": "touch",
+    "log_lines": null,
+    "x": null,
+    "y": null,
+    "view": {
+      "package": "com.android.quicksearchbox",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          71,
+          68
+        ],
+        [
+          292,
+          110
+        ]
+      ],
+      "resource_id": "com.android.quicksearchbox:id/search_widget_text",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 14,
+      "temp_id": 16,
+      "size": "221*42",
+      "signature": "[class]android.widget.TextView[resource_id]com.android.quicksearchbox:id/search_widget_text[text]None[enabled,,]",
+      "view_str": "b6c403c5cf387128032b135c42b3dd56",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.android.quicksearchbox:id/search_widget_text"
+    }
+  },
+  "start_state": "052812ac517ede05d7cb4f98a078dbb4",
+  "stop_state": "9c37663e73cc4bbdee339e8cc9150441",
+  "event_str": "TouchEvent(state=052812ac517ede05d7cb4f98a078dbb4, view=b6c403c5cf387128032b135c42b3dd56(QuickstepLauncher/TextView-))"
+}

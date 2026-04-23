@@ -1,0 +1,166 @@
+# kmp-impact-analyzer
+
+Dependency impact analyzer for Kotlin Multiplatform (KMP) projects.
+
+This repository contains the **first-phase thesis pipeline** for detecting how a dependency version change propagates through a KMP codebase and, when available, how that change may affect UI navigation flows. The focus is on a clean, reproducible pipeline and traceable artifacts — **not** on extending evaluation metrics beyond the current thesis scope.
+
+## Phase-1 scope
+
+Included in scope:
+- Shadow project preparation for before/after dependency states
+- Static Kotlin parsing and dependency-impact propagation
+- Optional dynamic UI exploration integration through DroidBot
+- Consolidated JSON outputs for downstream analysis
+- CodeCharta-ready visualization artifacts
+- Thesis-friendly HTML reporting with traceability tabs and raw artifacts
+- GitHub Actions and Dependabot setup for repository automation
+
+Out of scope for this phase:
+- New evaluation methodologies or advanced metrics
+- Benchmarking dashboards
+- Large-scale experimentation orchestration
+
+## Pipeline architecture
+
+```text
+CLI / GitHub Action
+        |
+        v
+AnalysisConfig
+        |
+        v
+run_pipeline()
+  ├─ Phase 1: phase1_shadow/       -> creates before/after shadow copies
+  ├─ Phase 2: phase2_static/       -> parses Kotlin, builds impact graph
+  ├─ Phase 3: phase3_dynamic/      -> optional DroidBot-based UTG diff
+  ├─ Phase 4: phase4_consolidate/  -> merges code and UI evidence
+  └─ Phase 5: phase5_visualize/    -> exports CodeCharta artifacts
+```
+
+### Source layout
+
+```text
+src/kmp_impact_analyzer/
+├── cli.py                         # CLI entrypoints
+├── config.py                      # analysis configuration
+├── contracts.py                   # JSON/Pydantic contracts between phases
+├── github_version_change.py       # PR/version-catalog change detection
+├── pipeline.py                    # end-to-end orchestration
+├── phase1_shadow/                 # shadow copies + Gradle version catalog edit
+├── phase2_static/                 # parsing, symbol graph, propagation
+├── phase3_dynamic/                # DroidBot execution + UTG diff
+├── phase4_consolidate/            # static/dynamic merge
+├── phase5_visualize/              # CodeCharta exporters
+├── evaluation/                    # existing thesis evaluation helpers
+└── utils/                         # logging and JSON helpers
+```
+
+## Installation
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -e ".[dev]"
+```
+
+## Main workflows
+
+### 1) Local analysis
+
+```bash
+kmp-impact analyze \
+  --repo /path/to/KmpProject \
+  --dependency io.ktor \
+  --before-version 2.3.8 \
+  --after-version 2.3.11 \
+  --output-dir output \
+  --skip-dynamic
+```
+
+### 2) Scenario-based execution
+
+```bash
+kmp-impact run-scenario \
+  --scenario-dir scenarios/cursokmpapp_ktor \
+  --output-dir output-ktor \
+  --skip-dynamic
+```
+
+### 3) Detect dependency changes between two version catalogs
+
+Useful for CI and PR automation:
+
+```bash
+kmp-impact detect-version-changes \
+  --before /tmp/base.libs.versions.toml \
+  --after /tmp/head.libs.versions.toml
+```
+
+### 4) Existing evaluation command
+
+Kept as-is for the thesis first phase, without adding new metrics:
+
+```bash
+kmp-impact evaluate \
+  --results output/phase4/consolidated.json \
+  --ground-truth scenarios/cursokmpapp_ktor/ground_truth.yml
+```
+
+## Output artifacts
+
+```text
+output/
+├── phase1/
+│   ├── before/
+│   ├── after/
+│   └── manifest.json
+├── phase2/
+│   └── impact_graph.json
+├── phase3/
+│   └── ui_regressions.json
+├── phase4/
+│   └── consolidated.json
+├── phase5/
+│   ├── impact.cc.json
+│   ├── before.cc.json
+│   └── after.cc.json
+└── report/
+    ├── index.html
+    ├── summary.json
+    └── summary.md
+```
+
+## GitHub automation
+
+The repository includes:
+- `.github/workflows/impact-analysis.yml`
+- `.github/dependabot.yml`
+- `docs/automation-flow.md`
+
+### Workflow behavior
+
+On pull requests that modify `libs.versions.toml`, the workflow:
+1. detects the changed dependency group and versions,
+2. runs unit tests,
+3. executes the impact-analysis pipeline,
+4. generates a navigable HTML report in `output/report/index.html`,
+5. uploads all raw artifacts plus a Pages-ready static site bundle,
+6. appends a job summary with risk/recommendation,
+7. comments a short PR summary that points reviewers to the full report artifact.
+
+On `workflow_dispatch`, the same report bundle is produced and can be deployed to GitHub Pages for a stable repo-hosted URL.
+
+## Development and validation
+
+```bash
+pytest -q
+```
+
+## Visualization
+
+- Open `output/report/index.html` for the thesis-friendly “mini Sonar” report with sections for Summary, Static Impact, UI Impact, Traceability, Visualization, and Raw Artifacts.
+- Load `output/phase5/impact.cc.json` or the `before/after` pair in [CodeCharta Visualization](https://maibornwolff.github.io/codecharta/visualization/app/index.html).
+
+## License
+
+MIT

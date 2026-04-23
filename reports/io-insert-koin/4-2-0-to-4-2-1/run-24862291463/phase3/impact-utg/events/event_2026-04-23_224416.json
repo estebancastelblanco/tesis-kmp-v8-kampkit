@@ -1,0 +1,55 @@
+{
+  "tag": "2026-04-23_224416",
+  "event": {
+    "event_type": "touch",
+    "log_lines": null,
+    "x": null,
+    "y": null,
+    "view": {
+      "package": "co.touchlab.kampkit",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          10,
+          304
+        ],
+        [
+          286,
+          323
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": "bakharwal",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 37,
+      "temp_id": 38,
+      "size": "276*19",
+      "signature": "[class]android.widget.TextView[resource_id]None[text]bakharwal[enabled,,]",
+      "view_str": "9c0709d420e586af08eb9fbb7025e237",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]None",
+      "allowed_actions": [
+        "touch"
+      ],
+      "special_attrs": [],
+      "local_id": "13",
+      "desc": "<button bound_box=10,304,286,323>bakharwal</button>"
+    }
+  },
+  "start_state": "84c6b42b9b745c70f16d87e5b4d05152",
+  "stop_state": "84c6b42b9b745c70f16d87e5b4d05152",
+  "event_str": "TouchEvent(state=84c6b42b9b745c70f16d87e5b4d05152, view=9c0709d420e586af08eb9fbb7025e237(MainActivity/TextView-bakharwal))"
+}

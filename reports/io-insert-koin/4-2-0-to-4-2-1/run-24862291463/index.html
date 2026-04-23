@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Impact Report — io.insert-koin</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Inter',system-ui,sans-serif; background:#f8fafc; color:#1e293b; line-height:1.6; }
+
+  /* Header */
+  .header { background:linear-gradient(135deg,#1e1b4b 0%,#312e81 50%,#4338ca 100%); color:white; padding:48px 0 40px; }
+  .header-inner { max-width:1000px; margin:0 auto; padding:0 32px; }
+  .header h1 { font-size:28px; font-weight:700; margin-bottom:4px; }
+  .header .sub { font-size:14px; opacity:0.7; }
+  .version-pill { display:inline-block; background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.25);
+    border-radius:20px; padding:6px 18px; margin-top:16px; font-size:15px; font-weight:600; }
+  .version-pill .arrow { color:#a5b4fc; margin:0 8px; }
+
+  /* Container */
+  .container { max-width:1000px; margin:0 auto; padding:0 32px 60px; }
+
+  /* KPI cards */
+  .kpi-row { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin:-32px 0 40px; position:relative; z-index:2; }
+  .kpi { background:white; border-radius:12px; padding:24px; text-align:center;
+    box-shadow:0 1px 3px rgba(0,0,0,0.08),0 4px 12px rgba(0,0,0,0.04); border:1px solid #e2e8f0; }
+  .kpi .num { font-size:32px; font-weight:700; }
+  .kpi .lbl { font-size:12px; color:#64748b; margin-top:4px; text-transform:uppercase; letter-spacing:0.5px; }
+  .kpi .num.red { color:#dc2626; }
+  .kpi .num.amber { color:#d97706; }
+  .kpi .num.purple { color:#7c3aed; }
+  .kpi .num.blue { color:#2563eb; }
+
+  /* Section */
+  .section { margin-bottom:40px; }
+  .section-header { display:flex; align-items:center; gap:12px; margin-bottom:20px; padding-bottom:12px; border-bottom:2px solid #e2e8f0; }
+  .phase-num { background:#4338ca; color:white; width:32px; height:32px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:700; flex-shrink:0; }
+  .section-header h2 { font-size:18px; font-weight:700; color:#1e293b; }
+  .section-header .desc { font-size:13px; color:#64748b; }
+
+  /* Pipeline */
+  .pipeline { display:flex; gap:0; margin:24px 0 40px; justify-content:center; }
+  .pipe-step { text-align:center; flex:1; position:relative; }
+  .pipe-step .dot { width:40px; height:40px; border-radius:50%; margin:0 auto 8px;
+    display:flex; align-items:center; justify-content:center; font-size:16px; font-weight:700; color:white; }
+  .pipe-step .dot.green { background:#16a34a; }
+  .pipe-step .dot.gray { background:#9ca3af; }
+  .pipe-step .dot.amber { background:#d97706; }
+  .pipe-step .title { font-size:12px; font-weight:600; color:#374151; }
+  .pipe-step .status { font-size:11px; color:#16a34a; font-weight:500; }
+  .pipe-step .status.skip { color:#9ca3af; }
+  .pipe-step:not(:last-child)::after { content:''; position:absolute; top:20px; left:calc(50% + 24px);
+    width:calc(100% - 48px); height:3px; background:#d1d5db; }
+
+  /* Diff cards */
+  .diff-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .diff-card { background:white; border-radius:10px; border:1px solid #e2e8f0; overflow:hidden;
+    box-shadow:0 1px 3px rgba(0,0,0,0.05); }
+  .diff-card .card-head { padding:12px 16px; font-size:12px; font-weight:600; text-transform:uppercase;
+    letter-spacing:0.5px; }
+  .diff-card.before .card-head { background:#fef2f2; color:#991b1b; border-bottom:2px solid #fca5a5; }
+  .diff-card.after .card-head { background:#f0fdf4; color:#166534; border-bottom:2px solid #86efac; }
+  .diff-card pre { padding:16px; font-size:12px; line-height:1.7; overflow-x:auto; background:#fafafa; margin:0; }
+  .diff-card pre .hl { background:#fef08a; font-weight:600; display:inline; padding:1px 4px; border-radius:3px; }
+
+  /* Chart card */
+  .chart-card { background:white; border-radius:12px; border:1px solid #e2e8f0; padding:20px;
+    box-shadow:0 1px 3px rgba(0,0,0,0.05); margin-bottom:16px; }
+  .chart-card .caption { font-size:12px; color:#64748b; margin-top:8px; text-align:center; }
+
+  /* Table */
+  .data-table { width:100%; border-collapse:separate; border-spacing:0; background:white;
+    border-radius:12px; overflow:hidden; border:1px solid #e2e8f0;
+    box-shadow:0 1px 3px rgba(0,0,0,0.05); }
+  .data-table th { background:#f8fafc; color:#475569; padding:12px 16px; text-align:left;
+    font-size:11px; text-transform:uppercase; letter-spacing:0.5px; font-weight:600; border-bottom:2px solid #e2e8f0; }
+  .data-table td { padding:11px 16px; font-size:13px; border-bottom:1px solid #f1f5f9; }
+  .data-table .row-alt td { background:#fafbfc; }
+  .data-table .fname { font-family:'SF Mono',Consolas,monospace; font-size:12.5px; font-weight:600; color:#1e293b; }
+  .data-table .c { text-align:center; }
+  .badge { padding:3px 10px; border-radius:10px; font-size:11px; font-weight:600; }
+  .badge-red { background:#fef2f2; color:#dc2626; border:1px solid #fecaca; }
+  .badge-yellow { background:#fffbeb; color:#d97706; border:1px solid #fde68a; }
+  .badge-purple { background:#f5f3ff; color:#7c3aed; border:1px solid #ddd6fe; }
+
+  /* Info box */
+  .info-box { background:#eef2ff; border:1px solid #c7d2fe; border-radius:10px; padding:20px 24px; }
+  .info-box h4 { color:#4338ca; font-size:14px; margin-bottom:8px; }
+  .info-box p { font-size:13px; color:#4338ca; opacity:0.8; }
+
+  /* Footer */
+  .footer { text-align:center; color:#94a3b8; font-size:12px; padding:32px 0; border-top:1px solid #e2e8f0; margin-top:20px; }
+
+  /* Tabs */
+  .tabs-nav { display:flex; gap:4px; border-bottom:2px solid #e2e8f0; margin:16px 0 24px;
+    position:sticky; top:0; background:#f8fafc; z-index:10; padding-top:8px; }
+  .tab-btn { background:none; border:none; padding:12px 20px; font-size:13px; font-weight:600;
+    color:#64748b; cursor:pointer; border-bottom:3px solid transparent; margin-bottom:-2px;
+    font-family:inherit; transition:color .15s, border-color .15s; }
+  .tab-btn:hover { color:#4338ca; }
+  .tab-btn.active { color:#4338ca; border-bottom-color:#4338ca; }
+  .tab-panel { display:none; }
+  .tab-panel.active { display:block; }
+
+  @media print {
+    .header { background:#1e1b4b !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    .kpi, .chart-card, .diff-card, .data-table { break-inside:avoid; }
+    body { font-size:11px; }
+  }
+  @media (max-width:700px) {
+    .kpi-row { grid-template-columns:repeat(2,1fr); }
+    .diff-grid { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <h1>Dependency Impact Report</h1>
+    <div class="sub">KMP Impact Analyzer — Static dependency propagation analysis</div>
+    <div class="version-pill">
+      io.insert-koin &nbsp;<code>4.2.0</code>
+      <span class="arrow">→</span>
+      <code>4.2.1</code>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- KPIs -->
+<div class="kpi-row">
+  <div class="kpi">
+    <div class="num red">12</div>
+    <div class="lbl">Impacted files</div>
+  </div>
+  <div class="kpi">
+    <div class="num amber">44</div>
+    <div class="lbl">Total files</div>
+  </div>
+  <div class="kpi">
+    <div class="num purple">0</div>
+    <div class="lbl">Expect/actual pairs</div>
+  </div>
+  <div class="kpi">
+    <div class="num blue">15</div>
+    <div class="lbl">Impacted screens</div>
+  </div>
+</div>
+
+<!-- Tools used -->
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin:16px 0;">
+  <span style="display:inline-flex;align-items:center;gap:4px;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:600;background:#10b98115;color:#10b981;border:1px solid #10b98140;" title="Import parsing"><span style="width:6px;height:6px;border-radius:50%;background:#10b981;"></span>tree-sitter</span>
+<span style="display:inline-flex;align-items:center;gap:4px;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:600;background:#6366f115;color:#6366f1;border:1px solid #6366f140;" title="Type resolution"><span style="width:6px;height:6px;border-radius:50%;background:#6366f1;"></span>KSP</span>
+<span style="display:inline-flex;align-items:center;gap:4px;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:600;background:#3b82f615;color:#3b82f6;border:1px solid #3b82f640;" title="Test coverage"><span style="width:6px;height:6px;border-radius:50%;background:#3b82f6;"></span>Kover</span>
+<span style="display:inline-flex;align-items:center;gap:4px;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:600;background:#ef444415;color:#ef4444;border:1px solid #ef444440;" title="UI exploration"><span style="width:6px;height:6px;border-radius:50%;background:#ef4444;"></span>DroidBot</span>
+<span style="display:inline-flex;align-items:center;gap:4px;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:600;background:#8b5cf615;color:#8b5cf6;border:1px solid #8b5cf640;" title="3D visualization"><span style="width:6px;height:6px;border-radius:50%;background:#8b5cf6;"></span>CodeCharta</span>
+</div>
+
+<!-- Compilation status -->
+<div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:8px 16px;font-size:12px;color:#166534;margin:8px 0;">✅ The AFTER version compiles successfully — no breaking changes detected</div>
+
+<!-- Tabs navigation -->
+<div class="tabs-nav" role="tablist">
+  <button class="tab-btn active" data-tab="pipeline" role="tab">Pipeline</button>
+  <button class="tab-btn" data-tab="sunburst" role="tab">Source-set Sunburst</button>
+  <button class="tab-btn" data-tab="gitgraph" role="tab">Dependency Graph</button>
+</div>
+
+<div class="tab-panel active" id="tab-pipeline" role="tabpanel">
+
+<!-- Pipeline overview -->
+<div class="section">
+  <div class="section-header">
+    <div class="phase-num">&#9889;</div>
+    <div><h2>Pipeline Execution</h2><div class="desc">Summary of the 5 analysis phases</div></div>
+  </div>
+  <div class="pipeline">
+    <div class="pipe-step"><div class="dot green">1</div><div class="title">Shadow Build</div><div class="status">✓ Completed</div></div>
+<div class="pipe-step"><div class="dot green">2</div><div class="title">Static Analysis</div><div class="status">✓ 12 files</div></div>
+<div class="pipe-step"><div class="dot green">3</div><div class="title">Dynamic Analysis</div><div class="status">✓ 0 differences</div></div>
+<div class="pipe-step"><div class="dot green">4</div><div class="title">Consolidation</div><div class="status">✓ 15 screen(s)</div></div>
+<div class="pipe-step"><div class="dot green">5</div><div class="title">Visualization</div><div class="status">✓ CodeCharta</div></div>
+
+  </div>
+</div>
+
+<!-- Phase 1: Shadow Build -->
+<div class="section">
+  <div class="section-header">
+    <div class="phase-num">1</div>
+    <div><h2>Shadow Build</h2><div class="desc">BEFORE and AFTER copies of the project were created, modifying the dependency version</div></div>
+  </div>
+  <div class="diff-grid">
+    <div class="diff-card before">
+      <div class="card-head">Before — libs.versions.toml</div>
+      <pre>[versions]
+## SDK Versions
+minSdk = &quot;23&quot;
+targetSdk = &quot;35&quot;
+compileSdk = &quot;36&quot;
+
+# Dependencies
+kotlin = &quot;2.3.0&quot;
+android-gradle-plugin = &quot;8.11.2&quot;
+ktlint-gradle = &quot;14.2.0&quot;
+compose = &quot;1.9.1&quot;
+android-desugaring = &quot;2.1.5&quot;
+androidx-core = &quot;1.17.0&quot;
+androidx-test-junit = &quot;1.3.0&quot;
+androidx-activity-compose = &quot;1.11.0&quot;
+androidx-lifecycle = &quot;2.9.4&quot;
+coroutines = &quot;1.10.2&quot;
+kotlinx-datetime = &quot;0.7.1&quot;
+ktor = &quot;3.4.2&quot;
+robolectric = &quot;4.16.1&quot;
+kermit = &quot;2.1.0&quot;
+skie = &quot;0.10.11&quot;
+<span class="hl">koin = &quot;4.2.0&quot;</span>
+multiplatformSettings = &quot;1.3.0&quot;
+turbine = &quot;1.2.1&quot;
+sqlDelight = &quot;2.3.2&quot;
+
+[libraries]
+android-desugaring = { module = &quot;com.android.tools:desugar_jdk_libs&quot;, version.ref = &quot;android-desugaring&quot; }
+androidx-core = { module = &quot;androidx.core:core-ktx&quot;, version.ref = &quot;androidx-core&quot; }
+androidx-lifecycle-runtime = { module = &quot;androidx.lifecycle:lifecycle-runtime-ktx&quot;, version.ref = &quot;androidx-lifecycle&quot; }
+androidx-lifecycle-viewmodel = { module = &quot;androidx.lifecycle:lifecycle-viewmodel-ktx&quot;, version.ref = &quot;androidx-lifecycle&quot; }
+androidx-lifecycle-compose = { module = &quot;androidx.lifecycle:lifecycle-runtime-compose&quot;, version.ref = &quot;androidx-lifecycle&quot; }
+androidx-test-junit = { module = &quot;androidx.test.ext:junit-ktx&quot;, version.ref = &quot;androidx-test-junit&quot; }
+
+compose-ui = { module = &quot;androidx.compose.ui:ui&quot;, version.ref = &quot;compose&quot; }
+compose-tooling = { module = &quot;androidx.compose.ui:ui-tooling&quot;, version.ref = &quot;compose&quot; }
+compose-foundation = { module = &quot;androidx.compose.foundation:foundation&quot;, version.ref = &quot;compose&quot; }
+compose-material = { module = &quot;androidx.compose.material:material&quot;, version.ref = &quot;compose&quot; }
+compose-activity = { module = &quot;androidx.activity:activity-compose&quot;, version.ref = &quot;androidx-activity-compose&quot; }
+
+coroutines-core = { module = &quot;org.jetbrains.kotlinx:kotlinx-coroutines-core&quot;, version.ref = &quot;coroutines&quot; }
+coroutines-test = { module = &quot;org.jetbrains.kotlinx:kotlinx-coroutines-test&quot;, version.ref = &quot;coroutines&quot; }
+
+<span class="hl">koin-android = { module = &quot;io.insert-koin:koin-android&quot;, version.ref = &quot;koin&quot; }</span>
+<span class="hl">koin-core = { module = &quot;io.insert-koin:koin-core&quot;, version.ref = &quot;koin&quot; }</span>
+<span class="hl">koin-test = { module = &quot;io.insert-koin:koin-test&quot;, version.ref = &quot;koin&quot; }</span>
+<span class="hl">koin-view-model = { module = &quot;io.insert-koin:koin-core-viewmodel&quot;, version.ref = &quot;koin&quot; }</span>
+kotlinx-dateTime = { module = &quot;org.jetbrains.kotlinx:kotlinx-datetime&quot;, version.ref = &quot;kotlinx-datetime&quot; }
+
+ktor-client-core = { module = &quot;io.ktor:ktor-client-core&quot;, version.ref = &quot;ktor&quot; }
+ktor-client-ios = { module = &quot;io.ktor:ktor-client-ios&quot;, version.ref = &quot;ktor&quot; }
+ktor-client-logging = { module = &quot;io.ktor:ktor-client-logging&quot;, version.ref = &quot;ktor&quot; }
+ktor-client-okHttp = { module = &quot;io.ktor:ktor-client-okhttp&quot;, version.ref = &quot;ktor&quot; }
+ktor-client-serialization = { module = &quot;io.ktor:ktor-serialization-kotlinx-json&quot;, version.ref = &quot;ktor&quot; }
+ktor-client-contentNegotiation = { module = &quot;io.ktor:ktor-client-content-negotiation&quot;, version.ref = &quot;ktor&quot; }
+ktor-client-mock = { module = &quot;io.ktor:ktor-client-mock&quot;, version.ref = &quot;ktor&quot; }
+
+multiplatformSettings-common = { module = &quot;com.russhwolf:multiplatform-settings&quot;, version.ref = &quot;multiplatformSettings&quot; }
+multiplatformSettings-test = { module = &quot;com.russhwolf:multiplatform-settings-test&quot;, version.ref = &quot;multiplatformSettings&quot; }
+
+roboelectric = { module = &quot;org.robolectric:robolectric&quot;, version.ref = &quot;robolectric&quot; }
+
+sqlDelight-android = { module = &quot;app.cash.sqldelight:android-driver&quot;, version.ref = &quot;sqlDelight&quot; }
+sqlDelight-jvm = { module = &quot;app.cash.sqldelight:sqlite-driver&quot;, version.ref = &quot;sqlDelight&quot; }
+sqlDelight-coroutinesExt = { module = &quot;app.cash.sqldelight:coroutines-extensions&quot;, version.ref = &quot;sqlDelight&quot; }
+sqlDelight-native = { module = &quot;app.cash.sqldelight:native-driver&quot;, version.ref = &quot;sqlDelight&quot; }
+
+touchlab-kermit = { module = &quot;co.touchlab:kermit&quot;, version.ref = &quot;kermit&quot; }
+touchlab-kermit-simple = { module = &quot;co.touchlab:kermit-simple&quot;, version.ref = &quot;kermit&quot; }
+touchlab-skie-annotations = { module = &quot;co.touchlab.skie:configuration-annotations&quot;, version.ref = &quot;skie&quot; }
+
+turbine = { module = &quot;app.cash.turbine:turbine&quot;, version.ref = &quot;turbine&quot; }
+kotlin-test = { module = &quot;org.jetbrains.kotlin:kotlin-test&quot;, version.ref = &quot;kotlin&quot; }
+
+[plugins]
+ktlint = { id = &quot;org.jlleitschuh.gradle.ktlint&quot;, version.ref = &quot;ktlint-gradle&quot; }
+kotlin-android = { id = &quot;org.jetbrains.kotlin.android&quot;, version.ref = &quot;kotlin&quot; }
+kotlin-multiplatform = { id = &quot;org.jetbrains.kotlin.multiplatform&quot;, version.ref = &quot;kotlin&quot; }
+sqlDelight = { id = &quot;app.cash.sqldelight&quot;, version.ref = &quot;sqlDelight&quot; }
+android-application = { id = &quot;com.android.application&quot;, version.ref = &quot;android-gradle-plugin&quot; }
+android-library = { id = &quot;com.android.library&quot;, version.ref = &quot;android-gradle-plugin&quot; }
+kotlin-serialization = { id = &quot;org.jetbrains.kotlin.plugin.serialization&quot;, version.ref = &quot;kotlin&quot; }
+skie = { id = &quot;co.touchlab.skie&quot;, version.ref = &quot;skie&quot; }
+compose-compiler = { id = &quot;org.jetbrains.kotlin.plugin.compose&quot;, version.ref = &quot;kotlin&quot; }
+
+[bundles]
+app-ui = [
+    &quot;androidx-core&quot;,
+    &quot;androidx-lifecycle-runtime&quot;,
+    &quot;androidx-lifecycle-viewmodel&quot;,
+    &quot;androidx-lifecycle-compose&quot;,
+    &quot;compose-ui&quot;,
+    &quot;compose-tooling&quot;,
+    &quot;compose-foundation&quot;,
+    &quot;compose-material&quot;,
+    &quot;compose-activity&quot;
+]
+ktor-common = [&quot;ktor-client-core&quot;, &quot;ktor-client-logging&quot;, &quot;ktor-client-serialization&quot;, &quot;ktor-client-contentNegotiation&quot;]
+shared-commonTest = [
+    &quot;kotlin-test&quot;,
+    &quot;multiplatformSettings-test&quot;,
+<span class="hl">    &quot;koin-test&quot;,</span>
+    &quot;turbine&quot;,
+    &quot;coroutines-test&quot;,
+    &quot;ktor-client-mock&quot;
+]
+shared-androidTest = [
+    &quot;androidx-test-junit&quot;,
+    &quot;coroutines-test&quot;,
+    &quot;roboelectric&quot;,
+    &quot;sqlDelight-jvm&quot;
+]
+</pre>
+    </div>
+    <div class="diff-card after">
+      <div class="card-head">After — libs.versions.toml</div>
+      <pre>[versions]
+## SDK Versions
+minSdk = &quot;23&quot;
+targetSdk = &quot;35&quot;
+compileSdk = &quot;36&quot;
+
+# Dependencies
+kotlin = &quot;2.3.0&quot;
+android-gradle-plugin = &quot;8.11.2&quot;
+ktlint-gradle = &quot;14.2.0&quot;
+compose = &quot;1.9.1&quot;
+android-desugaring = &quot;2.1.5&quot;
+androidx-core = &quot;1.17.0&quot;
+androidx-test-junit = &quot;1.3.0&quot;
+androidx-activity-compose = &quot;1.11.0&quot;
+androidx-lifecycle = &quot;2.9.4&quot;
+coroutines = &quot;1.10.2&quot;
+kotlinx-datetime = &quot;0.7.1&quot;
+ktor = &quot;3.4.2&quot;
+robolectric = &quot;4.16.1&quot;
+kermit = &quot;2.1.0&quot;
+skie = &quot;0.10.11&quot;
+<span class="hl">koin = &quot;4.2.1&quot;</span>
+multiplatformSettings = &quot;1.3.0&quot;
+turbine = &quot;1.2.1&quot;
+sqlDelight = &quot;2.3.2&quot;
+
+[libraries]
+android-desugaring = { module = &quot;com.android.tools:desugar_jdk_libs&quot;, version.ref = &quot;android-desugaring&quot; }
+androidx-core = { module = &quot;androidx.core:core-ktx&quot;, version.ref = &quot;androidx-core&quot; }
+androidx-lifecycle-runtime = { module = &quot;androidx.lifecycle:lifecycle-runtime-ktx&quot;, version.ref = &quot;androidx-lifecycle&quot; }
+androidx-lifecycle-viewmodel = { module = &quot;androidx.lifecycle:lifecycle-viewmodel-ktx&quot;, version.ref = &quot;androidx-lifecycle&quot; }
+androidx-lifecycle-compose = { module = &quot;androidx.lifecycle:lifecycle-runtime-compose&quot;, version.ref = &quot;androidx-lifecycle&quot; }
+androidx-test-junit = { module = &quot;androidx.test.ext:junit-ktx&quot;, version.ref = &quot;androidx-test-junit&quot; }
+
+compose-ui = { module = &quot;androidx.compose.ui:ui&quot;, version.ref = &quot;compose&quot; }
+compose-tooling = { module = &quot;androidx.compose.ui:ui-tooling&quot;, version.ref = &quot;compose&quot; }
+compose-foundation = { module = &quot;androidx.compose.foundation:foundation&quot;, version.ref = &quot;compose&quot; }
+compose-material = { module = &quot;androidx.compose.material:material&quot;, version.ref = &quot;compose&quot; }
+compose-activity = { module = &quot;androidx.activity:activity-compose&quot;, version.ref = &quot;androidx-activity-compose&quot; }
+
+coroutines-core = { module = &quot;org.jetbrains.kotlinx:kotlinx-coroutines-core&quot;, version.ref = &quot;coroutines&quot; }
+coroutines-test = { module = &quot;org.jetbrains.kotlinx:kotlinx-coroutines-test&quot;, version.ref = &quot;coroutines&quot; }
+
+<span class="hl">koin-android = { module = &quot;io.insert-koin:koin-android&quot;, version.ref = &quot;koin&quot; }</span>
+<span class="hl">koin-core = { module = &quot;io.insert-koin:koin-core&quot;, version.ref = &quot;koin&quot; }</span>
+<span class="hl">koin-test = { module = &quot;io.insert-koin:koin-test&quot;, version.ref = &quot;koin&quot; }</span>
+<span class="hl">koin-view-model = { module = &quot;io.insert-koin:koin-core-viewmodel&quot;, version.ref = &quot;koin&quot; }</span>
+kotlinx-dateTime = { module = &quot;org.jetbrains.kotlinx:kotlinx-datetime&quot;, version.ref = &quot;kotlinx-datetime&quot; }
+
+ktor-client-core = { module = &quot;io.ktor:ktor-client-core&quot;, version.ref = &quot;ktor&quot; }
+ktor-client-ios = { module = &quot;io.ktor:ktor-client-ios&quot;, version.ref = &quot;ktor&quot; }
+ktor-client-logging = { module = &quot;io.ktor:ktor-client-logging&quot;, version.ref = &quot;ktor&quot; }
+ktor-client-okHttp = { module = &quot;io.ktor:ktor-client-okhttp&quot;, version.ref = &quot;ktor&quot; }
+ktor-client-serialization = { module = &quot;io.ktor:ktor-serialization-kotlinx-json&quot;, version.ref = &quot;ktor&quot; }
+ktor-client-contentNegotiation = { module = &quot;io.ktor:ktor-client-content-negotiation&quot;, version.ref = &quot;ktor&quot; }
+ktor-client-mock = { module = &quot;io.ktor:ktor-client-mock&quot;, version.ref = &quot;ktor&quot; }
+
+multiplatformSettings-common = { module = &quot;com.russhwolf:multiplatform-settings&quot;, version.ref = &quot;multiplatformSettings&quot; }
+multiplatformSettings-test = { module = &quot;com.russhwolf:multiplatform-settings-test&quot;, version.ref = &quot;multiplatformSettings&quot; }
+
+roboelectric = { module = &quot;org.robolectric:robolectric&quot;, version.ref = &quot;robolectric&quot; }
+
+sqlDelight-android = { module = &quot;app.cash.sqldelight:android-driver&quot;, version.ref = &quot;sqlDelight&quot; }
+sqlDelight-jvm = { module = &quot;app.cash.sqldelight:sqlite-driver&quot;, version.ref = &quot;sqlDelight&quot; }
+sqlDelight-coroutinesExt = { module = &quot;app.cash.sqldelight:coroutines-extensions&quot;, version.ref = &quot;sqlDelight&quot; }
+sqlDelight-native = { module = &quot;app.cash.sqldelight:native-driver&quot;, version.ref = &quot;sqlDelight&quot; }
+
+touchlab-kermit = { module = &quot;co.touchlab:kermit&quot;, version.ref = &quot;kermit&quot; }
+touchlab-kermit-simple = { module = &quot;co.touchlab:kermit-simple&quot;, version.ref = &quot;kermit&quot; }
+touchlab-skie-annotations = { module = &quot;co.touchlab.skie:configuration-annotations&quot;, version.ref = &quot;skie&quot; }
+
+turbine = { module = &quot;app.cash.turbine:turbine&quot;, version.ref = &quot;turbine&quot; }
+kotlin-test = { module = &quot;org.jetbrains.kotlin:kotlin-test&quot;, version.ref = &quot;kotlin&quot; }
+
+[plugins]
+ktlint = { id = &quot;org.jlleitschuh.gradle.ktlint&quot;, version.ref = &quot;ktlint-gradle&quot; }
+kotlin-android = { id = &quot;org.jetbrains.kotlin.android&quot;, version.ref = &quot;kotlin&quot; }
+kotlin-multiplatform = { id = &quot;org.jetbrains.kotlin.multiplatform&quot;, version.ref = &quot;kotlin&quot; }
+sqlDelight = { id = &quot;app.cash.sqldelight&quot;, version.ref = &quot;sqlDelight&quot; }
+android-application = { id = &quot;com.android.application&quot;, version.ref = &quot;android-gradle-plugin&quot; }
+android-library = { id = &quot;com.android.library&quot;, version.ref = &quot;android-gradle-plugin&quot; }
+kotlin-serialization = { id = &quot;org.jetbrains.kotlin.plugin.serialization&quot;, version.ref = &quot;kotlin&quot; }
+skie = { id = &quot;co.touchlab.skie&quot;, version.ref = &quot;skie&quot; }
+compose-compiler = { id = &quot;org.jetbrains.kotlin.plugin.compose&quot;, version.ref = &quot;kotlin&quot; }
+
+[bundles]
+app-ui = [
+    &quot;androidx-core&quot;,
+    &quot;androidx-lifecycle-runtime&quot;,
+    &quot;androidx-lifecycle-viewmodel&quot;,
+    &quot;androidx-lifecycle-compose&quot;,
+    &quot;compose-ui&quot;,
+    &quot;compose-tooling&quot;,
+    &quot;compose-foundation&quot;,
+    &quot;compose-material&quot;,
+    &quot;compose-activity&quot;
+]
+ktor-common = [&quot;ktor-client-core&quot;, &quot;ktor-client-logging&quot;, &quot;ktor-client-serialization&quot;, &quot;ktor-client-contentNegotiation&quot;]
+shared-commonTest = [
+    &quot;kotlin-test&quot;,
+    &quot;multiplatformSettings-test&quot;,
+<span class="hl">    &quot;koin-test&quot;,</span>
+    &quot;turbine&quot;,
+    &quot;coroutines-test&quot;,
+    &quot;ktor-client-mock&quot;
+]
+shared-androidTest = [
+    &quot;androidx-test-junit&quot;,
+    &quot;coroutines-test&quot;,
+    &quot;roboelectric&quot;,
+    &quot;sqlDelight-jvm&quot;
+]
+</pre>
+    </div>
+  </div>
+</div>
+
+<!-- Phase 2: Static Analysis -->
+<div class="section">
+  <div class="section-header">
+    <div class="phase-num">2</div>
+    <div><h2>Static Analysis — Propagation Graph</h2><div class="desc">How the change in <strong>io.insert-koin</strong> propagates through the source code</div></div>
+  </div>
+  <div class="chart-card">
+    <svg viewBox='0 0 860 413' xmlns='http://www.w3.org/2000/svg' style='width:100%;font-family:Inter,system-ui,sans-serif;'>
+<text x='135' y='30' text-anchor='middle' fill='#4338ca' font-size='11' font-weight='700' text-transform='uppercase'>DEPENDENCY</text>
+<text x='315' y='30' text-anchor='middle' fill='#dc2626' font-size='11' font-weight='700' text-transform='uppercase'>DIRECT</text>
+<text x='515' y='30' text-anchor='middle' fill='#f59e0b' font-size='11' font-weight='700' text-transform='uppercase'>TRANSITIVE</text>
+<text x='515' y='46' text-anchor='middle' fill='#f59e0b' font-size='11' font-weight='700' text-transform='uppercase'>(dist 1: 2)</text>
+<text x='735' y='30' text-anchor='middle' fill='#f97316' font-size='11' font-weight='700' text-transform='uppercase'>TRANSITIVE</text>
+<text x='735' y='46' text-anchor='middle' fill='#f97316' font-size='11' font-weight='700' text-transform='uppercase'>(dist 2+: 3)</text>
+<rect x='60' y='209' width='150' height='50' rx='8' fill='#4338ca'/>
+<text x='135' y='231' text-anchor='middle' fill='white' font-size='13' font-weight='700'>INSERT-KOIN</text>
+<text x='135' y='247' text-anchor='middle' fill='rgba(255,255,255,0.7)' font-size='10'>4.2.0 → 4.2.1</text>
+<rect x='240' y='65' width='150' height='40' rx='6' fill='#dc2626'/>
+<text x='315' y='89' text-anchor='middle' fill='white' font-size='11' font-weight='600'>MainActivity</text>
+<text x='315' y='101' text-anchor='middle' fill='white' font-size='9' opacity='0.7'>.kt</text>
+<rect x='240' y='113' width='150' height='40' rx='6' fill='#dc2626'/>
+<text x='315' y='137' text-anchor='middle' fill='white' font-size='11' font-weight='600'>MainApp</text>
+<text x='315' y='149' text-anchor='middle' fill='white' font-size='9' opacity='0.7'>.kt</text>
+<rect x='240' y='161' width='150' height='40' rx='6' fill='#dc2626'/>
+<text x='315' y='185' text-anchor='middle' fill='white' font-size='11' font-weight='600'>KoinAndroid</text>
+<text x='315' y='197' text-anchor='middle' fill='white' font-size='9' opacity='0.7'>.kt</text>
+<rect x='240' y='209' width='150' height='40' rx='6' fill='#dc2626'/>
+<text x='315' y='233' text-anchor='middle' fill='white' font-size='11' font-weight='600'>KoinTest</text>
+<text x='315' y='245' text-anchor='middle' fill='white' font-size='9' opacity='0.7'>.kt</text>
+<rect x='240' y='257' width='150' height='40' rx='6' fill='#dc2626'/>
+<text x='315' y='281' text-anchor='middle' fill='white' font-size='11' font-weight='600'>Koin</text>
+<text x='315' y='293' text-anchor='middle' fill='white' font-size='9' opacity='0.7'>.kt</text>
+<rect x='240' y='305' width='150' height='40' rx='6' fill='#dc2626'/>
+<text x='315' y='329' text-anchor='middle' fill='white' font-size='11' font-weight='600'>KoinIOS</text>
+<text x='315' y='341' text-anchor='middle' fill='white' font-size='9' opacity='0.7'>.kt</text>
+<rect x='240' y='353' width='150' height='40' rx='6' fill='#dc2626'/>
+<text x='315' y='377' text-anchor='middle' fill='white' font-size='11' font-weight='600'>KoinTest</text>
+<text x='315' y='389' text-anchor='middle' fill='white' font-size='9' opacity='0.7'>.kt</text>
+<rect x='440' y='65' width='150' height='40' rx='6' fill='#f59e0b'/>
+<text x='515' y='89' text-anchor='middle' fill='white' font-size='11' font-weight='600'>Composables</text>
+<text x='515' y='101' text-anchor='middle' fill='white' font-size='9' opacity='0.7'>.kt</text>
+<rect x='440' y='113' width='150' height='40' rx='6' fill='#f59e0b'/>
+<text x='515' y='137' text-anchor='middle' fill='white' font-size='11' font-weight='600'>BreedRepository</text>
+<text x='515' y='149' text-anchor='middle' fill='white' font-size='9' opacity='0.7'>.kt</text>
+<rect x='660' y='65' width='150' height='40' rx='6' fill='#f97316'/>
+<text x='735' y='89' text-anchor='middle' fill='white' font-size='11' font-weight='600'>BreedRepositoryTes</text>
+<text x='735' y='101' text-anchor='middle' fill='white' font-size='9' opacity='0.7'>.kt</text>
+<rect x='660' y='113' width='150' height='40' rx='6' fill='#f97316'/>
+<text x='735' y='137' text-anchor='middle' fill='white' font-size='11' font-weight='600'>BreedViewModel</text>
+<text x='735' y='149' text-anchor='middle' fill='white' font-size='9' opacity='0.7'>.kt</text>
+<rect x='660' y='161' width='150' height='40' rx='6' fill='#f97316'/>
+<text x='735' y='185' text-anchor='middle' fill='white' font-size='11' font-weight='600'>BreedViewModelTest</text>
+<text x='735' y='197' text-anchor='middle' fill='white' font-size='9' opacity='0.7'>.kt</text>
+<line x1='210' y1='234' x2='240' y2='85' stroke='#4338ca' stroke-width='1.5' opacity='0.4'/>
+<line x1='210' y1='234' x2='240' y2='133' stroke='#4338ca' stroke-width='1.5' opacity='0.4'/>
+<line x1='210' y1='234' x2='240' y2='181' stroke='#4338ca' stroke-width='1.5' opacity='0.4'/>
+<line x1='210' y1='234' x2='240' y2='229' stroke='#4338ca' stroke-width='1.5' opacity='0.4'/>
+<line x1='210' y1='234' x2='240' y2='277' stroke='#4338ca' stroke-width='1.5' opacity='0.4'/>
+<line x1='210' y1='234' x2='240' y2='325' stroke='#4338ca' stroke-width='1.5' opacity='0.4'/>
+<line x1='210' y1='234' x2='240' y2='373' stroke='#4338ca' stroke-width='1.5' opacity='0.4'/>
+<line x1='390' y1='85' x2='440' y2='85' stroke='#f59e0b' stroke-width='1' opacity='0.25'/>
+<line x1='390' y1='85' x2='440' y2='133' stroke='#f59e0b' stroke-width='1' opacity='0.25'/>
+<line x1='390' y1='133' x2='440' y2='85' stroke='#f59e0b' stroke-width='1' opacity='0.25'/>
+<line x1='390' y1='133' x2='440' y2='133' stroke='#f59e0b' stroke-width='1' opacity='0.25'/>
+<line x1='390' y1='181' x2='440' y2='85' stroke='#f59e0b' stroke-width='1' opacity='0.25'/>
+<line x1='390' y1='181' x2='440' y2='133' stroke='#f59e0b' stroke-width='1' opacity='0.25'/>
+<line x1='390' y1='229' x2='440' y2='85' stroke='#f59e0b' stroke-width='1' opacity='0.25'/>
+<line x1='390' y1='229' x2='440' y2='133' stroke='#f59e0b' stroke-width='1' opacity='0.25'/>
+<line x1='390' y1='277' x2='440' y2='85' stroke='#f59e0b' stroke-width='1' opacity='0.25'/>
+<line x1='390' y1='277' x2='440' y2='133' stroke='#f59e0b' stroke-width='1' opacity='0.25'/>
+<line x1='390' y1='325' x2='440' y2='85' stroke='#f59e0b' stroke-width='1' opacity='0.25'/>
+<line x1='390' y1='325' x2='440' y2='133' stroke='#f59e0b' stroke-width='1' opacity='0.25'/>
+<line x1='390' y1='373' x2='440' y2='85' stroke='#f59e0b' stroke-width='1' opacity='0.25'/>
+<line x1='390' y1='373' x2='440' y2='133' stroke='#f59e0b' stroke-width='1' opacity='0.25'/>
+<line x1='590' y1='85' x2='660' y2='85' stroke='#f97316' stroke-width='1' opacity='0.2'/>
+<line x1='590' y1='85' x2='660' y2='133' stroke='#f97316' stroke-width='1' opacity='0.2'/>
+<line x1='590' y1='85' x2='660' y2='181' stroke='#f97316' stroke-width='1' opacity='0.2'/>
+<line x1='590' y1='133' x2='660' y2='85' stroke='#f97316' stroke-width='1' opacity='0.2'/>
+<line x1='590' y1='133' x2='660' y2='133' stroke='#f97316' stroke-width='1' opacity='0.2'/>
+<line x1='590' y1='133' x2='660' y2='181' stroke='#f97316' stroke-width='1' opacity='0.2'/>
+</svg>
+    <div class="caption">
+      Each box represents a .kt file — color indicates whether the impact is
+      <span style="color:#dc2626;font-weight:600">direct</span>,
+      <span style="color:#f59e0b;font-weight:600">transitive (dist 1)</span>, or
+      <span style="color:#f97316;font-weight:600">transitive (dist 2+)</span>
+    </div>
+  </div>
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+    <div class="chart-card">
+      <svg viewBox='0 0 240 300' xmlns='http://www.w3.org/2000/svg' style='width:100%;max-width:400px;font-family:Inter,system-ui,sans-serif;'>
+<path d='M 120.0 30.0 A 90 90 0 0 1 195.7 71.3 L 166.3 90.3 A 55 55 0 0 0 120.0 65.0 Z' fill='#dc2626'/>
+<text x='164.3' y='38.8' text-anchor='middle' fill='#374151' font-size='12' font-weight='600'>16%</text>
+<path d='M 195.7 71.3 A 90 90 0 0 1 209.1 132.8 L 174.4 127.8 A 55 55 0 0 0 166.3 90.3 Z' fill='#f59e0b'/>
+<text x='210.4' y='100.3' text-anchor='middle' fill='#374151' font-size='12' font-weight='600'>11%</text>
+<path d='M 209.1 132.8 A 90 90 0 1 1 120.0 30.0 L 120.0 65.0 A 55 55 0 1 0 174.4 127.8 Z' fill='#e2e8f0'/>
+<text x='50.1' y='180.6' text-anchor='middle' fill='#374151' font-size='12' font-weight='600'>73%</text>
+<text x='120' y='116' text-anchor='middle' fill='#1e293b' font-size='28' font-weight='700'>12</text>
+<text x='120' y='136' text-anchor='middle' fill='#64748b' font-size='11'>impacted</text>
+<rect x='20' y='252' width='12' height='12' rx='2' fill='#dc2626'/>
+<text x='38' y='262' fill='#374151' font-size='11' font-weight='600'>Direct</text>
+<rect x='20' y='272' width='12' height='12' rx='2' fill='#f59e0b'/>
+<text x='38' y='282' fill='#374151' font-size='11' font-weight='600'>Transitive</text>
+<rect x='20' y='292' width='12' height='12' rx='2' fill='#7c3aed'/>
+<text x='38' y='302' fill='#374151' font-size='11' font-weight='600'>Expect/Actual</text>
+<rect x='20' y='312' width='12' height='12' rx='2' fill='#e2e8f0'/>
+<text x='38' y='322' fill='#374151' font-size='11' font-weight='600'>Not impacted</text>
+</svg>
+    </div>
+    <div class="chart-card">
+      <div style='display:grid;grid-template-columns:1fr 1fr;gap:8px;'><svg viewBox='0 0 470 328' xmlns='http://www.w3.org/2000/svg' style='width:100%;font-family:Inter,system-ui,sans-serif;'>
+<text x='235' y='16' text-anchor='middle' fill='#374151' font-size='12' font-weight='700'>Real lines of code (top 15)</text>
+<text x='136' y='47' text-anchor='end' fill='#374151' font-size='10'>BreedViewModelTe..</text>
+<rect x='140' y='34' width='280.0' height='18' rx='3' fill='#f59e0b'/>
+<text x='424.0' y='47' fill='#374151' font-size='10' font-weight='600'>249</text>
+<text x='136' y='71' text-anchor='end' fill='#374151' font-size='10'>Composables.kt</text>
+<rect x='140' y='58' width='218.2' height='18' rx='3' fill='#f59e0b'/>
+<text x='362.2' y='71' fill='#374151' font-size='10' font-weight='600'>194</text>
+<text x='136' y='95' text-anchor='end' fill='#374151' font-size='10'>BreedRepositoryT..</text>
+<rect x='140' y='82' width='143.9' height='18' rx='3' fill='#f59e0b'/>
+<text x='287.9' y='95' fill='#374151' font-size='10' font-weight='600'>128</text>
+<text x='136' y='119' text-anchor='end' fill='#374151' font-size='10'>BreedViewModel.kt</text>
+<rect x='140' y='106' width='111.3' height='18' rx='3' fill='#f59e0b'/>
+<text x='255.3' y='119' fill='#374151' font-size='10' font-weight='600'>99</text>
+<text x='136' y='143' text-anchor='end' fill='#374151' font-size='10'>Koin.kt</text>
+<rect x='140' y='130' width='74.2' height='18' rx='3' fill='#dc2626'/>
+<text x='218.2' y='143' fill='#374151' font-size='10' font-weight='600'>66</text>
+<text x='136' y='167' text-anchor='end' fill='#374151' font-size='10'>BreedRepository.kt</text>
+<rect x='140' y='154' width='54.0' height='18' rx='3' fill='#f59e0b'/>
+<text x='198.0' y='167' fill='#374151' font-size='10' font-weight='600'>48</text>
+<text x='136' y='191' text-anchor='end' fill='#374151' font-size='10'>MainApp.kt</text>
+<rect x='140' y='178' width='39.4' height='18' rx='3' fill='#dc2626'/>
+<text x='183.4' y='191' fill='#374151' font-size='10' font-weight='600'>35</text>
+<text x='136' y='215' text-anchor='end' fill='#374151' font-size='10'>KoinTest.kt</text>
+<rect x='140' y='202' width='39.4' height='18' rx='3' fill='#dc2626'/>
+<text x='183.4' y='215' fill='#374151' font-size='10' font-weight='600'>35</text>
+<text x='136' y='239' text-anchor='end' fill='#374151' font-size='10'>KoinIOS.kt</text>
+<rect x='140' y='226' width='37.1' height='18' rx='3' fill='#dc2626'/>
+<text x='181.1' y='239' fill='#374151' font-size='10' font-weight='600'>33</text>
+<text x='136' y='263' text-anchor='end' fill='#374151' font-size='10'>MainActivity.kt</text>
+<rect x='140' y='250' width='28.1' height='18' rx='3' fill='#dc2626'/>
+<text x='172.1' y='263' fill='#374151' font-size='10' font-weight='600'>25</text>
+<text x='136' y='287' text-anchor='end' fill='#374151' font-size='10'>KoinAndroid.kt</text>
+<rect x='140' y='274' width='27.0' height='18' rx='3' fill='#dc2626'/>
+<text x='171.0' y='287' fill='#374151' font-size='10' font-weight='600'>24</text>
+<text x='136' y='311' text-anchor='end' fill='#374151' font-size='10'>KoinTest.kt</text>
+<rect x='140' y='298' width='27.0' height='18' rx='3' fill='#dc2626'/>
+<text x='171.0' y='311' fill='#374151' font-size='10' font-weight='600'>24</text>
+<text x='280' y='326' text-anchor='middle' fill='#94a3b8' font-size='9'>Lines of code (RLOC)</text>
+</svg><svg viewBox='0 0 470 328' xmlns='http://www.w3.org/2000/svg' style='width:100%;font-family:Inter,system-ui,sans-serif;'>
+<text x='235' y='16' text-anchor='middle' fill='#374151' font-size='12' font-weight='700'>Heuristic complexity (top 15)</text>
+<text x='136' y='47' text-anchor='end' fill='#374151' font-size='10'>BreedViewModel.kt</text>
+<rect x='140' y='34' width='280.0' height='18' rx='3' fill='#f59e0b'/>
+<text x='424.0' y='47' fill='#374151' font-size='10' font-weight='600'>15</text>
+<text x='136' y='71' text-anchor='end' fill='#374151' font-size='10'>BreedViewModelTe..</text>
+<rect x='140' y='58' width='168.0' height='18' rx='3' fill='#f59e0b'/>
+<text x='312.0' y='71' fill='#374151' font-size='10' font-weight='600'>9</text>
+<text x='136' y='95' text-anchor='end' fill='#374151' font-size='10'>BreedRepositoryT..</text>
+<rect x='140' y='82' width='130.7' height='18' rx='3' fill='#f59e0b'/>
+<text x='274.7' y='95' fill='#374151' font-size='10' font-weight='600'>7</text>
+<text x='136' y='119' text-anchor='end' fill='#374151' font-size='10'>Koin.kt</text>
+<rect x='140' y='106' width='93.3' height='18' rx='3' fill='#dc2626'/>
+<text x='237.3' y='119' fill='#374151' font-size='10' font-weight='600'>5</text>
+<text x='136' y='143' text-anchor='end' fill='#374151' font-size='10'>Composables.kt</text>
+<rect x='140' y='130' width='74.7' height='18' rx='3' fill='#f59e0b'/>
+<text x='218.7' y='143' fill='#374151' font-size='10' font-weight='600'>4</text>
+<text x='136' y='167' text-anchor='end' fill='#374151' font-size='10'>BreedRepository.kt</text>
+<rect x='140' y='154' width='74.7' height='18' rx='3' fill='#f59e0b'/>
+<text x='218.7' y='167' fill='#374151' font-size='10' font-weight='600'>4</text>
+<text x='136' y='191' text-anchor='end' fill='#374151' font-size='10'>MainActivity.kt</text>
+<rect x='140' y='178' width='18.7' height='18' rx='3' fill='#dc2626'/>
+<text x='162.7' y='191' fill='#374151' font-size='10' font-weight='600'>1</text>
+<text x='136' y='215' text-anchor='end' fill='#374151' font-size='10'>MainApp.kt</text>
+<rect x='140' y='202' width='18.7' height='18' rx='3' fill='#dc2626'/>
+<text x='162.7' y='215' fill='#374151' font-size='10' font-weight='600'>1</text>
+<text x='136' y='239' text-anchor='end' fill='#374151' font-size='10'>KoinAndroid.kt</text>
+<rect x='140' y='226' width='18.7' height='18' rx='3' fill='#dc2626'/>
+<text x='162.7' y='239' fill='#374151' font-size='10' font-weight='600'>1</text>
+<text x='136' y='263' text-anchor='end' fill='#374151' font-size='10'>KoinTest.kt</text>
+<rect x='140' y='250' width='18.7' height='18' rx='3' fill='#dc2626'/>
+<text x='162.7' y='263' fill='#374151' font-size='10' font-weight='600'>1</text>
+<text x='136' y='287' text-anchor='end' fill='#374151' font-size='10'>KoinIOS.kt</text>
+<rect x='140' y='274' width='18.7' height='18' rx='3' fill='#dc2626'/>
+<text x='162.7' y='287' fill='#374151' font-size='10' font-weight='600'>1</text>
+<text x='136' y='311' text-anchor='end' fill='#374151' font-size='10'>KoinTest.kt</text>
+<rect x='140' y='298' width='18.7' height='18' rx='3' fill='#dc2626'/>
+<text x='162.7' y='311' fill='#374151' font-size='10' font-weight='600'>1</text>
+<text x='280' y='326' text-anchor='middle' fill='#94a3b8' font-size='9'>Cyclomatic complexity (MCC)</text>
+</svg></div>
+    </div>
+  </div>
+</div>
+
+<!-- Phase 3: Dynamic Analysis -->
+<div class="section">
+  <div class="section-header">
+    <div class="phase-num">3</div>
+    <div><h2>Dynamic Analysis — UI Exploration with DroidBot</h2><div class="desc">Screen interaction flow with change-affected screens highlighted in red</div></div>
+  </div>
+  
+<div style="background:white;border-radius:12px;border:1px solid #e2e8f0;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);margin-bottom:16px;">
+  <iframe src="phase3/impact-utg/index.html" style="width:100%;height:600px;border:none;border-radius:12px;"></iframe>
+</div>
+<div style="text-align:center;margin-bottom:16px;">
+  <a href="phase3/impact-utg/index.html" target="_blank" style="display:inline-block;padding:12px 28px;background:#4338ca;color:white;border-radius:8px;font-weight:600;font-size:13px;text-decoration:none;">
+    Open full interactive graph
+  </a>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;">
+  <div style="background:white;border-radius:10px;border:1px solid #e2e8f0;padding:16px;text-align:center;">
+    <div style="font-size:24px;font-weight:700;color:#1e293b;">2</div>
+    <div style="font-size:11px;color:#64748b;text-transform:uppercase;letter-spacing:0.5px;">Screens explored</div>
+  </div>
+  <div style="background:white;border-radius:10px;border:1px solid #e2e8f0;padding:16px;text-align:center;">
+    <div style="font-size:24px;font-weight:700;color:#dc2626;">0</div>
+    <div style="font-size:11px;color:#64748b;text-transform:uppercase;letter-spacing:0.5px;">Changes detected</div>
+  </div>
+  <div style="background:white;border-radius:10px;border:1px solid #e2e8f0;padding:16px;text-align:center;">
+    <div style="font-size:24px;font-weight:700;color:#4338ca;">15</div>
+    <div style="font-size:11px;color:#64748b;text-transform:uppercase;letter-spacing:0.5px;">Impacted screens</div>
+  </div>
+</div>
+</div>
+
+<!-- Phase 4: Traceability -->
+<div class="section">
+  <div class="section-header">
+    <div class="phase-num">4</div>
+    <div><h2>Traceability — File → Screen</h2><div class="desc">Each impacted file with its relation, distance to the change, metrics, and associated UI screen</div></div>
+  </div>
+  <table class="data-table">
+    <thead>
+      <tr><th>File</th><th>Relation</th><th>Dist.</th><th>RLOC</th><th>MCC</th><th>Coverage</th><th>Screen</th></tr>
+    </thead>
+    <tbody>
+    <tr>
+  <td class="fname">MainActivity.kt</td>
+  <td><span class="badge badge-red">Direct</span></td>
+  <td class="c">0</td>
+  <td class="c">25</td>
+  <td class="c">1 <span style="font-size:9px;padding:1px 5px;border-radius:3px;background:#94a3b815;color:#94a3b8;">Heur.</span></td>
+  <td class="c">0%</td>
+  <td>Main</td>
+</tr>
+<tr class="row-alt">
+  <td class="fname">MainApp.kt</td>
+  <td><span class="badge badge-red">Direct</span></td>
+  <td class="c">0</td>
+  <td class="c">35</td>
+  <td class="c">1 <span style="font-size:9px;padding:1px 5px;border-radius:3px;background:#94a3b815;color:#94a3b8;">Heur.</span></td>
+  <td class="c">0%</td>
+  <td>MainApp</td>
+</tr>
+<tr>
+  <td class="fname">KoinAndroid.kt</td>
+  <td><span class="badge badge-red">Direct</span></td>
+  <td class="c">0</td>
+  <td class="c">24</td>
+  <td class="c">1 <span style="font-size:9px;padding:1px 5px;border-radius:3px;background:#94a3b815;color:#94a3b8;">Heur.</span></td>
+  <td class="c">100%</td>
+  <td>—</td>
+</tr>
+<tr class="row-alt">
+  <td class="fname">KoinTest.kt</td>
+  <td><span class="badge badge-red">Direct</span></td>
+  <td class="c">0</td>
+  <td class="c">35</td>
+  <td class="c">1 <span style="font-size:9px;padding:1px 5px;border-radius:3px;background:#94a3b815;color:#94a3b8;">Heur.</span></td>
+  <td class="c">—</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td class="fname">Koin.kt</td>
+  <td><span class="badge badge-red">Direct</span></td>
+  <td class="c">0</td>
+  <td class="c">66</td>
+  <td class="c">5 <span style="font-size:9px;padding:1px 5px;border-radius:3px;background:#94a3b815;color:#94a3b8;">Heur.</span></td>
+  <td class="c">97%</td>
+  <td>—</td>
+</tr>
+<tr class="row-alt">
+  <td class="fname">KoinIOS.kt</td>
+  <td><span class="badge badge-red">Direct</span></td>
+  <td class="c">0</td>
+  <td class="c">33</td>
+  <td class="c">1 <span style="font-size:9px;padding:1px 5px;border-radius:3px;background:#94a3b815;color:#94a3b8;">Heur.</span></td>
+  <td class="c">—</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td class="fname">KoinTest.kt</td>
+  <td><span class="badge badge-red">Direct</span></td>
+  <td class="c">0</td>
+  <td class="c">24</td>
+  <td class="c">1 <span style="font-size:9px;padding:1px 5px;border-radius:3px;background:#94a3b815;color:#94a3b8;">Heur.</span></td>
+  <td class="c">—</td>
+  <td>—</td>
+</tr>
+<tr class="row-alt">
+  <td class="fname">Composables.kt</td>
+  <td><span class="badge badge-yellow">Transitive</span></td>
+  <td class="c">1</td>
+  <td class="c">194</td>
+  <td class="c">4 <span style="font-size:9px;padding:1px 5px;border-radius:3px;background:#94a3b815;color:#94a3b8;">Heur.</span></td>
+  <td class="c">0%</td>
+  <td>MainScreen, MainScreenContent, Empty, Error, Success, DogList, DogRow, FavoriteIcon, MainScreenContentPreview_Success, MainScreenContentPreview_Initial, MainScreenContentPreview_Empty, MainScreenContentPreview_Error</td>
+</tr>
+<tr>
+  <td class="fname">BreedRepository.kt</td>
+  <td><span class="badge badge-yellow">Transitive</span></td>
+  <td class="c">1</td>
+  <td class="c">48</td>
+  <td class="c">4 <span style="font-size:9px;padding:1px 5px;border-radius:3px;background:#94a3b815;color:#94a3b8;">Heur.</span></td>
+  <td class="c">100%</td>
+  <td>—</td>
+</tr>
+<tr class="row-alt">
+  <td class="fname">BreedViewModel.kt</td>
+  <td><span class="badge badge-yellow">Transitive</span></td>
+  <td class="c">2</td>
+  <td class="c">99</td>
+  <td class="c">15 <span style="font-size:9px;padding:1px 5px;border-radius:3px;background:#94a3b815;color:#94a3b8;">Heur.</span></td>
+  <td class="c">91%</td>
+  <td>Breed</td>
+</tr>
+<tr>
+  <td class="fname">BreedRepositoryTest.kt</td>
+  <td><span class="badge badge-yellow">Transitive</span></td>
+  <td class="c">2</td>
+  <td class="c">128</td>
+  <td class="c">7 <span style="font-size:9px;padding:1px 5px;border-radius:3px;background:#94a3b815;color:#94a3b8;">Heur.</span></td>
+  <td class="c">—</td>
+  <td>—</td>
+</tr>
+<tr class="row-alt">
+  <td class="fname">BreedViewModelTest.kt</td>
+  <td><span class="badge badge-yellow">Transitive</span></td>
+  <td class="c">2</td>
+  <td class="c">249</td>
+  <td class="c">9 <span style="font-size:9px;padding:1px 5px;border-radius:3px;background:#94a3b815;color:#94a3b8;">Heur.</span></td>
+  <td class="c">—</td>
+  <td>—</td>
+</tr>
+
+    </tbody>
+  </table>
+</div>
+
+
+<div class="section">
+  <div class="section-header">
+    <div class="phase-num" style="background:#7c3aed;">&#128279;</div>
+    <div><h2>Detected Expect/Actual Pairs</h2><div class="desc">Multiplatform declarations linking commonMain with platform-specific implementations</div></div>
+  </div>
+  <table class="data-table">
+    <thead><tr><th>FQCN</th><th>Expect file</th><th>Actual files</th></tr></thead>
+    <tbody><tr>
+  <td class="fname">co.touchlab.kampkit.models.ViewModel</td>
+  <td><code>ViewModel.kt</code></td>
+  <td>&#129302; ViewModel.kt<br>&#127822; ViewModel.kt</td>
+</tr>
+<tr>
+  <td class="fname">co.touchlab.kampkit.testDbConnection</td>
+  <td><code>TestUtil.kt</code></td>
+  <td>&#129302; TestUtilAndroid.kt<br>&#127822; TestUtilIOS.kt</td>
+</tr>
+<tr>
+  <td class="fname">com.example.common.DatabaseDriverFactory</td>
+  <td><code>ExpectClass.kt</code></td>
+  <td>&#129302; ActualAndroid.kt<br>&#129302; ActualAndroid.kt</td>
+</tr>
+</tbody>
+  </table>
+</div>
+
+<!-- Phase 5: CodeCharta -->
+<div class="section">
+  <div class="section-header">
+    <div class="phase-num">5</div>
+    <div><h2>CodeCharta Visualization — 3D Impact Map</h2><div class="desc">Each file is a building: area represents lines of code, height represents complexity, and red color indicates impact</div></div>
+  </div>
+  
+<div style="background:white;border-radius:12px;border:1px solid #e2e8f0;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);margin-bottom:16px;">
+  <iframe id="codecharta-frame" src="phase5/codecharta-viewer/index.html?file=../after.cc.json&mode=Single&area=rloc&height=mcc&color=impacted&ts=1776984307" style="width:100%;height:650px;border:none;border-radius:12px;"></iframe>
+</div>
+<div style="text-align:center;margin-bottom:16px;">
+  <a href="phase5/codecharta-viewer/index.html?file=../after.cc.json&mode=Single&area=rloc&height=mcc&color=impacted&ts=1776984307" target="_blank" style="display:inline-block;padding:12px 28px;background:#4338ca;color:white;border-radius:8px;font-weight:600;font-size:13px;text-decoration:none;">
+    Open CodeCharta fullscreen
+  </a>
+</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;">
+    <div style="background:#f8fafc;border-radius:10px;border:1px solid #e2e8f0;padding:14px 16px;">
+      <div style="font-size:11px;font-weight:600;color:#64748b;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">Area (size)</div>
+      <div style="font-size:14px;font-weight:600;color:#1e293b;">rloc — Real lines of code</div>
+    </div>
+    <div style="background:#f8fafc;border-radius:10px;border:1px solid #e2e8f0;padding:14px 16px;">
+      <div style="font-size:11px;font-weight:600;color:#64748b;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">Height</div>
+      <div style="font-size:14px;font-weight:600;color:#1e293b;">mcc — Cyclomatic complexity</div>
+    </div>
+    <div style="background:#f8fafc;border-radius:10px;border:1px solid #e2e8f0;padding:14px 16px;">
+      <div style="font-size:11px;font-weight:600;color:#64748b;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">Color</div>
+      <div style="font-size:14px;font-weight:600;color:#1e293b;">impacted — <span style="color:#dc2626;">Red</span> = affected by the change</div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /#tab-pipeline -->
+
+<div class="tab-panel" id="tab-sunburst" role="tabpanel">
+<div class="section">
+  <div class="section-header">
+    <div class="phase-num" style="background:#B91C1C;">&#9737;</div>
+    <div><h2>Source-set Impact Sunburst</h2><div class="desc">Interactive ring: source-set &rarr; package &rarr; file. Click any ring to zoom; click center to zoom out.</div></div>
+  </div>
+  
+<style>
+  .sb-wrap { background:#F5F4F0; color:#2C2C2C; padding:32px;
+    border-radius:12px; border:1px solid #e2e8f0; }
+  .sb-card { display:grid; grid-template-columns:260px 1fr; gap:32px;
+    align-items:start; }
+  .sb-info { display:flex; flex-direction:column; gap:14px; }
+  .sb-title { font-size:15px; font-weight:700; letter-spacing:-.01em; }
+  .sb-sub { font-size:12px; color:#888; margin-top:2px; }
+  .sb-sub .sb-ver { color:#B91C1C; font-weight:600; }
+  .sb-sec-label { font-size:11px; font-weight:700; text-transform:uppercase;
+    letter-spacing:.07em; color:#777; margin-bottom:6px; padding-bottom:4px;
+    border-bottom:1px solid #D8D6D0; }
+  .sb-block { border-radius:6px; padding:9px 11px; margin-bottom:4px; }
+  .sb-block-aff { background:#FEF2F2; border:1px solid #FECACA; }
+  .sb-block-safe { background:#F8F8F7; border:1px solid #E2E0DA; }
+  .sb-block-label { font-size:10px; font-weight:700; text-transform:uppercase;
+    letter-spacing:.07em; margin-bottom:5px; }
+  .sb-block-label.sb-aff { color:#B91C1C; }
+  .sb-block-label.sb-saf { color:#555; }
+  .sb-stat-row { display:flex; justify-content:space-between;
+    align-items:baseline; padding:3px 0;
+    border-bottom:1px solid rgba(0,0,0,.05); font-size:12px; }
+  .sb-stat-row:last-child { border-bottom:none; }
+  .sb-stat-n { font-size:15px; font-weight:800; }
+  .sb-subtotal { display:flex; justify-content:space-between;
+    align-items:baseline; padding-top:5px; margin-top:3px;
+    border-top:1px solid rgba(0,0,0,.1); font-size:11px; font-weight:700; }
+  .sb-leg-row { display:flex; align-items:center; gap:7px; font-size:11px;
+    padding:2px 0; }
+  .sb-sw { width:12px; height:12px; border-radius:2px; flex-shrink:0; }
+  .sb-tree-ss { font-size:11px; font-weight:700; color:#333;
+    padding:4px 0 2px; }
+  .sb-tree-leaf { display:flex; align-items:flex-start; gap:6px;
+    padding:1px 0 1px 10px; font-size:11px; line-height:1.5; color:#333; }
+  .sb-tree-bul { width:6px; height:6px; border-radius:50%; flex-shrink:0;
+    margin-top:5px; }
+  .sb-tree-leaf.sb-direct .sb-tree-bul { background:#B91C1C; }
+  .sb-tree-leaf.sb-ea .sb-tree-bul { border:1.5px dashed #64748B; }
+  .sb-tree-dim { color:#888; }
+  .sb-ea-tag { font-size:9px; font-weight:700; text-transform:uppercase;
+    letter-spacing:.05em; color:#64748B; background:#F1F5F9; border-radius:3px;
+    padding:0 3px; vertical-align:middle; }
+  .sb-empty { font-size:11px; color:#9ca3af; font-style:italic; }
+  .sb-chart { display:flex; align-items:center; justify-content:center; }
+  #sb-tt { position:fixed; background:#fff; border:1px solid #D8D6D0;
+    border-radius:5px; padding:7px 11px; font-size:11px; pointer-events:none;
+    box-shadow:0 2px 10px rgba(0,0,0,.08); max-width:240px; line-height:1.45;
+    display:none; z-index:100; color:#2C2C2C; }
+  #sb-tt strong { display:block; font-size:12px; margin-bottom:1px; }
+  #sb-tt .sb-sub2 { color:#64748B; font-size:10px; }
+</style>
+<div class="sb-wrap">
+  <div class="sb-card">
+    <div class="sb-info">
+      <div>
+        <div class="sb-title">KMP Impact · io.insert-koin</div>
+        <div class="sb-sub">
+          <span class="sb-ver">4.2.0 &rarr; 4.2.1</span>
+          &nbsp;&middot;&nbsp; 44 archivos
+        </div>
+      </div>
+      <div>
+        <div class="sb-sec-label">Impacto</div>
+        <div class="sb-block sb-block-aff">
+          <div class="sb-block-label sb-aff">Afectados</div>
+          <div class="sb-stat-row"><span>Directo</span>
+            <span class="sb-stat-n" style="color:#B91C1C">
+              7</span></div>
+          <div class="sb-stat-row"><span>Transitivo</span>
+            <span class="sb-stat-n" style="color:#1D4ED8">
+              5</span></div>
+          <div class="sb-subtotal" style="color:#B91C1C">
+            <span>Total</span><span>12</span></div>
+        </div>
+        <div class="sb-block sb-block-safe">
+          <div class="sb-block-label sb-saf">No afectados</div>
+          <div class="sb-stat-row"><span>Sin cambios</span>
+            <span class="sb-stat-n" style="color:#64748B">
+              32</span></div>
+          <div class="sb-stat-row"><span>Expect/Actual</span>
+            <span class="sb-stat-n" style="color:#94A3B8">3
+              <span style="font-size:10px;font-weight:400">unid.</span>
+            </span></div>
+          <div class="sb-subtotal" style="color:#AAA">
+            <span>Total</span><span>32</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="sb-sec-label">Escala</div>
+        <div class="sb-leg-row">
+          <span class="sb-sw" style="background:#B91C1C"></span>Directo</div>
+        <div class="sb-leg-row">
+          <span class="sb-sw" style="background:#1D4ED8"></span>
+          Transitivo dist. 1</div>
+        <div class="sb-leg-row">
+          <span class="sb-sw" style="background:#60A5FA"></span>
+          Transitivo dist. 2+</div>
+        <div class="sb-leg-row">
+          <span class="sb-sw"
+            style="background:#94A3B8;opacity:.5"></span>Sin impacto</div>
+        <div class="sb-leg-row">
+          <span class="sb-sw"
+            style="background:none;border:1.5px dashed #94A3B8"></span>
+          Expect/Actual (KMP)</div>
+      </div>
+      <div>
+        <div class="sb-sec-label">Archivos directos</div>
+        <div class="sb-tree-ss">androidMain/</div><div class="sb-tree-leaf sb-direct"><span class="sb-tree-bul"></span><span><span class="sb-tree-dim">co/touchlab/kampkit/</span>KoinAndroid.kt</span></div><div class="sb-tree-ss">androidUnitTest/</div><div class="sb-tree-leaf sb-direct"><span class="sb-tree-bul"></span><span><span class="sb-tree-dim">co/touchlab/kampkit/</span>KoinTest.kt</span></div><div class="sb-tree-ss">commonMain/</div><div class="sb-tree-leaf sb-direct"><span class="sb-tree-bul"></span><span><span class="sb-tree-dim">co/touchlab/kampkit/</span>Koin.kt</span></div><div class="sb-tree-ss">iosMain/</div><div class="sb-tree-leaf sb-direct"><span class="sb-tree-bul"></span><span><span class="sb-tree-dim">co/touchlab/kampkit/</span>KoinIOS.kt</span></div><div class="sb-tree-ss">iosTest/</div><div class="sb-tree-leaf sb-direct"><span class="sb-tree-bul"></span><span><span class="sb-tree-dim">co/touchlab/kampkit/</span>KoinTest.kt</span></div><div class="sb-tree-ss">main/</div><div class="sb-tree-leaf sb-direct"><span class="sb-tree-bul"></span><span><span class="sb-tree-dim">co/touchlab/kampkit/android/</span>MainActivity.kt</span></div><div class="sb-tree-leaf sb-direct"><span class="sb-tree-bul"></span><span><span class="sb-tree-dim">co/touchlab/kampkit/android/</span>MainApp.kt</span></div>
+      </div>
+      <div><div class="sb-sec-label">Expect / Actual</div><div class="sb-tree-ss">ViewModel</div><div class="sb-tree-leaf sb-ea"><span class="sb-tree-bul"></span><span><span class="sb-tree-dim">commonMain/co/touchlab/kampkit/models/</span>ViewModel.kt <span class="sb-ea-tag">expect</span></span></div><div class="sb-tree-leaf sb-ea"><span class="sb-tree-bul"></span><span><span class="sb-tree-dim">androidMain/co/touchlab/kampkit/models/</span>ViewModel.kt <span class="sb-ea-tag">actual</span></span></div><div class="sb-tree-leaf sb-ea"><span class="sb-tree-bul"></span><span><span class="sb-tree-dim">iosMain/co/touchlab/kampkit/models/</span>ViewModel.kt <span class="sb-ea-tag">actual</span></span></div><div class="sb-tree-ss">TestUtil</div><div class="sb-tree-leaf sb-ea"><span class="sb-tree-bul"></span><span><span class="sb-tree-dim">commonTest/co/touchlab/kampkit/</span>TestUtil.kt <span class="sb-ea-tag">expect</span></span></div><div class="sb-tree-leaf sb-ea"><span class="sb-tree-bul"></span><span><span class="sb-tree-dim">androidUnitTest/co/touchlab/kampkit/</span>TestUtilAndroid.kt <span class="sb-ea-tag">actual</span></span></div><div class="sb-tree-leaf sb-ea"><span class="sb-tree-bul"></span><span><span class="sb-tree-dim">iosTest/co/touchlab/kampkit/</span>TestUtilIOS.kt <span class="sb-ea-tag">actual</span></span></div><div class="sb-tree-ss">ExpectClass</div><div class="sb-tree-leaf sb-ea"><span class="sb-tree-bul"></span><span><span class="sb-tree-dim">commonMain/</span>ExpectClass.kt <span class="sb-ea-tag">expect</span></span></div><div class="sb-tree-leaf sb-ea"><span class="sb-tree-bul"></span><span><span class="sb-tree-dim">commonMain/</span>ActualAndroid.kt <span class="sb-ea-tag">actual</span></span></div><div class="sb-tree-leaf sb-ea"><span class="sb-tree-bul"></span><span><span class="sb-tree-dim">commonMain/</span>ActualAndroid.kt <span class="sb-ea-tag">actual</span></span></div></div>
+    </div>
+    <div class="sb-chart"><svg id="sb-sun"></svg></div>
+  </div>
+  <div id="sb-tt"></div>
+</div>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script>
+(function() {
+  const DATA = {"name": "src", "children": [{"name": "commonMain", "children": [{"name": "co", "children": [{"name": "touchlab", "children": [{"name": "kampkit", "children": [{"name": "Koin.kt", "path": "/tmp/output/phase1/before/shared/src/commonMain/kotlin/co/touchlab/kampkit/Koin.kt", "source_set": "commonMain", "impact": "direct", "distance": 0, "is_expect": false, "is_actual": false, "value": 10}, {"name": "models", "children": [{"name": "BreedRepository.kt", "path": "/tmp/output/phase1/before/shared/src/commonMain/kotlin/co/touchlab/kampkit/models/BreedRepository.kt", "source_set": "commonMain", "impact": "transitive", "distance": 1, "is_expect": false, "is_actual": false, "value": 5}, {"name": "BreedViewModel.kt", "path": "/tmp/output/phase1/before/shared/src/commonMain/kotlin/co/touchlab/kampkit/models/BreedViewModel.kt", "source_set": "commonMain", "impact": "transitive", "distance": 2, "is_expect": false, "is_actual": false, "value": 4}, {"name": "ViewModel.kt", "path": "/tmp/output/phase1/before/shared/src/commonMain/kotlin/co/touchlab/kampkit/models/ViewModel.kt", "source_set": "commonMain", "impact": "expect_actual", "distance": -1, "is_expect": true, "is_actual": false, "value": 1}]}]}]}]}, {"name": "ActualAndroid.kt", "path": "/tmp/output/phase1/before/tools/kmp-impact-analyzer/tests/fixtures/sample_kotlin/ActualAndroid.kt", "source_set": "commonMain", "impact": "expect_actual", "distance": -1, "is_expect": false, "is_actual": true, "value": 1}, {"name": "ActualAndroid.kt", "path": "/tmp/output/phase1/before/tools/kmp-impact-analyzer/tools/kmp-impact-analyzer/tests/fixtures/sample_kotlin/ActualAndroid.kt", "source_set": "commonMain", "impact": "expect_actual", "distance": -1, "is_expect": false, "is_actual": true, "value": 1}, {"name": "ExpectClass.kt", "path": "/tmp/output/phase1/before/tools/kmp-impact-analyzer/tools/kmp-impact-analyzer/tests/fixtures/sample_kotlin/ExpectClass.kt", "source_set": "commonMain", "impact": "expect_actual", "distance": -1, "is_expect": true, "is_actual": false, "value": 1}], "source_set": "commonMain"}, {"name": "androidMain", "children": [{"name": "co", "children": [{"name": "touchlab", "children": [{"name": "kampkit", "children": [{"name": "KoinAndroid.kt", "path": "/tmp/output/phase1/before/shared/src/androidMain/kotlin/co/touchlab/kampkit/KoinAndroid.kt", "source_set": "androidMain", "impact": "direct", "distance": 0, "is_expect": false, "is_actual": false, "value": 10}, {"name": "models", "children": [{"name": "ViewModel.kt", "path": "/tmp/output/phase1/before/shared/src/androidMain/kotlin/co/touchlab/kampkit/models/ViewModel.kt", "source_set": "androidMain", "impact": "expect_actual", "distance": -1, "is_expect": false, "is_actual": true, "value": 1}]}]}]}]}], "source_set": "androidMain"}, {"name": "iosMain", "children": [{"name": "co", "children": [{"name": "touchlab", "children": [{"name": "kampkit", "children": [{"name": "KoinIOS.kt", "path": "/tmp/output/phase1/before/shared/src/iosMain/kotlin/co/touchlab/kampkit/KoinIOS.kt", "source_set": "iosMain", "impact": "direct", "distance": 0, "is_expect": false, "is_actual": false, "value": 10}, {"name": "models", "children": [{"name": "ViewModel.kt", "path": "/tmp/output/phase1/before/shared/src/iosMain/kotlin/co/touchlab/kampkit/models/ViewModel.kt", "source_set": "iosMain", "impact": "expect_actual", "distance": -1, "is_expect": false, "is_actual": true, "value": 1}]}]}]}]}], "source_set": "iosMain"}, {"name": "commonTest", "children": [{"name": "co", "children": [{"name": "touchlab", "children": [{"name": "kampkit", "children": [{"name": "BreedRepositoryTest.kt", "path": "/tmp/output/phase1/before/shared/src/commonTest/kotlin/co/touchlab/kampkit/BreedRepositoryTest.kt", "source_set": "commonTest", "impact": "transitive", "distance": 2, "is_expect": false, "is_actual": false, "value": 4}, {"name": "BreedViewModelTest.kt", "path": "/tmp/output/phase1/before/shared/src/commonTest/kotlin/co/touchlab/kampkit/BreedViewModelTest.kt", "source_set": "commonTest", "impact": "transitive", "distance": 2, "is_expect": false, "is_actual": false, "value": 4}, {"name": "TestUtil.kt", "path": "/tmp/output/phase1/before/shared/src/commonTest/kotlin/co/touchlab/kampkit/TestUtil.kt", "source_set": "commonTest", "impact": "expect_actual", "distance": -1, "is_expect": true, "is_actual": false, "value": 1}]}]}]}], "source_set": "commonTest"}, {"name": "androidUnitTest", "children": [{"name": "co", "children": [{"name": "touchlab", "children": [{"name": "kampkit", "children": [{"name": "KoinTest.kt", "path": "/tmp/output/phase1/before/shared/src/androidUnitTest/kotlin/co/touchlab/kampkit/KoinTest.kt", "source_set": "androidUnitTest", "impact": "direct", "distance": 0, "is_expect": false, "is_actual": false, "value": 10}, {"name": "TestUtilAndroid.kt", "path": "/tmp/output/phase1/before/shared/src/androidUnitTest/kotlin/co/touchlab/kampkit/TestUtilAndroid.kt", "source_set": "androidUnitTest", "impact": "expect_actual", "distance": -1, "is_expect": false, "is_actual": true, "value": 1}]}]}]}], "source_set": "androidUnitTest"}, {"name": "iosTest", "children": [{"name": "co", "children": [{"name": "touchlab", "children": [{"name": "kampkit", "children": [{"name": "KoinTest.kt", "path": "/tmp/output/phase1/before/shared/src/iosTest/kotlin/co/touchlab/kampkit/KoinTest.kt", "source_set": "iosTest", "impact": "direct", "distance": 0, "is_expect": false, "is_actual": false, "value": 10}, {"name": "TestUtilIOS.kt", "path": "/tmp/output/phase1/before/shared/src/iosTest/kotlin/co/touchlab/kampkit/TestUtilIOS.kt", "source_set": "iosTest", "impact": "expect_actual", "distance": -1, "is_expect": false, "is_actual": true, "value": 1}]}]}]}], "source_set": "iosTest"}, {"name": "main", "children": [{"name": "co", "children": [{"name": "touchlab", "children": [{"name": "kampkit", "children": [{"name": "android", "children": [{"name": "MainActivity.kt", "path": "/tmp/output/phase1/before/app/src/main/kotlin/co/touchlab/kampkit/android/MainActivity.kt", "source_set": "main", "impact": "direct", "distance": 0, "is_expect": false, "is_actual": false, "value": 10}, {"name": "MainApp.kt", "path": "/tmp/output/phase1/before/app/src/main/kotlin/co/touchlab/kampkit/android/MainApp.kt", "source_set": "main", "impact": "direct", "distance": 0, "is_expect": false, "is_actual": false, "value": 10}, {"name": "ui", "children": [{"name": "Composables.kt", "path": "/tmp/output/phase1/before/app/src/main/kotlin/co/touchlab/kampkit/android/ui/Composables.kt", "source_set": "main", "impact": "transitive", "distance": 1, "is_expect": false, "is_actual": false, "value": 5}]}]}]}]}]}], "source_set": "main"}]};
+  const W = 640, R = W / 6;
+  const MAX_FS = 12, MIN_FS = 7, CH_RATIO = 0.58;
+  function dispName(d) { return d.data.name.replace(/\.kt$/, ""); }
+  function arcSpan(x0,x1,y0,y1) { return (x1-x0)*((y0+y1)/2)*R; }
+  function calcFS(x0,x1,y0,y1,n) {
+    if (!n) return MAX_FS;
+    return Math.min(MAX_FS, Math.max(MIN_FS, arcSpan(x0,x1,y0,y1)/(n*CH_RATIO)));
+  }
+  function leafColour(d) {
+    const imp = d.data.impact, dist = d.data.distance;
+    if (imp === "direct") return "#B91C1C";
+    if (imp === "transitive") return dist <= 1 ? "#1D4ED8" : "#60A5FA";
+    return "#94A3B8";
+  }
+  function folderColour(d) {
+    const leaves = d.descendants().filter(c => !c.children);
+    if (leaves.some(c => c.data.impact === "direct")) return "#B91C1C";
+    if (leaves.some(c => c.data.impact === "transitive")) {
+      const mn = d3.min(leaves.filter(c => c.data.impact === "transitive"),
+                        c => c.data.distance);
+      return mn <= 1 ? "#1D4ED8" : "#60A5FA";
+    }
+    return "#94A3B8";
+  }
+  const colour = d => d.children ? folderColour(d) : leafColour(d);
+  function isImp(d) {
+    if (!d.children) {
+      const i = d.data.impact;
+      return i === "direct" || i === "transitive";
+    }
+    return d.descendants().some(
+      c => c.data.impact === "direct" || c.data.impact === "transitive"
+    );
+  }
+  const opacity = d => isImp(d) ? 1 : 0.28;
+  const root = d3.hierarchy(DATA)
+    .sum(d => d.value || 0)
+    .sort((a, b) => b.value - a.value);
+  d3.partition().size([2*Math.PI, root.height + 1])(root);
+  const arc = d3.arc()
+    .startAngle(d => d.x0).endAngle(d => d.x1)
+    .padAngle(d => Math.min((d.x1 - d.x0) / 2, 0.004))
+    .padRadius(R * 1.5)
+    .innerRadius(d => d.y0 * R)
+    .outerRadius(d => Math.max(d.y0 * R, d.y1 * R - 1));
+  const svg = d3.select("#sb-sun")
+    .attr("viewBox", [-W/2, -W/2, W, W])
+    .attr("width", W).attr("height", W);
+  root.each(d => d.current = d);
+  function arcVis(d) { return d.y1 <= 3 && d.y0 >= 1 && d.x1 > d.x0; }
+  function lblVis(d) {
+    return d.y1 <= 3 && d.y0 >= 1 && (d.y1-d.y0)*(d.x1-d.x0) > 0.02;
+  }
+  function lblTransform(d) {
+    const x = ((d.x0+d.x1)/2)*180/Math.PI, y=(d.y0+d.y1)/2*R;
+    return `rotate(${x-90}) translate(${y},0) rotate(${x<180?0:180})`;
+  }
+  const path = svg.append("g")
+    .selectAll("path")
+    .data(root.descendants().slice(1))
+    .join("path")
+    .attr("fill", d => colour(d))
+    .attr("fill-opacity", d => arcVis(d.current) ? opacity(d) : 0)
+    .attr("pointer-events", d => arcVis(d.current) ? "auto" : "none")
+    .attr("stroke", d => (d.data.is_expect || d.data.is_actual)
+      ? "#64748B" : "none")
+    .attr("stroke-width", d => (d.data.is_expect || d.data.is_actual)
+      ? 1.5 : 0)
+    .attr("stroke-dasharray", d => (d.data.is_expect || d.data.is_actual)
+      ? "3,2" : "none")
+    .attr("d", d => arc(d.current))
+    .style("cursor", d => d.children ? "pointer" : "default")
+    .on("click", (ev, p) => { if (p.children) zoomTo(p); });
+  const label = svg.append("g")
+    .attr("pointer-events", "none")
+    .attr("text-anchor", "middle")
+    .style("user-select", "none")
+    .selectAll("text")
+    .data(root.descendants().slice(1))
+    .join("text")
+    .attr("dy", "0.35em")
+    .attr("fill-opacity", d => +lblVis(d.current))
+    .attr("transform", d => lblTransform(d.current))
+    .style("font-size", d =>
+      `${calcFS(d.x0,d.x1,d.y0,d.y1,dispName(d).length).toFixed(1)}px`)
+    .style("font-weight", "700")
+    .style("fill", d => {
+      const c = colour(d);
+      return (c === "#B91C1C" || c === "#1D4ED8") ? "#FFF" : "#1E293B";
+    })
+    .text(d => dispName(d));
+  const cg = svg.append("g").style("cursor", "pointer");
+  cg.append("circle").attr("r", R).attr("fill", "#F5F4F0")
+    .attr("stroke", "#D8D6D0");
+  const clbl = cg.append("text")
+    .attr("text-anchor", "middle").attr("dy", "0.35em")
+    .style("font-size", "11px").style("font-weight", "600")
+    .style("fill", "#64748B").text("src");
+  cg.on("click", () => zoomTo(currentFocus.parent || root));
+  const tt = document.getElementById("sb-tt");
+  path.on("mousemove", (ev, d) => {
+    const imp = d.data.impact, dist = d.data.distance;
+    let badge, detail = "";
+    if (d.children) {
+      const leaves = d.descendants().filter(c => !c.children);
+      const nD = leaves.filter(c => c.data.impact === "direct").length;
+      const nT = leaves.filter(c => c.data.impact === "transitive").length;
+      const parts = [];
+      if (nD) parts.push(`${nD} directo${nD>1?"s":""}`);
+      if (nT) parts.push(`${nT} transitivo${nT>1?"s":""}`);
+      badge = d.data.source_set
+        ? `Source set: ${d.data.name}` : "Carpeta";
+      detail = parts.join(" · ") || "sin impacto";
+    } else {
+      badge =
+        imp === "direct" ? "Directo" :
+        imp === "transitive" ? `Transitivo — dist. ${dist}` :
+        imp === "expect_actual" ? "Expect/Actual (KMP)" : "Sin impacto";
+      if (d.data.is_expect) badge += " · expect";
+      if (d.data.is_actual) badge += " · actual";
+      detail = d.data.path || "";
+    }
+    tt.innerHTML =
+      `<strong>${d.data.name}</strong>` +
+      `<span class="sb-sub2">${badge}</span>` +
+      (detail ? `<br><span class="sb-sub2">${detail}</span>` : "");
+    tt.style.display = "block";
+    tt.style.left = ev.clientX + 14 + "px";
+    tt.style.top = ev.clientY - 10 + "px";
+  }).on("mouseleave", () => tt.style.display = "none");
+  let currentFocus = root;
+  function zoomTo(focus) {
+    currentFocus = focus;
+    root.each(d => d.target = {
+      x0: Math.max(0, Math.min(1,
+        (d.x0-focus.x0)/(focus.x1-focus.x0))) * 2 * Math.PI,
+      x1: Math.max(0, Math.min(1,
+        (d.x1-focus.x0)/(focus.x1-focus.x0))) * 2 * Math.PI,
+      y0: Math.max(0, d.y0 - focus.depth),
+      y1: Math.max(0, d.y1 - focus.depth),
+    });
+    const tr = svg.transition().duration(480);
+    path.transition(tr)
+      .tween("data", d => {
+        const i = d3.interpolate(d.current, d.target);
+        return t => d.current = i(t);
+      })
+      .filter(function(d) {
+        return +this.getAttribute("fill-opacity") || arcVis(d.target);
+      })
+      .attr("fill-opacity", d => arcVis(d.target) ? opacity(d) : 0)
+      .attr("pointer-events", d => arcVis(d.target) ? "auto" : "none")
+      .attrTween("d", d => () => arc(d.current));
+    label
+      .filter(function(d) {
+        return +this.getAttribute("fill-opacity") || lblVis(d.target);
+      })
+      .transition(tr)
+      .attr("fill-opacity", d => +lblVis(d.target))
+      .attrTween("transform", d => () => lblTransform(d.current))
+      .on("end", function(d) {
+        const pos = d.target || d.current;
+        const n = dispName(d);
+        d3.select(this).text(n).style("font-size",
+          `${calcFS(pos.x0,pos.x1,pos.y0,pos.y1,n.length).toFixed(1)}px`);
+      });
+    clbl.text(focus.data.name);
+  }
+})();
+</script>
+
+</div>
+</div><!-- /#tab-sunburst -->
+
+<div class="tab-panel" id="tab-gitgraph" role="tabpanel">
+<div class="section">
+  <div class="section-header">
+    <div class="phase-num" style="background:#059669;">&#128279;</div>
+    <div><h2>Transitive Dependency Graph (GitGraph)</h2><div class="desc">SBOM-derived arc diagram showing every library and its dependents. Use the sidebar to filter or focus a library.</div></div>
+  </div>
+  
+<div style="background:white;border-radius:12px;border:1px solid #e2e8f0;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);margin-bottom:16px;">
+  <iframe src="gitgraph/arc_diagram.html" style="width:100%;height:720px;border:none;border-radius:12px;"></iframe>
+</div>
+<div style="text-align:center;margin-bottom:16px;">
+  <a href="gitgraph/arc_diagram.html" target="_blank" style="display:inline-block;padding:12px 28px;background:#4338ca;color:white;border-radius:8px;font-weight:600;font-size:13px;text-decoration:none;">
+    Open dependency graph fullscreen
+  </a>
+</div>
+</div>
+</div><!-- /#tab-gitgraph -->
+
+<div class="footer">
+  Generated by <strong>kmp-impact-analyzer</strong><br>
+  Thesis: KMP Code Contextualization and Visualization Pipeline — Universidad de los Andes
+</div>
+
+</div>
+<script>
+(function() {
+  var btns = document.querySelectorAll('.tab-btn');
+  var panels = document.querySelectorAll('.tab-panel');
+  function activate(name) {
+    btns.forEach(function(b) { b.classList.toggle('active', b.dataset.tab === name); });
+    panels.forEach(function(p) { p.classList.toggle('active', p.id === 'tab-' + name); });
+    try { history.replaceState(null, '', '#' + name); } catch (e) {}
+  }
+  btns.forEach(function(b) { b.addEventListener('click', function() { activate(b.dataset.tab); }); });
+  var hash = (location.hash || '').replace('#', '');
+  if (hash && document.getElementById('tab-' + hash)) activate(hash);
+})();
+</script>
+</body>
+</html>

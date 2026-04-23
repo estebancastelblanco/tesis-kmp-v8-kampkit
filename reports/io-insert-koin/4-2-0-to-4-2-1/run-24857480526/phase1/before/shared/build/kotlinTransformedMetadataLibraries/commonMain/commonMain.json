@@ -1,0 +1,252 @@
+[
+  {
+    "moduleId": "module co.touchlab:kermit:2.1.0",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/co.touchlab-kermit-2.1.0-commonMain-ZPyT3Q.klib",
+    "sourceSetName": "commonMain"
+  },
+  {
+    "moduleId": "module app.cash.sqldelight:runtime:2.3.2",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/app.cash.sqldelight-runtime-2.3.2-commonMain-vjl7hQ.klib",
+    "sourceSetName": "commonMain"
+  },
+  {
+    "moduleId": "module org.jetbrains.kotlin:kotlin-stdlib:2.3.20",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/org.jetbrains.kotlin-kotlin-stdlib-2.3.20-commonMain-F2oqMg.klib",
+    "sourceSetName": "commonMain"
+  },
+  {
+    "moduleId": "module io.insert-koin:koin-core:4.2.0",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/io.insert-koin-koin-core-4.2.0-commonMain-oD2-tw.klib",
+    "sourceSetName": "commonMain"
+  },
+  {
+    "moduleId": "module io.insert-koin:koin-core-viewmodel:4.2.0",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/io.insert-koin-koin-core-viewmodel-4.2.0-commonMain-DKcyAQ.klib",
+    "sourceSetName": "commonMain"
+  },
+  {
+    "moduleId": "module org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/org.jetbrains.kotlinx-kotlinx-coroutines-core-1.10.2-concurrentMain-wJOvIw.klib",
+    "sourceSetName": "concurrentMain"
+  },
+  {
+    "moduleId": "module org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/org.jetbrains.kotlinx-kotlinx-coroutines-core-1.10.2-commonMain-wJOvIw.klib",
+    "sourceSetName": "commonMain"
+  },
+  {
+    "moduleId": "module app.cash.sqldelight:coroutines-extensions:2.3.2",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/app.cash.sqldelight-coroutines-extensions-2.3.2-commonMain-P8ti4g.klib",
+    "sourceSetName": "commonMain"
+  },
+  {
+    "moduleId": "module io.ktor:ktor-client-core:3.4.2",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/io.ktor-ktor-client-core-3.4.2-jvmAndPosixMain-p2PlKQ.klib",
+    "sourceSetName": "jvmAndPosixMain"
+  },
+  {
+    "moduleId": "module io.ktor:ktor-client-core:3.4.2",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/io.ktor-ktor-client-core-3.4.2-commonMain-p2PlKQ.klib",
+    "sourceSetName": "commonMain"
+  },
+  {
+    "moduleId": "module io.ktor:ktor-client-logging:3.4.2",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/io.ktor-ktor-client-logging-3.4.2-commonMain-RjuTwg.klib",
+    "sourceSetName": "commonMain"
+  },
+  {
+    "moduleId": "module io.ktor:ktor-serialization-kotlinx-json:3.4.2",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/io.ktor-ktor-serialization-kotlinx-json-3.4.2-commonMain-49da1Q.klib",
+    "sourceSetName": "commonMain"
+  },
+  {
+    "moduleId": "module io.ktor:ktor-client-content-negotiation:3.4.2",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/io.ktor-ktor-client-content-negotiation-3.4.2-commonMain-eAUs7w.klib",
+    "sourceSetName": "commonMain"
+  },
+  {
+    "moduleId": "module com.russhwolf:multiplatform-settings:1.3.0",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/com.russhwolf-multiplatform-settings-1.3.0-commonMain-oQmQdg.klib",
+    "sourceSetName": "commonMain"
+  },
+  {
+    "moduleId": "module org.jetbrains.kotlinx:kotlinx-datetime:0.7.1",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/org.jetbrains.kotlinx-kotlinx-datetime-0.7.1-commonMain-uTxUqg.klib",
+    "sourceSetName": "commonMain"
+  },
+  {
+    "moduleId": "module co.touchlab.skie:configuration-annotations:0.10.11",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/co.touchlab.skie-configuration-annotations-0.10.11-commonMain-kIituQ.klib",
+    "sourceSetName": "commonMain"
+  },
+  {
+    "moduleId": "module co.touchlab:kermit-core:2.1.0",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/co.touchlab-kermit-core-2.1.0-commonMain-3AHZ4A.klib",
+    "sourceSetName": "commonMain"
+  },
+  {
+    "moduleId": "module co.touchlab:stately-concurrency:2.1.0",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/co.touchlab-stately-concurrency-2.1.0-appleMain-oa7GPg.klib",
+    "sourceSetName": "appleMain"
+  },
+  {
+    "moduleId": "module co.touchlab:stately-concurrency:2.1.0",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/co.touchlab-stately-concurrency-2.1.0-nativeMain-t1ZQYw.klib",
+    "sourceSetName": "nativeMain"
+  },
+  {
+    "moduleId": "module co.touchlab:stately-concurrency:2.1.0",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/co.touchlab-stately-concurrency-2.1.0-commonMain-t1ZQYw.klib",
+    "sourceSetName": "commonMain"
+  },
+  {
+    "moduleId": "module co.touchlab:stately-concurrent-collections:2.1.0",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/co.touchlab-stately-concurrent-collections-2.1.0-commonMain-jSCQOA.klib",
+    "sourceSetName": "commonMain"
+  },
+  {
+    "moduleId": "module org.jetbrains.androidx.lifecycle:lifecycle-viewmodel:2.9.6",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/org.jetbrains.androidx.lifecycle-lifecycle-viewmodel-2.9.6-commonMain-o5UeXw.klib",
+    "sourceSetName": "commonMain"
+  },
+  {
+    "moduleId": "module org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-savedstate:2.9.6",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/org.jetbrains.androidx.lifecycle-lifecycle-viewmodel-savedstate-2.9.6-commonMain-HvVjYQ.klib",
+    "sourceSetName": "commonMain"
+  },
+  {
+    "moduleId": "module app.cash.sqldelight:async-extensions:2.3.2",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/app.cash.sqldelight-async-extensions-2.3.2-concurrentMain-3NaKbw.klib",
+    "sourceSetName": "concurrentMain"
+  },
+  {
+    "moduleId": "module app.cash.sqldelight:async-extensions:2.3.2",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/app.cash.sqldelight-async-extensions-2.3.2-commonMain-3NaKbw.klib",
+    "sourceSetName": "commonMain"
+  },
+  {
+    "moduleId": "module io.ktor:ktor-http:3.4.2",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/io.ktor-ktor-http-3.4.2-commonMain-O35Q8A.klib",
+    "sourceSetName": "commonMain"
+  },
+  {
+    "moduleId": "module io.ktor:ktor-http-cio:3.4.2",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/io.ktor-ktor-http-cio-3.4.2-jvmAndPosixMain-akf11g.klib",
+    "sourceSetName": "jvmAndPosixMain"
+  },
+  {
+    "moduleId": "module io.ktor:ktor-http-cio:3.4.2",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/io.ktor-ktor-http-cio-3.4.2-commonMain-akf11g.klib",
+    "sourceSetName": "commonMain"
+  },
+  {
+    "moduleId": "module io.ktor:ktor-events:3.4.2",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/io.ktor-ktor-events-3.4.2-commonMain-XZDMxw.klib",
+    "sourceSetName": "commonMain"
+  },
+  {
+    "moduleId": "module io.ktor:ktor-websocket-serialization:3.4.2",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/io.ktor-ktor-websocket-serialization-3.4.2-commonMain-RI_psg.klib",
+    "sourceSetName": "commonMain"
+  },
+  {
+    "moduleId": "module io.ktor:ktor-sse:3.4.2",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/io.ktor-ktor-sse-3.4.2-commonMain-Hxwpkw.klib",
+    "sourceSetName": "commonMain"
+  },
+  {
+    "moduleId": "module io.ktor:ktor-serialization-kotlinx:3.4.2",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/io.ktor-ktor-serialization-kotlinx-3.4.2-commonMain-MnRA9w.klib",
+    "sourceSetName": "commonMain"
+  },
+  {
+    "moduleId": "module org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/org.jetbrains.kotlinx-kotlinx-serialization-json-1.9.0-commonMain-_ulzXg.klib",
+    "sourceSetName": "commonMain"
+  },
+  {
+    "moduleId": "module org.jetbrains.kotlinx:kotlinx-serialization-json-io:1.9.0",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/org.jetbrains.kotlinx-kotlinx-serialization-json-io-1.9.0-commonMain-9iQ-sg.klib",
+    "sourceSetName": "commonMain"
+  },
+  {
+    "moduleId": "module io.ktor:ktor-serialization:3.4.2",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/io.ktor-ktor-serialization-3.4.2-commonMain-x1dMrQ.klib",
+    "sourceSetName": "commonMain"
+  },
+  {
+    "moduleId": "module org.jetbrains.kotlinx:kotlinx-serialization-core:1.9.0",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/org.jetbrains.kotlinx-kotlinx-serialization-core-1.9.0-commonMain-DVGtaQ.klib",
+    "sourceSetName": "commonMain"
+  },
+  {
+    "moduleId": "module co.touchlab:stately-strict:2.1.0",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/co.touchlab-stately-strict-2.1.0-nativeMain-dKdBGA.klib",
+    "sourceSetName": "nativeMain"
+  },
+  {
+    "moduleId": "module co.touchlab:stately-strict:2.1.0",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/co.touchlab-stately-strict-2.1.0-commonMain-dKdBGA.klib",
+    "sourceSetName": "commonMain"
+  },
+  {
+    "moduleId": "module androidx.lifecycle:lifecycle-viewmodel:2.9.4",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/androidx.lifecycle-lifecycle-viewmodel-2.9.4-commonMain-YZugNA.klib",
+    "sourceSetName": "commonMain"
+  },
+  {
+    "moduleId": "module androidx.lifecycle:lifecycle-viewmodel-savedstate:2.9.4",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/androidx.lifecycle-lifecycle-viewmodel-savedstate-2.9.4-commonMain-KTe1Gw.klib",
+    "sourceSetName": "commonMain"
+  },
+  {
+    "moduleId": "module org.jetbrains.androidx.savedstate:savedstate:1.3.6",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/org.jetbrains.androidx.savedstate-savedstate-1.3.6-commonMain-Gx5ULw.klib",
+    "sourceSetName": "commonMain"
+  },
+  {
+    "moduleId": "module io.ktor:ktor-utils:3.4.2",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/io.ktor-ktor-utils-3.4.2-commonMain-lfiR4A.klib",
+    "sourceSetName": "commonMain"
+  },
+  {
+    "moduleId": "module io.ktor:ktor-io:3.4.2",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/io.ktor-ktor-io-3.4.2-jvmAndPosixMain-V42Img.klib",
+    "sourceSetName": "jvmAndPosixMain"
+  },
+  {
+    "moduleId": "module io.ktor:ktor-io:3.4.2",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/io.ktor-ktor-io-3.4.2-commonMain-V42Img.klib",
+    "sourceSetName": "commonMain"
+  },
+  {
+    "moduleId": "module org.jetbrains.kotlinx:kotlinx-io-core:0.8.2",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/org.jetbrains.kotlinx-kotlinx-io-core-0.8.2-commonMain-xiPa1w.klib",
+    "sourceSetName": "commonMain"
+  },
+  {
+    "moduleId": "module io.ktor:ktor-websockets:3.4.2",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/io.ktor-ktor-websockets-3.4.2-commonMain-vcPIBg.klib",
+    "sourceSetName": "commonMain"
+  },
+  {
+    "moduleId": "module androidx.annotation:annotation:1.9.1",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/androidx.annotation-annotation-1.9.1-commonMain-WmoUwA.klib",
+    "sourceSetName": "commonMain"
+  },
+  {
+    "moduleId": "module androidx.lifecycle:lifecycle-common:2.9.4",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/androidx.lifecycle-lifecycle-common-2.9.4-commonMain-2l5nFA.klib",
+    "sourceSetName": "commonMain"
+  },
+  {
+    "moduleId": "module androidx.savedstate:savedstate:1.3.3",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/androidx.savedstate-savedstate-1.3.3-commonMain-NwmUsg.klib",
+    "sourceSetName": "commonMain"
+  },
+  {
+    "moduleId": "module org.jetbrains.kotlinx:kotlinx-io-bytestring:0.8.2",
+    "file": "/tmp/output/phase1/before/shared/build/kotlinTransformedMetadataLibraries/commonMain/org.jetbrains.kotlinx-kotlinx-io-bytestring-0.8.2-commonMain-VZ6v5A.klib",
+    "sourceSetName": "commonMain"
+  }
+]

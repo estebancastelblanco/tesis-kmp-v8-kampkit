@@ -1,0 +1,11 @@
+{
+  "tag": "2026-04-23_204753",
+  "event": {
+    "event_type": "intent",
+    "log_lines": null,
+    "intent": "am start co.touchlab.kampkit/co.touchlab.kampkit.android.MainActivity"
+  },
+  "start_state": "052812ac517ede05d7cb4f98a078dbb4",
+  "stop_state": "b4568daed2e04a8085dec1876af2bf73",
+  "event_str": "IntentEvent(intent='am start co.touchlab.kampkit/co.touchlab.kampkit.android.MainActivity')"
+}

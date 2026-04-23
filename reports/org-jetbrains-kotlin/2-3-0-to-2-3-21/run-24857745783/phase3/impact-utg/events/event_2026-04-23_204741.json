@@ -1,0 +1,11 @@
+{
+  "tag": "2026-04-23_204741",
+  "event": {
+    "event_type": "kill_app",
+    "log_lines": null,
+    "stop_intent": "am force-stop co.touchlab.kampkit"
+  },
+  "start_state": "052812ac517ede05d7cb4f98a078dbb4",
+  "stop_state": "052812ac517ede05d7cb4f98a078dbb4",
+  "event_str": "KillAppEvent()"
+}

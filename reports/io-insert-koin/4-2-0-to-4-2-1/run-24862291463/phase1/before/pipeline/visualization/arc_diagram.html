@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dependency Arc Diagram — CursoKmpApp</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <style>
+    /* ── Reset & base ─────────────────────────────────────────────────────── */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #0d1117;
+      color: #e6edf3;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* ── Header ───────────────────────────────────────────────────────────── */
+    header {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 24px;
+      border-bottom: 1px solid #21262d;
+      background: #161b22;
+    }
+    .header-title h1 { font-size: 15px; font-weight: 600; color: #f0f6fc; }
+    .header-title p  { font-size: 11px; color: #8b949e; margin-top: 2px; }
+
+    /* ── Selection chip ───────────────────────────────────────────────────── */
+    #selection-chip {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      background: rgba(56, 139, 253, 0.1);
+      border: 1px solid rgba(56, 139, 253, 0.4);
+      border-radius: 20px;
+      padding: 5px 14px 5px 12px;
+      font-size: 12px;
+      color: #79c0ff;
+      animation: chipIn 0.15s ease;
+    }
+    #selection-chip.visible { display: flex; }
+    @keyframes chipIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+    #selection-chip .chip-icon { font-size: 13px; }
+    #selection-chip .chip-text { max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    #chip-clear {
+      background: none;
+      border: none;
+      color: #8b949e;
+      cursor: pointer;
+      font-size: 14px;
+      line-height: 1;
+      padding: 0 2px;
+      transition: color 0.1s;
+    }
+    #chip-clear:hover { color: #f0f6fc; }
+
+    /* ── App body ─────────────────────────────────────────────────────────── */
+    #app {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    /* ── Sidebar ──────────────────────────────────────────────────────────── */
+    #sidebar {
+      width: 256px;
+      flex-shrink: 0;
+      border-right: 1px solid #21262d;
+      overflow-y: auto;
+      background: #0d1117;
+      display: flex;
+      flex-direction: column;
+    }
+    #sidebar::-webkit-scrollbar { width: 4px; }
+    #sidebar::-webkit-scrollbar-thumb { background: #30363d; border-radius: 2px; }
+
+    .sidebar-section { border-bottom: 1px solid #21262d; padding: 14px 14px 16px; }
+
+    .sidebar-section h3 {
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #8b949e;
+      margin-bottom: 10px;
+    }
+
+    /* Top Libraries list */
+    .lib-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 8px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.1s;
+      margin-bottom: 1px;
+      border: 1px solid transparent;
+    }
+    .lib-item:hover { background: #161b22; }
+    .lib-item.active {
+      background: rgba(56, 139, 253, 0.08);
+      border-color: rgba(56, 139, 253, 0.3);
+    }
+    .lib-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .lib-rank {
+      font-size: 9px;
+      color: #484f58;
+      min-width: 14px;
+      text-align: right;
+    }
+    .lib-name {
+      font-size: 11px;
+      color: #c9d1d9;
+      flex: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .lib-item.active .lib-name { color: #79c0ff; }
+    .lib-badge {
+      font-size: 10px;
+      background: #21262d;
+      color: #8b949e;
+      padding: 1px 7px;
+      border-radius: 10px;
+      flex-shrink: 0;
+      font-variant-numeric: tabular-nums;
+    }
+    .lib-item.active .lib-badge { background: #388bfd; color: #fff; }
+
+    /* Degree distribution */
+    .bucket-item {
+      margin-bottom: 6px;
+      cursor: pointer;
+      border-radius: 6px;
+      padding: 6px 8px;
+      transition: background 0.1s;
+      border: 1px solid transparent;
+    }
+    .bucket-item:hover { background: #161b22; }
+    .bucket-item.active {
+      background: rgba(56, 139, 253, 0.08);
+      border-color: rgba(56, 139, 253, 0.3);
+    }
+    .bucket-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 5px;
+    }
+    .bucket-label { font-size: 11px; color: #c9d1d9; }
+    .bucket-item.active .bucket-label { color: #79c0ff; }
+    .bucket-count { font-size: 10px; color: #8b949e; }
+    .bucket-bar-bg {
+      height: 5px;
+      background: #21262d;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .bucket-bar-fill { height: 100%; border-radius: 3px; transition: width 0.4s ease; }
+
+    /* ── Main area ────────────────────────────────────────────────────────── */
+    #main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      min-width: 0;
+    }
+
+    /* Controls */
+    #controls {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 9px 20px;
+      border-bottom: 1px solid #21262d;
+      background: #161b22;
+      flex-wrap: wrap;
+    }
+    .control-group {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 12px;
+      color: #8b949e;
+    }
+    .control-group label { white-space: nowrap; font-size: 11px; }
+    .control-group strong { color: #e6edf3; min-width: 22px; display: inline-block; font-size: 12px; }
+
+    input[type=range] {
+      -webkit-appearance: none;
+      width: 130px;
+      height: 3px;
+      background: #30363d;
+      border-radius: 2px;
+      outline: none;
+      cursor: pointer;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 13px; height: 13px;
+      background: #58a6ff;
+      border-radius: 50%;
+      transition: transform 0.1s;
+    }
+    input[type=range]::-webkit-slider-thumb:active { transform: scale(1.2); }
+
+    select {
+      background: #0d1117;
+      color: #e6edf3;
+      border: 1px solid #30363d;
+      border-radius: 5px;
+      padding: 3px 7px;
+      font-size: 11px;
+      cursor: pointer;
+      outline: none;
+    }
+    select:focus { border-color: #388bfd; }
+
+    #stats {
+      font-size: 11px;
+      color: #8b949e;
+      margin-left: auto;
+    }
+    #stats span { color: #58a6ff; font-weight: 600; }
+
+    /* Legend */
+    #legend {
+      flex-shrink: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 7px 20px;
+      border-bottom: 1px solid #21262d;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 10px;
+      color: #8b949e;
+    }
+    .legend-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+    /* Diagram wrapper */
+    #diagram-wrapper {
+      flex: 1;
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding: 0 20px;
+      cursor: default;
+    }
+    #diagram-wrapper::-webkit-scrollbar { height: 5px; }
+    #diagram-wrapper::-webkit-scrollbar-thumb { background: #30363d; border-radius: 3px; }
+
+    /* SVG arcs */
+    .arc {
+      fill: none;
+      stroke-opacity: 0.22;
+      transition: stroke-opacity 0.15s, stroke-width 0.15s;
+    }
+    .arc.highlighted { stroke-opacity: 0.85; stroke-width: 1.5; }
+    .arc.dimmed      { stroke-opacity: 0.04; }
+
+    /* SVG nodes */
+    .node { cursor: pointer; }
+    .node.dimmed  { opacity: 0.06; }
+    .node.pinned  {
+      stroke: #fff !important;
+      stroke-width: 2 !important;
+      filter: drop-shadow(0 0 4px rgba(255,255,255,0.5));
+    }
+
+    /* SVG labels */
+    .node-label {
+      font-size: 9px;
+      fill: #8b949e;
+      pointer-events: none;
+      transition: opacity 0.15s;
+    }
+    .node-label.dimmed    { opacity: 0.05; }
+    .node-label.prominent { fill: #f0f6fc; font-size: 10px; font-weight: 500; }
+
+    /* Tooltip */
+    #tooltip {
+      position: fixed;
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 11px 15px;
+      font-size: 12px;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.1s;
+      max-width: 300px;
+      line-height: 1.65;
+      z-index: 100;
+      box-shadow: 0 8px 24px rgba(1,4,9,0.5);
+    }
+    #tooltip .tip-name    { font-weight: 600; color: #f0f6fc; word-break: break-all; font-size: 13px; }
+    #tooltip .tip-version { color: #58a6ff; margin-top: 1px; }
+    #tooltip .tip-eco     { color: #8b949e; font-size: 11px; margin-top: 2px; }
+    #tooltip .tip-degree  { color: #3fb950; margin-top: 6px; font-weight: 500; }
+    #tooltip .tip-hint    { color: #484f58; font-size: 10px; margin-top: 3px; }
+
+    /* Empty state */
+    #empty {
+      display: none;
+      padding: 48px 24px;
+      color: #8b949e;
+      font-size: 14px;
+    }
+
+    /* Focus mode overlay hint */
+    #focus-banner {
+      display: none;
+      position: absolute;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #21262d;
+      border: 1px solid #30363d;
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: 11px;
+      color: #8b949e;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+    #focus-banner.visible { display: block; }
+    #diagram-area { position: relative; flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+  </style>
+</head>
+<body>
+
+<!-- ── Header ──────────────────────────────────────────────────────────────── -->
+<header>
+  <div class="header-title">
+    <h1>Dependency Arc Diagram &mdash; CursoKmpApp-GitGraph</h1>
+    <p>SPDX 2.3 SBOM &middot; Maven ecosystem &middot; KMP (Android + iOS)</p>
+  </div>
+  <div id="selection-chip">
+    <span class="chip-icon" id="chip-icon">📦</span>
+    <span class="chip-text" id="chip-text">–</span>
+    <button id="chip-clear" title="Clear selection">✕</button>
+  </div>
+</header>
+
+<div id="app">
+
+  <!-- ── Sidebar ─────────────────────────────────────────────────────────── -->
+  <aside id="sidebar">
+
+    <div class="sidebar-section">
+      <h3>Top Libraries</h3>
+      <div id="top-libs-list"></div>
+    </div>
+
+    <div class="sidebar-section">
+      <h3>By Connection Count</h3>
+      <div id="degree-buckets"></div>
+    </div>
+
+  </aside>
+
+  <!-- ── Main ────────────────────────────────────────────────────────────── -->
+  <div id="main">
+
+    <div id="controls">
+      <div class="control-group">
+        <label>Min. degree</label>
+        <input type="range" id="min-degree" min="1" max="100" value="10" step="1" />
+        <strong id="min-degree-val">10</strong>
+      </div>
+      <div class="control-group">
+        <label>Sort by</label>
+        <select id="sort-by">
+          <option value="degree">Degree (hub in center)</option>
+          <option value="ecosystem">Ecosystem</option>
+          <option value="name">Name (A–Z)</option>
+        </select>
+      </div>
+      <div id="stats">
+        Showing <span id="stat-nodes">–</span> nodes &middot; <span id="stat-links">–</span> edges
+      </div>
+    </div>
+
+    <div id="legend"></div>
+
+    <div id="diagram-area">
+      <div id="diagram-wrapper">
+        <svg id="diagram"></svg>
+      </div>
+      <div id="empty">No packages match the current filter. Lower the minimum degree.</div>
+      <div id="focus-banner">Click any node to focus its connections &middot; Click selected node to clear</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── Tooltip ─────────────────────────────────────────────────────────────── -->
+<div id="tooltip"></div>
+
+<!-- ── D3 Script ───────────────────────────────────────────────────────────── -->
+<script>
+// ═══════════════════════════════════════════════════════════════════════════════
+// 0. Configuration
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const NODE_R        = 4;
+const NODE_R_LARGE  = 6;
+const LABEL_THRESH  = 30;     // show label if degree >= this
+const NODE_SPACING  = 16;     // px between adjacent nodes
+const ARC_SCALE     = 0.45;   // arc height = distance × this
+const BASELINE_Y    = 280;
+const SVG_HEIGHT    = 480;
+const MARGIN        = { left: 44, right: 44 };
+const TOP_N         = 20;     // sidebar top-libs list length
+const TOP_PCT       = 0.30;   // initial filter: top 30 % by degree
+
+// Degree buckets for the distribution panel
+const DEGREE_BUCKETS = [
+  { label: "1 – 9",   min: 1,   max: 9,        color: "#6e7681" },
+  { label: "10 – 29", min: 10,  max: 29,        color: "#56d364" },
+  { label: "30 – 59", min: 30,  max: 59,        color: "#3fb950" },
+  { label: "60 – 99", min: 60,  max: 99,        color: "#58a6ff" },
+  { label: "100+",    min: 100, max: Infinity,   color: "#f78166" },
+];
+
+// Ecosystem color palette
+const ECOSYSTEM_COLORS = {
+  "project root":      "#f78166",
+  "org.jetbrains":     "#58a6ff",
+  "io.ktor":           "#3fb950",
+  "androidx.compose":  "#d2a8ff",
+  "com.android":       "#ffa657",
+  "androidx.lifecycle":"#79c0ff",
+  "co.touchlab":       "#f0883e",
+  "com.google":        "#ff7b72",
+  "moe.tlaster":       "#56d364",
+  "other":             "#6e7681",
+};
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// 1. Shared state
+// ═══════════════════════════════════════════════════════════════════════════════
+
+let selectedNode  = null;   // nodeId string | null  — single-library focus
+let selectedRange = null;   // {min, max} | null      — bucket focus
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// 2. Utility helpers
+// ═══════════════════════════════════════════════════════════════════════════════
+
+function getEcosystem(id) {
+  if (id.startsWith("com.github.")) return "project root";
+  const group = id.split(":")[0];
+  const parts = group.split(".");
+  return parts.length >= 2 ? parts.slice(0, 2).join(".") : parts[0];
+}
+
+function colorOf(id) {
+  const eco = getEcosystem(id);
+  return ECOSYSTEM_COLORS[eco] || ECOSYSTEM_COLORS["other"];
+}
+
+// Returns a short artifact name (strips group, keeps version)
+// e.g. "org.jetbrains.kotlin:kotlin-stdlib@1.9.23" → "kotlin-stdlib@1.9.23"
+// This way two different versions of the same artifact are visually distinct.
+function shortName(id, maxLen = 24) {
+  const withVersion = id.split(":")[1] || id;           // "artifact@version"
+  return withVersion.length > maxLen
+    ? withVersion.slice(0, maxLen - 1) + "…"
+    : withVersion;
+}
+
+// Returns only the artifact part (no version), used for axis labels
+function artifactName(id) {
+  const artifact = (id.split(":")[1] || id).split("@")[0];
+  return artifact;
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// 3. Data loading
+// ═══════════════════════════════════════════════════════════════════════════════
+
+fetch("../sbom/graph.json")
+  .then(r => {
+    if (!r.ok) throw new Error(`HTTP ${r.status} — could not load graph.json`);
+    return r.json();
+  })
+  .then(data => boot(data))
+  .catch(err => {
+    document.getElementById("diagram-wrapper").innerHTML =
+      `<p style="color:#f78166;padding:32px;font-size:14px">
+        ⚠ Error loading graph.json: ${err.message}<br>
+        <small style="color:#8b949e">Serve the files from a local HTTP server (e.g. <code>python -m http.server</code>).</small>
+       </p>`;
+  });
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// 4. Boot — runs once after graph.json loads
+// ═══════════════════════════════════════════════════════════════════════════════
+
+function boot(data) {
+
+  // ── 4a. Compute degree ───────────────────────────────────────────────────
+  const degree = {};
+  data.nodes.forEach(n => { degree[n.id] = 0; });
+  data.links.forEach(l => {
+    degree[l.source] = (degree[l.source] || 0) + 1;
+    degree[l.target] = (degree[l.target] || 0) + 1;
+  });
+
+  // ── 4b. Compute screen-fitting threshold ─────────────────────────────────
+  // Find the min-degree value that makes the diagram fill (but not overflow)
+  // the available viewport width on the very first render — no scrolling needed.
+  //
+  //  available width  = viewport − sidebar (256 px) − wrapper padding (40 px)
+  //  max nodes        = (available − left margin − right margin) / NODE_SPACING
+  //
+  // We sort all degrees descending and take the degree of node #maxNodes as the
+  // threshold: every node at or above that value is included, giving us ≤ maxNodes
+  // nodes and an SVG that comfortably fits the screen.
+  const sortedDegs  = Object.values(degree).sort((a, b) => b - a);
+  const sidebarW    = 256;                          // matches #sidebar CSS width
+  const padW        = 40;                           // diagram-wrapper padding × 2
+  const availableW  = window.innerWidth - sidebarW - padW;
+  const maxNodes    = Math.max(10, Math.floor((availableW - MARGIN.left - MARGIN.right) / NODE_SPACING));
+  const fitCount    = Math.min(maxNodes, sortedDegs.length);
+  const fitThreshold= sortedDegs[fitCount - 1];
+
+  // ── 4c. Initialise slider ────────────────────────────────────────────────
+  const slider    = document.getElementById("min-degree");
+  const sliderVal = document.getElementById("min-degree-val");
+  slider.max      = Math.max(50, sortedDegs[0]);
+  slider.value    = fitThreshold;
+  sliderVal.textContent = fitThreshold;
+
+  // ── 4d. Build legend ─────────────────────────────────────────────────────
+  const legendDiv = document.getElementById("legend");
+  Object.entries(ECOSYSTEM_COLORS).forEach(([eco, color]) => {
+    const item = document.createElement("div");
+    item.className = "legend-item";
+    item.innerHTML = `<div class="legend-dot" style="background:${color}"></div>${eco}`;
+    legendDiv.appendChild(item);
+  });
+
+  // ── 4e. Build sidebar panels ─────────────────────────────────────────────
+  buildTopLibs(data, degree);
+  buildBuckets(data, degree);
+
+  // ── 4f. Wire controls ────────────────────────────────────────────────────
+  const sortSel = document.getElementById("sort-by");
+
+  slider.addEventListener("input", () => {
+    sliderVal.textContent = slider.value;
+    clearSelection();
+    render(data, degree, +slider.value, sortSel.value);
+  });
+
+  sortSel.addEventListener("change", () => {
+    render(data, degree, +slider.value, sortSel.value);
+  });
+
+  document.getElementById("chip-clear").addEventListener("click", () => {
+    clearSelection();
+    render(data, degree, +slider.value, sortSel.value);
+  });
+
+  // Store for sidebar event handlers
+  window.__graphCtx = { data, degree };
+
+  // ── 4g. Initial render ───────────────────────────────────────────────────
+  render(data, degree, fitThreshold, sortSel.value);
+
+  // ── 4h. Handle ?focus= URL parameter ─────────────────────────────────────
+  // When the page is opened from a CI pipeline PR comment link, the URL
+  // contains ?focus=<packageName> (without @version). We find the first
+  // matching node in the graph and activate focus mode automatically, so the
+  // reviewer lands directly on the changed library's dependency view.
+  //
+  // Example URL generated by analyze_impact.js:
+  //   https://sreys54.github.io/CursoKmpApp-GitGraph/visualization/arc_diagram.html
+  //     ?focus=org.jetbrains.kotlin:kotlin-stdlib
+  //
+  // Matching is prefix-based: "org.jetbrains.kotlin:kotlin-stdlib" matches
+  // "org.jetbrains.kotlin:kotlin-stdlib@1.9.23" and any other version.
+  const urlParams  = new URLSearchParams(window.location.search);
+  const focusParam = urlParams.get("focus");
+  if (focusParam) {
+    const match = data.nodes.find(n =>
+      n.id === focusParam || n.id.startsWith(focusParam + "@")
+    );
+    if (match) {
+      onLibClick(match.id);
+    }
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// 5. Sidebar — Top Libraries
+// ═══════════════════════════════════════════════════════════════════════════════
+
+function buildTopLibs(data, degree) {
+  const topNodes = [...data.nodes]
+    .sort((a, b) => degree[b.id] - degree[a.id])
+    .slice(0, TOP_N);
+
+  const list = document.getElementById("top-libs-list");
+  list.innerHTML = "";
+
+  topNodes.forEach((n, i) => {
+    const item = document.createElement("div");
+    item.className = "lib-item";
+    item.dataset.nodeId = n.id;
+    item.innerHTML = `
+      <span class="lib-rank">${i + 1}</span>
+      <div class="lib-dot" style="background:${colorOf(n.id)}"></div>
+      <span class="lib-name" title="${n.id}">${shortName(n.id)}</span>
+      <span class="lib-badge">${degree[n.id]}</span>
+    `;
+    item.addEventListener("click", () => onLibClick(n.id));
+    list.appendChild(item);
+  });
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// 6. Sidebar — Degree Distribution
+// ═══════════════════════════════════════════════════════════════════════════════
+
+function buildBuckets(data, degree) {
+  const container = document.getElementById("degree-buckets");
+  container.innerHTML = "";
+
+  const counts = DEGREE_BUCKETS.map(b => ({
+    ...b,
+    count: data.nodes.filter(n => degree[n.id] >= b.min && degree[n.id] <= b.max).length,
+  }));
+  const maxCount = Math.max(...counts.map(c => c.count), 1);
+
+  counts.forEach(bucket => {
+    if (bucket.count === 0) return;
+
+    const pct = (bucket.count / maxCount * 100).toFixed(1);
+    const item = document.createElement("div");
+    item.className = "bucket-item";
+    item.dataset.min = bucket.min;
+    item.dataset.max = bucket.max === Infinity ? 9999999 : bucket.max;
+    item.innerHTML = `
+      <div class="bucket-header">
+        <span class="bucket-label">${bucket.label}</span>
+        <span class="bucket-count">${bucket.count} libs</span>
+      </div>
+      <div class="bucket-bar-bg">
+        <div class="bucket-bar-fill" style="width:${pct}%;background:${bucket.color}"></div>
+      </div>
+    `;
+    item.addEventListener("click", () => onBucketClick(item, bucket));
+    container.appendChild(item);
+  });
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// 7. Sidebar click handlers
+// ═══════════════════════════════════════════════════════════════════════════════
+
+function onLibClick(nodeId) {
+  const { data, degree } = window.__graphCtx;
+  const slider  = document.getElementById("min-degree");
+  const sortSel = document.getElementById("sort-by");
+
+  if (selectedNode === nodeId) {
+    clearSelection();
+  } else {
+    selectedNode  = nodeId;
+    selectedRange = null;
+    updateChip("📦", shortName(nodeId, 30));
+    highlightLibItem(nodeId);
+    highlightBucketItem(null);
+  }
+  render(data, degree, +slider.value, sortSel.value);
+}
+
+function onBucketClick(el, bucket) {
+  const { data, degree } = window.__graphCtx;
+  const slider  = document.getElementById("min-degree");
+  const sortSel = document.getElementById("sort-by");
+  const rangeMin = bucket.min;
+  const rangeMax = bucket.max;
+
+  if (selectedRange && selectedRange.min === rangeMin) {
+    clearSelection();
+  } else {
+    selectedRange = { min: rangeMin, max: rangeMax };
+    selectedNode  = null;
+    updateChip("🔗", `${bucket.label} connections`);
+    highlightLibItem(null);
+    highlightBucketItem(el);
+  }
+  render(data, degree, +slider.value, sortSel.value);
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// 8. Selection UI helpers
+// ═══════════════════════════════════════════════════════════════════════════════
+
+function clearSelection() {
+  selectedNode  = null;
+  selectedRange = null;
+  updateChip(null, null);
+  highlightLibItem(null);
+  highlightBucketItem(null);
+  document.getElementById("focus-banner").classList.remove("visible");
+}
+
+function updateChip(icon, text) {
+  const chip = document.getElementById("selection-chip");
+  if (text) {
+    document.getElementById("chip-icon").textContent = icon;
+    document.getElementById("chip-text").textContent = text;
+    chip.classList.add("visible");
+  } else {
+    chip.classList.remove("visible");
+  }
+}
+
+function highlightLibItem(nodeId) {
+  document.querySelectorAll(".lib-item").forEach(el => {
+    el.classList.toggle("active", el.dataset.nodeId === nodeId);
+  });
+}
+
+function highlightBucketItem(activeEl) {
+  document.querySelectorAll(".bucket-item").forEach(el => {
+    el.classList.toggle("active", el === activeEl);
+  });
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// 9. Render — redraws the arc diagram from scratch
+// ═══════════════════════════════════════════════════════════════════════════════
+
+function render(data, degree, minDegree, sortBy) {
+
+  // ── 9a. Decide which nodes to show ────────────────────────────────────────
+
+  let renderIds;
+
+  if (selectedNode) {
+    // Keep the full filtered view visible; dimming is applied after draw.
+    // Always ensure the selected node is present even if below the slider threshold.
+    renderIds = new Set(
+      data.nodes
+        .filter(n => (degree[n.id] || 0) >= minDegree)
+        .map(n => n.id)
+    );
+    renderIds.add(selectedNode);
+
+  } else if (selectedRange) {
+    // Bucket filter: show only nodes whose degree is within the bucket
+    renderIds = new Set(
+      data.nodes
+        .filter(n => degree[n.id] >= selectedRange.min && degree[n.id] <= selectedRange.max)
+        .map(n => n.id)
+    );
+
+  } else {
+    // Default: top 30 % (slider threshold)
+    renderIds = new Set(
+      data.nodes
+        .filter(n => (degree[n.id] || 0) >= minDegree)
+        .map(n => n.id)
+    );
+  }
+
+  const filteredNodes = data.nodes.filter(n => renderIds.has(n.id));
+  const filteredLinks = data.links.filter(
+    l => renderIds.has(l.source) && renderIds.has(l.target)
+  );
+
+  // Update stats
+  document.getElementById("stat-nodes").textContent = filteredNodes.length;
+  document.getElementById("stat-links").textContent = filteredLinks.length;
+
+  // Show / hide empty state
+  const empty   = document.getElementById("empty");
+  const wrapper = document.getElementById("diagram-wrapper");
+  if (filteredNodes.length === 0) {
+    empty.style.display   = "block";
+    wrapper.style.display = "none";
+    return;
+  }
+  empty.style.display   = "none";
+  wrapper.style.display = "block";
+
+  // Focus banner (shown only in default view, not when a selection is active)
+  const banner = document.getElementById("focus-banner");
+  banner.classList.toggle("visible", !selectedNode && !selectedRange);
+
+  // ── 9b. Sort ──────────────────────────────────────────────────────────────
+
+  let sorted;
+  if (sortBy === "degree") {
+    const byDeg = [...filteredNodes].sort((a, b) => degree[b.id] - degree[a.id]);
+    // Interleave so the highest-degree node ends up near center
+    const left  = byDeg.filter((_, i) => i % 2 === 0).reverse();
+    const right = byDeg.filter((_, i) => i % 2 !== 0);
+    sorted = [...left, ...right];
+  } else if (sortBy === "ecosystem") {
+    sorted = [...filteredNodes].sort((a, b) => {
+      const ea = getEcosystem(a.id), eb = getEcosystem(b.id);
+      if (ea !== eb) return ea.localeCompare(eb);
+      return degree[b.id] - degree[a.id];
+    });
+  } else {
+    sorted = [...filteredNodes].sort((a, b) => a.id.localeCompare(b.id));
+  }
+
+  // ── 9c. X scale ───────────────────────────────────────────────────────────
+
+  const svgWidth = MARGIN.left + sorted.length * NODE_SPACING + MARGIN.right;
+  const xScale   = d3.scalePoint()
+    .domain(sorted.map(n => n.id))
+    .range([MARGIN.left, svgWidth - MARGIN.right])
+    .padding(0.5);
+
+  // ── 9d. SVG setup ─────────────────────────────────────────────────────────
+
+  const svg = d3.select("#diagram")
+    .attr("width",  svgWidth)
+    .attr("height", SVG_HEIGHT);
+  svg.selectAll("*").remove();
+
+  // ── 9e. Adjacency index ───────────────────────────────────────────────────
+
+  const neighbors = {};
+  sorted.forEach(n => { neighbors[n.id] = new Set(); });
+  filteredLinks.forEach(l => {
+    neighbors[l.source]?.add(l.target);
+    neighbors[l.target]?.add(l.source);
+  });
+
+  // ── 9f. Arc path ──────────────────────────────────────────────────────────
+
+  function arcPath(src, tgt) {
+    const x1 = xScale(src), x2 = xScale(tgt);
+    const mx  = (x1 + x2) / 2;
+    const h   = Math.abs(x2 - x1) * ARC_SCALE;
+    return `M${x1},${BASELINE_Y} Q${mx},${BASELINE_Y - h} ${x2},${BASELINE_Y}`;
+  }
+
+  // ── 9g. Draw arcs ─────────────────────────────────────────────────────────
+
+  const arcGroup = svg.append("g").attr("class", "arcs");
+  const arcs = arcGroup.selectAll("path.arc")
+    .data(filteredLinks, d => `${d.source}||${d.target}`)
+    .join("path")
+      .attr("class", "arc")
+      .attr("d",     d => arcPath(d.source, d.target))
+      .attr("stroke",d => colorOf(d.source))
+      .attr("stroke-width", 1);
+
+  // ── 9h. Draw nodes ────────────────────────────────────────────────────────
+
+  const nodeGroup = svg.append("g").attr("class", "nodes");
+  const nodes = nodeGroup.selectAll("circle.node")
+    .data(sorted, d => d.id)
+    .join("circle")
+      .attr("class", "node")
+      .attr("cx",  d => xScale(d.id))
+      .attr("cy",  BASELINE_Y)
+      .attr("r",   d => degree[d.id] >= LABEL_THRESH ? NODE_R_LARGE : NODE_R)
+      .attr("fill",d => colorOf(d.id))
+      .attr("stroke","#0d1117")
+      .attr("stroke-width", 1);
+
+  // ── 9i. Draw labels ───────────────────────────────────────────────────────
+
+  const labelGroup = svg.append("g").attr("class", "labels");
+  const labels = labelGroup.selectAll("text.node-label")
+    .data(sorted, d => d.id)
+    .join("text")
+      .attr("class", d => `node-label${degree[d.id] >= LABEL_THRESH ? " prominent" : ""}`)
+      .attr("x",   d => xScale(d.id))
+      .attr("y",   BASELINE_Y + 8)
+      .attr("text-anchor", "end")
+      .attr("transform", d => {
+        const x = xScale(d.id);
+        return `rotate(-60, ${x}, ${BASELINE_Y + 8})`;
+      })
+      // Axis labels: artifact name only (no version) to keep them short
+      .text(d => {
+        if (degree[d.id] < LABEL_THRESH) return "";
+        return artifactName(d.id);
+      });
+
+  // ── 9j. Apply persistent selection state ─────────────────────────────────
+  //
+  // DIRECTION: source → target means "source DEPENDS_ON target".
+  // We highlight INCOMING edges only (l.target === selectedNode) so the user
+  // sees "which libraries depend on the selected one", not the other way around.
+
+  if (selectedNode) {
+    // Collect nodes that depend on the selected one (incoming sources)
+    const dependents = new Set();
+    filteredLinks.forEach(l => {
+      if (l.target === selectedNode) dependents.add(l.source);
+    });
+
+    // Dim every arc that does NOT point TO the selected node
+    arcs
+      .classed("dimmed",      l => l.target !== selectedNode)
+      .classed("highlighted", l => l.target === selectedNode);
+
+    // Dim every node that is neither the selected one nor a dependent
+    nodes
+      .classed("dimmed", n => n.id !== selectedNode && !dependents.has(n.id))
+      .classed("pinned", n => n.id === selectedNode);
+
+    labels
+      .classed("dimmed", n => n.id !== selectedNode && !dependents.has(n.id));
+
+    // Always show the label for the selected node
+    labels.filter(n => n.id === selectedNode)
+      .classed("dimmed", false)
+      .classed("prominent", true)
+      .text(d => artifactName(d.id));
+  }
+
+  // ── 9k. Hover & click interaction ─────────────────────────────────────────
+
+  const tooltip = d3.select("#tooltip");
+
+  // Pre-compute in-degree for tooltips in focus mode
+  const inDegreeMap = {};
+  filteredLinks.forEach(l => {
+    inDegreeMap[l.target] = (inDegreeMap[l.target] || 0) + 1;
+  });
+
+  nodes
+    .on("mouseover", function(event, d) {
+      const nbrs = neighbors[d.id];
+
+      if (selectedNode || selectedRange) {
+        // In focus mode: show tooltip with in-degree info, no re-dimming
+        showTooltip(event, d, nbrs, degree, inDegreeMap);
+        return;
+      }
+
+      // Normal mode: dim everything except hovered node and its neighbors
+      arcs
+        .classed("dimmed",      l => l.source !== d.id && l.target !== d.id)
+        .classed("highlighted", l => l.source === d.id || l.target === d.id);
+      nodes.classed("dimmed", n => n.id !== d.id && !nbrs.has(n.id));
+      labels.classed("dimmed",n => n.id !== d.id && !nbrs.has(n.id));
+
+      showTooltip(event, d, nbrs, degree, null);
+    })
+    .on("mousemove", function(event) {
+      tooltip
+        .style("left", (event.clientX + 16) + "px")
+        .style("top",  (event.clientY - 32) + "px");
+    })
+    .on("mouseleave", function() {
+      if (!selectedNode && !selectedRange) {
+        arcs.classed("dimmed", false).classed("highlighted", false);
+        nodes.classed("dimmed", false);
+        labels.classed("dimmed", false);
+      }
+      tooltip.style("opacity", 0);
+    })
+    .on("click", function(event, d) {
+      // Clicking a graph node triggers the same focus logic as sidebar
+      event.stopPropagation();
+      onLibClick(d.id);
+    });
+
+  // Click on SVG background → clear selection
+  svg.on("click", function() {
+    if (selectedNode || selectedRange) {
+      const slider  = document.getElementById("min-degree");
+      const sortSel = document.getElementById("sort-by");
+      clearSelection();
+      render(data, degree, +slider.value, sortSel.value);
+    }
+  });
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 10. Tooltip helper
+// ─────────────────────────────────────────────────────────────────────────────
+
+function showTooltip(event, d, nbrs, degree, inDegree) {
+  const tooltip   = d3.select("#tooltip");
+  const name      = d.id.split("@")[0];
+  const version   = d.id.includes("@") ? d.id.split("@")[1] : "–";
+  const eco       = getEcosystem(d.id);
+  const deg       = degree[d.id];
+
+  // In focus mode show who depends on this node (in-degree within visible set)
+  const inDeg     = inDegree ? (inDegree[d.id] || 0) : null;
+  const degLine   = inDeg !== null
+    ? `<div class="tip-degree">⬡ ${inDeg} librar${inDeg === 1 ? "y depends" : "ies depend"} on this</div>`
+    : `<div class="tip-degree">⬡ ${deg} connections &middot; ${nbrs.size} neighbors</div>`;
+
+  const focusHint = !selectedNode && !selectedRange
+    ? `<div class="tip-hint">Click to see who depends on this library</div>`
+    : "";
+
+  tooltip
+    .style("opacity", 1)
+    .style("left", (event.clientX + 16) + "px")
+    .style("top",  (event.clientY - 32) + "px")
+    .html(`
+      <div class="tip-name">${name}</div>
+      <div class="tip-version">v${version}</div>
+      <div class="tip-eco">${eco}</div>
+      ${degLine}
+      ${focusHint}
+    `);
+}
+</script>
+</body>
+</html>

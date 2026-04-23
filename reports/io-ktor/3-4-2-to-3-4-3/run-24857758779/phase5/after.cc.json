@@ -1,0 +1,1533 @@
+{
+  "projectName": "io_ktor_after",
+  "apiVersion": "1.3",
+  "nodes": [
+    {
+      "name": "io_ktor_after",
+      "type": "Folder",
+      "attributes": {
+        "rloc": 0,
+        "mcc": 1,
+        "impacted": 0,
+        "impact_direct": 0,
+        "impact_transitive": 0,
+        "screen_impacted": 0,
+        "screen_names": 0
+      },
+      "children": [
+        {
+          "name": "app",
+          "type": "Folder",
+          "attributes": {
+            "rloc": 0,
+            "mcc": 1,
+            "impacted": 0,
+            "impact_direct": 0,
+            "impact_transitive": 0,
+            "screen_impacted": 0,
+            "screen_names": 0
+          },
+          "children": [
+            {
+              "name": "src",
+              "type": "Folder",
+              "attributes": {
+                "rloc": 0,
+                "mcc": 1,
+                "impacted": 0,
+                "impact_direct": 0,
+                "impact_transitive": 0,
+                "screen_impacted": 0,
+                "screen_names": 0
+              },
+              "children": [
+                {
+                  "name": "main",
+                  "type": "Folder",
+                  "attributes": {
+                    "rloc": 0,
+                    "mcc": 1,
+                    "impacted": 0,
+                    "impact_direct": 0,
+                    "impact_transitive": 0,
+                    "screen_impacted": 0,
+                    "screen_names": 0
+                  },
+                  "children": [
+                    {
+                      "name": "kotlin",
+                      "type": "Folder",
+                      "attributes": {
+                        "rloc": 0,
+                        "mcc": 1,
+                        "impacted": 0,
+                        "impact_direct": 0,
+                        "impact_transitive": 0,
+                        "screen_impacted": 0,
+                        "screen_names": 0
+                      },
+                      "children": [
+                        {
+                          "name": "co",
+                          "type": "Folder",
+                          "attributes": {
+                            "rloc": 0,
+                            "mcc": 1,
+                            "impacted": 0,
+                            "impact_direct": 0,
+                            "impact_transitive": 0,
+                            "screen_impacted": 0,
+                            "screen_names": 0
+                          },
+                          "children": [
+                            {
+                              "name": "touchlab",
+                              "type": "Folder",
+                              "attributes": {
+                                "rloc": 0,
+                                "mcc": 1,
+                                "impacted": 0,
+                                "impact_direct": 0,
+                                "impact_transitive": 0,
+                                "screen_impacted": 0,
+                                "screen_names": 0
+                              },
+                              "children": [
+                                {
+                                  "name": "kampkit",
+                                  "type": "Folder",
+                                  "attributes": {
+                                    "rloc": 0,
+                                    "mcc": 1,
+                                    "impacted": 0,
+                                    "impact_direct": 0,
+                                    "impact_transitive": 0,
+                                    "screen_impacted": 0,
+                                    "screen_names": 0
+                                  },
+                                  "children": [
+                                    {
+                                      "name": "android",
+                                      "type": "Folder",
+                                      "attributes": {
+                                        "rloc": 0,
+                                        "mcc": 1,
+                                        "impacted": 0,
+                                        "impact_direct": 0,
+                                        "impact_transitive": 0,
+                                        "screen_impacted": 0,
+                                        "screen_names": 0
+                                      },
+                                      "children": [
+                                        {
+                                          "name": "MainActivity.kt",
+                                          "type": "File",
+                                          "attributes": {
+                                            "rloc": 25,
+                                            "mcc": 1,
+                                            "impacted": 1,
+                                            "impact_direct": 0,
+                                            "impact_transitive": 1,
+                                            "screen_impacted": 1,
+                                            "screen_names": 1
+                                          },
+                                          "children": []
+                                        },
+                                        {
+                                          "name": "MainApp.kt",
+                                          "type": "File",
+                                          "attributes": {
+                                            "rloc": 35,
+                                            "mcc": 1,
+                                            "impacted": 1,
+                                            "impact_direct": 0,
+                                            "impact_transitive": 1,
+                                            "screen_impacted": 1,
+                                            "screen_names": 1
+                                          },
+                                          "children": []
+                                        },
+                                        {
+                                          "name": "ui",
+                                          "type": "Folder",
+                                          "attributes": {
+                                            "rloc": 0,
+                                            "mcc": 1,
+                                            "impacted": 0,
+                                            "impact_direct": 0,
+                                            "impact_transitive": 0,
+                                            "screen_impacted": 0,
+                                            "screen_names": 0
+                                          },
+                                          "children": [
+                                            {
+                                              "name": "Composables.kt",
+                                              "type": "File",
+                                              "attributes": {
+                                                "rloc": 194,
+                                                "mcc": 4,
+                                                "impacted": 1,
+                                                "impact_direct": 0,
+                                                "impact_transitive": 1,
+                                                "screen_impacted": 1,
+                                                "screen_names": 12
+                                              },
+                                              "children": []
+                                            },
+                                            {
+                                              "name": "theme",
+                                              "type": "Folder",
+                                              "attributes": {
+                                                "rloc": 0,
+                                                "mcc": 1,
+                                                "impacted": 0,
+                                                "impact_direct": 0,
+                                                "impact_transitive": 0,
+                                                "screen_impacted": 0,
+                                                "screen_names": 0
+                                              },
+                                              "children": [
+                                                {
+                                                  "name": "Color.kt",
+                                                  "type": "File",
+                                                  "attributes": {
+                                                    "rloc": 6,
+                                                    "mcc": 1,
+                                                    "impacted": 0,
+                                                    "impact_direct": 0,
+                                                    "impact_transitive": 0,
+                                                    "screen_impacted": 0,
+                                                    "screen_names": 0
+                                                  },
+                                                  "children": []
+                                                },
+                                                {
+                                                  "name": "Shapes.kt",
+                                                  "type": "File",
+                                                  "attributes": {
+                                                    "rloc": 9,
+                                                    "mcc": 1,
+                                                    "impacted": 0,
+                                                    "impact_direct": 0,
+                                                    "impact_transitive": 0,
+                                                    "screen_impacted": 0,
+                                                    "screen_names": 0
+                                                  },
+                                                  "children": []
+                                                },
+                                                {
+                                                  "name": "Theme.kt",
+                                                  "type": "File",
+                                                  "attributes": {
+                                                    "rloc": 30,
+                                                    "mcc": 3,
+                                                    "impacted": 0,
+                                                    "impact_direct": 0,
+                                                    "impact_transitive": 0,
+                                                    "screen_impacted": 0,
+                                                    "screen_names": 0
+                                                  },
+                                                  "children": []
+                                                },
+                                                {
+                                                  "name": "Typography.kt",
+                                                  "type": "File",
+                                                  "attributes": {
+                                                    "rloc": 13,
+                                                    "mcc": 1,
+                                                    "impacted": 0,
+                                                    "impact_direct": 0,
+                                                    "impact_transitive": 0,
+                                                    "screen_impacted": 0,
+                                                    "screen_names": 0
+                                                  },
+                                                  "children": []
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "shared",
+          "type": "Folder",
+          "attributes": {
+            "rloc": 0,
+            "mcc": 1,
+            "impacted": 0,
+            "impact_direct": 0,
+            "impact_transitive": 0,
+            "screen_impacted": 0,
+            "screen_names": 0
+          },
+          "children": [
+            {
+              "name": "src",
+              "type": "Folder",
+              "attributes": {
+                "rloc": 0,
+                "mcc": 1,
+                "impacted": 0,
+                "impact_direct": 0,
+                "impact_transitive": 0,
+                "screen_impacted": 0,
+                "screen_names": 0
+              },
+              "children": [
+                {
+                  "name": "androidMain",
+                  "type": "Folder",
+                  "attributes": {
+                    "rloc": 0,
+                    "mcc": 1,
+                    "impacted": 0,
+                    "impact_direct": 0,
+                    "impact_transitive": 0,
+                    "screen_impacted": 0,
+                    "screen_names": 0
+                  },
+                  "children": [
+                    {
+                      "name": "kotlin",
+                      "type": "Folder",
+                      "attributes": {
+                        "rloc": 0,
+                        "mcc": 1,
+                        "impacted": 0,
+                        "impact_direct": 0,
+                        "impact_transitive": 0,
+                        "screen_impacted": 0,
+                        "screen_names": 0
+                      },
+                      "children": [
+                        {
+                          "name": "co",
+                          "type": "Folder",
+                          "attributes": {
+                            "rloc": 0,
+                            "mcc": 1,
+                            "impacted": 0,
+                            "impact_direct": 0,
+                            "impact_transitive": 0,
+                            "screen_impacted": 0,
+                            "screen_names": 0
+                          },
+                          "children": [
+                            {
+                              "name": "touchlab",
+                              "type": "Folder",
+                              "attributes": {
+                                "rloc": 0,
+                                "mcc": 1,
+                                "impacted": 0,
+                                "impact_direct": 0,
+                                "impact_transitive": 0,
+                                "screen_impacted": 0,
+                                "screen_names": 0
+                              },
+                              "children": [
+                                {
+                                  "name": "kampkit",
+                                  "type": "Folder",
+                                  "attributes": {
+                                    "rloc": 0,
+                                    "mcc": 1,
+                                    "impacted": 0,
+                                    "impact_direct": 0,
+                                    "impact_transitive": 0,
+                                    "screen_impacted": 0,
+                                    "screen_names": 0
+                                  },
+                                  "children": [
+                                    {
+                                      "name": "KoinAndroid.kt",
+                                      "type": "File",
+                                      "attributes": {
+                                        "rloc": 24,
+                                        "mcc": 1,
+                                        "impacted": 1,
+                                        "impact_direct": 1,
+                                        "impact_transitive": 0,
+                                        "screen_impacted": 0,
+                                        "screen_names": 0
+                                      },
+                                      "children": []
+                                    },
+                                    {
+                                      "name": "models",
+                                      "type": "Folder",
+                                      "attributes": {
+                                        "rloc": 0,
+                                        "mcc": 1,
+                                        "impacted": 0,
+                                        "impact_direct": 0,
+                                        "impact_transitive": 0,
+                                        "screen_impacted": 0,
+                                        "screen_names": 0
+                                      },
+                                      "children": [
+                                        {
+                                          "name": "ViewModel.kt",
+                                          "type": "File",
+                                          "attributes": {
+                                            "rloc": 7,
+                                            "mcc": 1,
+                                            "impacted": 0,
+                                            "impact_direct": 0,
+                                            "impact_transitive": 0,
+                                            "screen_impacted": 0,
+                                            "screen_names": 0
+                                          },
+                                          "children": []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "androidUnitTest",
+                  "type": "Folder",
+                  "attributes": {
+                    "rloc": 0,
+                    "mcc": 1,
+                    "impacted": 0,
+                    "impact_direct": 0,
+                    "impact_transitive": 0,
+                    "screen_impacted": 0,
+                    "screen_names": 0
+                  },
+                  "children": [
+                    {
+                      "name": "kotlin",
+                      "type": "Folder",
+                      "attributes": {
+                        "rloc": 0,
+                        "mcc": 1,
+                        "impacted": 0,
+                        "impact_direct": 0,
+                        "impact_transitive": 0,
+                        "screen_impacted": 0,
+                        "screen_names": 0
+                      },
+                      "children": [
+                        {
+                          "name": "co",
+                          "type": "Folder",
+                          "attributes": {
+                            "rloc": 0,
+                            "mcc": 1,
+                            "impacted": 0,
+                            "impact_direct": 0,
+                            "impact_transitive": 0,
+                            "screen_impacted": 0,
+                            "screen_names": 0
+                          },
+                          "children": [
+                            {
+                              "name": "touchlab",
+                              "type": "Folder",
+                              "attributes": {
+                                "rloc": 0,
+                                "mcc": 1,
+                                "impacted": 0,
+                                "impact_direct": 0,
+                                "impact_transitive": 0,
+                                "screen_impacted": 0,
+                                "screen_names": 0
+                              },
+                              "children": [
+                                {
+                                  "name": "kampkit",
+                                  "type": "Folder",
+                                  "attributes": {
+                                    "rloc": 0,
+                                    "mcc": 1,
+                                    "impacted": 0,
+                                    "impact_direct": 0,
+                                    "impact_transitive": 0,
+                                    "screen_impacted": 0,
+                                    "screen_names": 0
+                                  },
+                                  "children": [
+                                    {
+                                      "name": "KoinTest.kt",
+                                      "type": "File",
+                                      "attributes": {
+                                        "rloc": 35,
+                                        "mcc": 1,
+                                        "impacted": 0,
+                                        "impact_direct": 0,
+                                        "impact_transitive": 0,
+                                        "screen_impacted": 0,
+                                        "screen_names": 0
+                                      },
+                                      "children": []
+                                    },
+                                    {
+                                      "name": "TestUtilAndroid.kt",
+                                      "type": "File",
+                                      "attributes": {
+                                        "rloc": 6,
+                                        "mcc": 1,
+                                        "impacted": 0,
+                                        "impact_direct": 0,
+                                        "impact_transitive": 0,
+                                        "screen_impacted": 0,
+                                        "screen_names": 0
+                                      },
+                                      "children": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "commonMain",
+                  "type": "Folder",
+                  "attributes": {
+                    "rloc": 0,
+                    "mcc": 1,
+                    "impacted": 0,
+                    "impact_direct": 0,
+                    "impact_transitive": 0,
+                    "screen_impacted": 0,
+                    "screen_names": 0
+                  },
+                  "children": [
+                    {
+                      "name": "kotlin",
+                      "type": "Folder",
+                      "attributes": {
+                        "rloc": 0,
+                        "mcc": 1,
+                        "impacted": 0,
+                        "impact_direct": 0,
+                        "impact_transitive": 0,
+                        "screen_impacted": 0,
+                        "screen_names": 0
+                      },
+                      "children": [
+                        {
+                          "name": "co",
+                          "type": "Folder",
+                          "attributes": {
+                            "rloc": 0,
+                            "mcc": 1,
+                            "impacted": 0,
+                            "impact_direct": 0,
+                            "impact_transitive": 0,
+                            "screen_impacted": 0,
+                            "screen_names": 0
+                          },
+                          "children": [
+                            {
+                              "name": "touchlab",
+                              "type": "Folder",
+                              "attributes": {
+                                "rloc": 0,
+                                "mcc": 1,
+                                "impacted": 0,
+                                "impact_direct": 0,
+                                "impact_transitive": 0,
+                                "screen_impacted": 0,
+                                "screen_names": 0
+                              },
+                              "children": [
+                                {
+                                  "name": "kampkit",
+                                  "type": "Folder",
+                                  "attributes": {
+                                    "rloc": 0,
+                                    "mcc": 1,
+                                    "impacted": 0,
+                                    "impact_direct": 0,
+                                    "impact_transitive": 0,
+                                    "screen_impacted": 0,
+                                    "screen_names": 0
+                                  },
+                                  "children": [
+                                    {
+                                      "name": "AppInfo.kt",
+                                      "type": "File",
+                                      "attributes": {
+                                        "rloc": 4,
+                                        "mcc": 1,
+                                        "impacted": 0,
+                                        "impact_direct": 0,
+                                        "impact_transitive": 0,
+                                        "screen_impacted": 0,
+                                        "screen_names": 0
+                                      },
+                                      "children": []
+                                    },
+                                    {
+                                      "name": "DatabaseHelper.kt",
+                                      "type": "File",
+                                      "attributes": {
+                                        "rloc": 45,
+                                        "mcc": 1,
+                                        "impacted": 0,
+                                        "impact_direct": 0,
+                                        "impact_transitive": 0,
+                                        "screen_impacted": 0,
+                                        "screen_names": 0
+                                      },
+                                      "children": []
+                                    },
+                                    {
+                                      "name": "Koin.kt",
+                                      "type": "File",
+                                      "attributes": {
+                                        "rloc": 66,
+                                        "mcc": 5,
+                                        "impacted": 1,
+                                        "impact_direct": 0,
+                                        "impact_transitive": 1,
+                                        "screen_impacted": 0,
+                                        "screen_names": 0
+                                      },
+                                      "children": []
+                                    },
+                                    {
+                                      "name": "ktor",
+                                      "type": "Folder",
+                                      "attributes": {
+                                        "rloc": 0,
+                                        "mcc": 1,
+                                        "impacted": 0,
+                                        "impact_direct": 0,
+                                        "impact_transitive": 0,
+                                        "screen_impacted": 0,
+                                        "screen_names": 0
+                                      },
+                                      "children": [
+                                        {
+                                          "name": "DogApi.kt",
+                                          "type": "File",
+                                          "attributes": {
+                                            "rloc": 5,
+                                            "mcc": 1,
+                                            "impacted": 0,
+                                            "impact_direct": 0,
+                                            "impact_transitive": 0,
+                                            "screen_impacted": 0,
+                                            "screen_names": 0
+                                          },
+                                          "children": []
+                                        },
+                                        {
+                                          "name": "DogApiImpl.kt",
+                                          "type": "File",
+                                          "attributes": {
+                                            "rloc": 50,
+                                            "mcc": 1,
+                                            "impacted": 1,
+                                            "impact_direct": 1,
+                                            "impact_transitive": 0,
+                                            "screen_impacted": 0,
+                                            "screen_names": 0
+                                          },
+                                          "children": []
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "name": "models",
+                                      "type": "Folder",
+                                      "attributes": {
+                                        "rloc": 0,
+                                        "mcc": 1,
+                                        "impacted": 0,
+                                        "impact_direct": 0,
+                                        "impact_transitive": 0,
+                                        "screen_impacted": 0,
+                                        "screen_names": 0
+                                      },
+                                      "children": [
+                                        {
+                                          "name": "BreedRepository.kt",
+                                          "type": "File",
+                                          "attributes": {
+                                            "rloc": 48,
+                                            "mcc": 4,
+                                            "impacted": 1,
+                                            "impact_direct": 0,
+                                            "impact_transitive": 1,
+                                            "screen_impacted": 0,
+                                            "screen_names": 0
+                                          },
+                                          "children": []
+                                        },
+                                        {
+                                          "name": "BreedViewModel.kt",
+                                          "type": "File",
+                                          "attributes": {
+                                            "rloc": 99,
+                                            "mcc": 15,
+                                            "impacted": 1,
+                                            "impact_direct": 0,
+                                            "impact_transitive": 1,
+                                            "screen_impacted": 1,
+                                            "screen_names": 1
+                                          },
+                                          "children": []
+                                        },
+                                        {
+                                          "name": "ViewModel.kt",
+                                          "type": "File",
+                                          "attributes": {
+                                            "rloc": 4,
+                                            "mcc": 1,
+                                            "impacted": 0,
+                                            "impact_direct": 0,
+                                            "impact_transitive": 0,
+                                            "screen_impacted": 0,
+                                            "screen_names": 0
+                                          },
+                                          "children": []
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "name": "response",
+                                      "type": "Folder",
+                                      "attributes": {
+                                        "rloc": 0,
+                                        "mcc": 1,
+                                        "impacted": 0,
+                                        "impact_direct": 0,
+                                        "impact_transitive": 0,
+                                        "screen_impacted": 0,
+                                        "screen_names": 0
+                                      },
+                                      "children": [
+                                        {
+                                          "name": "BreedResult.kt",
+                                          "type": "File",
+                                          "attributes": {
+                                            "rloc": 4,
+                                            "mcc": 1,
+                                            "impacted": 0,
+                                            "impact_direct": 0,
+                                            "impact_transitive": 0,
+                                            "screen_impacted": 0,
+                                            "screen_names": 0
+                                          },
+                                          "children": []
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "name": "sqldelight",
+                                      "type": "Folder",
+                                      "attributes": {
+                                        "rloc": 0,
+                                        "mcc": 1,
+                                        "impacted": 0,
+                                        "impact_direct": 0,
+                                        "impact_transitive": 0,
+                                        "screen_impacted": 0,
+                                        "screen_names": 0
+                                      },
+                                      "children": [
+                                        {
+                                          "name": "CoroutinesExtensions.kt",
+                                          "type": "File",
+                                          "attributes": {
+                                            "rloc": 16,
+                                            "mcc": 1,
+                                            "impacted": 0,
+                                            "impact_direct": 0,
+                                            "impact_transitive": 0,
+                                            "screen_impacted": 0,
+                                            "screen_names": 0
+                                          },
+                                          "children": []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "commonTest",
+                  "type": "Folder",
+                  "attributes": {
+                    "rloc": 0,
+                    "mcc": 1,
+                    "impacted": 0,
+                    "impact_direct": 0,
+                    "impact_transitive": 0,
+                    "screen_impacted": 0,
+                    "screen_names": 0
+                  },
+                  "children": [
+                    {
+                      "name": "kotlin",
+                      "type": "Folder",
+                      "attributes": {
+                        "rloc": 0,
+                        "mcc": 1,
+                        "impacted": 0,
+                        "impact_direct": 0,
+                        "impact_transitive": 0,
+                        "screen_impacted": 0,
+                        "screen_names": 0
+                      },
+                      "children": [
+                        {
+                          "name": "co",
+                          "type": "Folder",
+                          "attributes": {
+                            "rloc": 0,
+                            "mcc": 1,
+                            "impacted": 0,
+                            "impact_direct": 0,
+                            "impact_transitive": 0,
+                            "screen_impacted": 0,
+                            "screen_names": 0
+                          },
+                          "children": [
+                            {
+                              "name": "touchlab",
+                              "type": "Folder",
+                              "attributes": {
+                                "rloc": 0,
+                                "mcc": 1,
+                                "impacted": 0,
+                                "impact_direct": 0,
+                                "impact_transitive": 0,
+                                "screen_impacted": 0,
+                                "screen_names": 0
+                              },
+                              "children": [
+                                {
+                                  "name": "kampkit",
+                                  "type": "Folder",
+                                  "attributes": {
+                                    "rloc": 0,
+                                    "mcc": 1,
+                                    "impacted": 0,
+                                    "impact_direct": 0,
+                                    "impact_transitive": 0,
+                                    "screen_impacted": 0,
+                                    "screen_names": 0
+                                  },
+                                  "children": [
+                                    {
+                                      "name": "BreedRepositoryTest.kt",
+                                      "type": "File",
+                                      "attributes": {
+                                        "rloc": 128,
+                                        "mcc": 7,
+                                        "impacted": 1,
+                                        "impact_direct": 0,
+                                        "impact_transitive": 1,
+                                        "screen_impacted": 0,
+                                        "screen_names": 0
+                                      },
+                                      "children": []
+                                    },
+                                    {
+                                      "name": "BreedViewModelTest.kt",
+                                      "type": "File",
+                                      "attributes": {
+                                        "rloc": 249,
+                                        "mcc": 9,
+                                        "impacted": 1,
+                                        "impact_direct": 0,
+                                        "impact_transitive": 1,
+                                        "screen_impacted": 0,
+                                        "screen_names": 0
+                                      },
+                                      "children": []
+                                    },
+                                    {
+                                      "name": "DogApiTest.kt",
+                                      "type": "File",
+                                      "attributes": {
+                                        "rloc": 67,
+                                        "mcc": 1,
+                                        "impacted": 1,
+                                        "impact_direct": 1,
+                                        "impact_transitive": 0,
+                                        "screen_impacted": 0,
+                                        "screen_names": 0
+                                      },
+                                      "children": []
+                                    },
+                                    {
+                                      "name": "SqlDelightTest.kt",
+                                      "type": "File",
+                                      "attributes": {
+                                        "rloc": 69,
+                                        "mcc": 1,
+                                        "impacted": 0,
+                                        "impact_direct": 0,
+                                        "impact_transitive": 0,
+                                        "screen_impacted": 0,
+                                        "screen_names": 0
+                                      },
+                                      "children": []
+                                    },
+                                    {
+                                      "name": "TestAppInfo.kt",
+                                      "type": "File",
+                                      "attributes": {
+                                        "rloc": 4,
+                                        "mcc": 1,
+                                        "impacted": 0,
+                                        "impact_direct": 0,
+                                        "impact_transitive": 0,
+                                        "screen_impacted": 0,
+                                        "screen_names": 0
+                                      },
+                                      "children": []
+                                    },
+                                    {
+                                      "name": "TestUtil.kt",
+                                      "type": "File",
+                                      "attributes": {
+                                        "rloc": 3,
+                                        "mcc": 1,
+                                        "impacted": 0,
+                                        "impact_direct": 0,
+                                        "impact_transitive": 0,
+                                        "screen_impacted": 0,
+                                        "screen_names": 0
+                                      },
+                                      "children": []
+                                    },
+                                    {
+                                      "name": "mock",
+                                      "type": "Folder",
+                                      "attributes": {
+                                        "rloc": 0,
+                                        "mcc": 1,
+                                        "impacted": 0,
+                                        "impact_direct": 0,
+                                        "impact_transitive": 0,
+                                        "screen_impacted": 0,
+                                        "screen_names": 0
+                                      },
+                                      "children": [
+                                        {
+                                          "name": "ClockMock.kt",
+                                          "type": "File",
+                                          "attributes": {
+                                            "rloc": 6,
+                                            "mcc": 1,
+                                            "impacted": 0,
+                                            "impact_direct": 0,
+                                            "impact_transitive": 0,
+                                            "screen_impacted": 0,
+                                            "screen_names": 0
+                                          },
+                                          "children": []
+                                        },
+                                        {
+                                          "name": "DogApiMock.kt",
+                                          "type": "File",
+                                          "attributes": {
+                                            "rloc": 26,
+                                            "mcc": 1,
+                                            "impacted": 1,
+                                            "impact_direct": 0,
+                                            "impact_transitive": 1,
+                                            "screen_impacted": 0,
+                                            "screen_names": 0
+                                          },
+                                          "children": []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "iosMain",
+                  "type": "Folder",
+                  "attributes": {
+                    "rloc": 0,
+                    "mcc": 1,
+                    "impacted": 0,
+                    "impact_direct": 0,
+                    "impact_transitive": 0,
+                    "screen_impacted": 0,
+                    "screen_names": 0
+                  },
+                  "children": [
+                    {
+                      "name": "kotlin",
+                      "type": "Folder",
+                      "attributes": {
+                        "rloc": 0,
+                        "mcc": 1,
+                        "impacted": 0,
+                        "impact_direct": 0,
+                        "impact_transitive": 0,
+                        "screen_impacted": 0,
+                        "screen_names": 0
+                      },
+                      "children": [
+                        {
+                          "name": "co",
+                          "type": "Folder",
+                          "attributes": {
+                            "rloc": 0,
+                            "mcc": 1,
+                            "impacted": 0,
+                            "impact_direct": 0,
+                            "impact_transitive": 0,
+                            "screen_impacted": 0,
+                            "screen_names": 0
+                          },
+                          "children": [
+                            {
+                              "name": "touchlab",
+                              "type": "Folder",
+                              "attributes": {
+                                "rloc": 0,
+                                "mcc": 1,
+                                "impacted": 0,
+                                "impact_direct": 0,
+                                "impact_transitive": 0,
+                                "screen_impacted": 0,
+                                "screen_names": 0
+                              },
+                              "children": [
+                                {
+                                  "name": "kampkit",
+                                  "type": "Folder",
+                                  "attributes": {
+                                    "rloc": 0,
+                                    "mcc": 1,
+                                    "impacted": 0,
+                                    "impact_direct": 0,
+                                    "impact_transitive": 0,
+                                    "screen_impacted": 0,
+                                    "screen_names": 0
+                                  },
+                                  "children": [
+                                    {
+                                      "name": "KermitExceptionHandler.kt",
+                                      "type": "File",
+                                      "attributes": {
+                                        "rloc": 7,
+                                        "mcc": 1,
+                                        "impacted": 0,
+                                        "impact_direct": 0,
+                                        "impact_transitive": 0,
+                                        "screen_impacted": 0,
+                                        "screen_names": 0
+                                      },
+                                      "children": []
+                                    },
+                                    {
+                                      "name": "KoinIOS.kt",
+                                      "type": "File",
+                                      "attributes": {
+                                        "rloc": 33,
+                                        "mcc": 1,
+                                        "impacted": 1,
+                                        "impact_direct": 1,
+                                        "impact_transitive": 0,
+                                        "screen_impacted": 0,
+                                        "screen_names": 0
+                                      },
+                                      "children": []
+                                    },
+                                    {
+                                      "name": "models",
+                                      "type": "Folder",
+                                      "attributes": {
+                                        "rloc": 0,
+                                        "mcc": 1,
+                                        "impacted": 0,
+                                        "impact_direct": 0,
+                                        "impact_transitive": 0,
+                                        "screen_impacted": 0,
+                                        "screen_names": 0
+                                      },
+                                      "children": [
+                                        {
+                                          "name": "ViewModel.kt",
+                                          "type": "File",
+                                          "attributes": {
+                                            "rloc": 8,
+                                            "mcc": 1,
+                                            "impacted": 0,
+                                            "impact_direct": 0,
+                                            "impact_transitive": 0,
+                                            "screen_impacted": 0,
+                                            "screen_names": 0
+                                          },
+                                          "children": []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "iosTest",
+                  "type": "Folder",
+                  "attributes": {
+                    "rloc": 0,
+                    "mcc": 1,
+                    "impacted": 0,
+                    "impact_direct": 0,
+                    "impact_transitive": 0,
+                    "screen_impacted": 0,
+                    "screen_names": 0
+                  },
+                  "children": [
+                    {
+                      "name": "kotlin",
+                      "type": "Folder",
+                      "attributes": {
+                        "rloc": 0,
+                        "mcc": 1,
+                        "impacted": 0,
+                        "impact_direct": 0,
+                        "impact_transitive": 0,
+                        "screen_impacted": 0,
+                        "screen_names": 0
+                      },
+                      "children": [
+                        {
+                          "name": "co",
+                          "type": "Folder",
+                          "attributes": {
+                            "rloc": 0,
+                            "mcc": 1,
+                            "impacted": 0,
+                            "impact_direct": 0,
+                            "impact_transitive": 0,
+                            "screen_impacted": 0,
+                            "screen_names": 0
+                          },
+                          "children": [
+                            {
+                              "name": "touchlab",
+                              "type": "Folder",
+                              "attributes": {
+                                "rloc": 0,
+                                "mcc": 1,
+                                "impacted": 0,
+                                "impact_direct": 0,
+                                "impact_transitive": 0,
+                                "screen_impacted": 0,
+                                "screen_names": 0
+                              },
+                              "children": [
+                                {
+                                  "name": "kampkit",
+                                  "type": "Folder",
+                                  "attributes": {
+                                    "rloc": 0,
+                                    "mcc": 1,
+                                    "impacted": 0,
+                                    "impact_direct": 0,
+                                    "impact_transitive": 0,
+                                    "screen_impacted": 0,
+                                    "screen_names": 0
+                                  },
+                                  "children": [
+                                    {
+                                      "name": "KoinTest.kt",
+                                      "type": "File",
+                                      "attributes": {
+                                        "rloc": 24,
+                                        "mcc": 1,
+                                        "impacted": 0,
+                                        "impact_direct": 0,
+                                        "impact_transitive": 0,
+                                        "screen_impacted": 0,
+                                        "screen_names": 0
+                                      },
+                                      "children": []
+                                    },
+                                    {
+                                      "name": "TestUtilIOS.kt",
+                                      "type": "File",
+                                      "attributes": {
+                                        "rloc": 5,
+                                        "mcc": 1,
+                                        "impacted": 0,
+                                        "impact_direct": 0,
+                                        "impact_transitive": 0,
+                                        "screen_impacted": 0,
+                                        "screen_names": 0
+                                      },
+                                      "children": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "tools",
+          "type": "Folder",
+          "attributes": {
+            "rloc": 0,
+            "mcc": 1,
+            "impacted": 0,
+            "impact_direct": 0,
+            "impact_transitive": 0,
+            "screen_impacted": 0,
+            "screen_names": 0
+          },
+          "children": [
+            {
+              "name": "kmp-impact-analyzer",
+              "type": "Folder",
+              "attributes": {
+                "rloc": 0,
+                "mcc": 1,
+                "impacted": 0,
+                "impact_direct": 0,
+                "impact_transitive": 0,
+                "screen_impacted": 0,
+                "screen_names": 0
+              },
+              "children": [
+                {
+                  "name": "tests",
+                  "type": "Folder",
+                  "attributes": {
+                    "rloc": 0,
+                    "mcc": 1,
+                    "impacted": 0,
+                    "impact_direct": 0,
+                    "impact_transitive": 0,
+                    "screen_impacted": 0,
+                    "screen_names": 0
+                  },
+                  "children": [
+                    {
+                      "name": "fixtures",
+                      "type": "Folder",
+                      "attributes": {
+                        "rloc": 0,
+                        "mcc": 1,
+                        "impacted": 0,
+                        "impact_direct": 0,
+                        "impact_transitive": 0,
+                        "screen_impacted": 0,
+                        "screen_names": 0
+                      },
+                      "children": [
+                        {
+                          "name": "sample_kotlin",
+                          "type": "Folder",
+                          "attributes": {
+                            "rloc": 0,
+                            "mcc": 1,
+                            "impacted": 0,
+                            "impact_direct": 0,
+                            "impact_transitive": 0,
+                            "screen_impacted": 0,
+                            "screen_names": 0
+                          },
+                          "children": [
+                            {
+                              "name": "ActualAndroid.kt",
+                              "type": "File",
+                              "attributes": {
+                                "rloc": 7,
+                                "mcc": 1,
+                                "impacted": 0,
+                                "impact_direct": 0,
+                                "impact_transitive": 0,
+                                "screen_impacted": 0,
+                                "screen_names": 0
+                              },
+                              "children": []
+                            },
+                            {
+                              "name": "AppModule.kt",
+                              "type": "File",
+                              "attributes": {
+                                "rloc": 7,
+                                "mcc": 1,
+                                "impacted": 1,
+                                "impact_direct": 0,
+                                "impact_transitive": 1,
+                                "screen_impacted": 0,
+                                "screen_names": 0
+                              },
+                              "children": []
+                            },
+                            {
+                              "name": "CommonModule.kt",
+                              "type": "File",
+                              "attributes": {
+                                "rloc": 8,
+                                "mcc": 1,
+                                "impacted": 1,
+                                "impact_direct": 1,
+                                "impact_transitive": 0,
+                                "screen_impacted": 0,
+                                "screen_names": 0
+                              },
+                              "children": []
+                            },
+                            {
+                              "name": "ExpectClass.kt",
+                              "type": "File",
+                              "attributes": {
+                                "rloc": 4,
+                                "mcc": 1,
+                                "impacted": 0,
+                                "impact_direct": 0,
+                                "impact_transitive": 0,
+                                "screen_impacted": 0,
+                                "screen_names": 0
+                              },
+                              "children": []
+                            },
+                            {
+                              "name": "ViewModel.kt",
+                              "type": "File",
+                              "attributes": {
+                                "rloc": 6,
+                                "mcc": 1,
+                                "impacted": 1,
+                                "impact_direct": 0,
+                                "impact_transitive": 1,
+                                "screen_impacted": 1,
+                                "screen_names": 1
+                              },
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "tools",
+                  "type": "Folder",
+                  "attributes": {
+                    "rloc": 0,
+                    "mcc": 1,
+                    "impacted": 0,
+                    "impact_direct": 0,
+                    "impact_transitive": 0,
+                    "screen_impacted": 0,
+                    "screen_names": 0
+                  },
+                  "children": [
+                    {
+                      "name": "kmp-impact-analyzer",
+                      "type": "Folder",
+                      "attributes": {
+                        "rloc": 0,
+                        "mcc": 1,
+                        "impacted": 0,
+                        "impact_direct": 0,
+                        "impact_transitive": 0,
+                        "screen_impacted": 0,
+                        "screen_names": 0
+                      },
+                      "children": [
+                        {
+                          "name": "tests",
+                          "type": "Folder",
+                          "attributes": {
+                            "rloc": 0,
+                            "mcc": 1,
+                            "impacted": 0,
+                            "impact_direct": 0,
+                            "impact_transitive": 0,
+                            "screen_impacted": 0,
+                            "screen_names": 0
+                          },
+                          "children": [
+                            {
+                              "name": "fixtures",
+                              "type": "Folder",
+                              "attributes": {
+                                "rloc": 0,
+                                "mcc": 1,
+                                "impacted": 0,
+                                "impact_direct": 0,
+                                "impact_transitive": 0,
+                                "screen_impacted": 0,
+                                "screen_names": 0
+                              },
+                              "children": [
+                                {
+                                  "name": "sample_kotlin",
+                                  "type": "Folder",
+                                  "attributes": {
+                                    "rloc": 0,
+                                    "mcc": 1,
+                                    "impacted": 0,
+                                    "impact_direct": 0,
+                                    "impact_transitive": 0,
+                                    "screen_impacted": 0,
+                                    "screen_names": 0
+                                  },
+                                  "children": [
+                                    {
+                                      "name": "ActualAndroid.kt",
+                                      "type": "File",
+                                      "attributes": {
+                                        "rloc": 7,
+                                        "mcc": 1,
+                                        "impacted": 0,
+                                        "impact_direct": 0,
+                                        "impact_transitive": 0,
+                                        "screen_impacted": 0,
+                                        "screen_names": 0
+                                      },
+                                      "children": []
+                                    },
+                                    {
+                                      "name": "AppModule.kt",
+                                      "type": "File",
+                                      "attributes": {
+                                        "rloc": 7,
+                                        "mcc": 1,
+                                        "impacted": 1,
+                                        "impact_direct": 0,
+                                        "impact_transitive": 1,
+                                        "screen_impacted": 0,
+                                        "screen_names": 0
+                                      },
+                                      "children": []
+                                    },
+                                    {
+                                      "name": "CommonModule.kt",
+                                      "type": "File",
+                                      "attributes": {
+                                        "rloc": 8,
+                                        "mcc": 1,
+                                        "impacted": 1,
+                                        "impact_direct": 1,
+                                        "impact_transitive": 0,
+                                        "screen_impacted": 0,
+                                        "screen_names": 0
+                                      },
+                                      "children": []
+                                    },
+                                    {
+                                      "name": "ExpectClass.kt",
+                                      "type": "File",
+                                      "attributes": {
+                                        "rloc": 4,
+                                        "mcc": 1,
+                                        "impacted": 0,
+                                        "impact_direct": 0,
+                                        "impact_transitive": 0,
+                                        "screen_impacted": 0,
+                                        "screen_names": 0
+                                      },
+                                      "children": []
+                                    },
+                                    {
+                                      "name": "ViewModel.kt",
+                                      "type": "File",
+                                      "attributes": {
+                                        "rloc": 6,
+                                        "mcc": 1,
+                                        "impacted": 1,
+                                        "impact_direct": 0,
+                                        "impact_transitive": 1,
+                                        "screen_impacted": 1,
+                                        "screen_names": 1
+                                      },
+                                      "children": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "attributeTypes": {
+    "nodes": {
+      "rloc": "absolute",
+      "mcc": "absolute",
+      "impacted": "absolute",
+      "impact_direct": "absolute",
+      "impact_transitive": "absolute",
+      "screen_impacted": "absolute",
+      "screen_names": "absolute"
+    }
+  }
+}

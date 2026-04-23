@@ -1,0 +1,1119 @@
+{
+  "dependency_group": "org.jetbrains.kotlin",
+  "version_before": "2.3.0",
+  "version_after": "2.3.21",
+  "static_impact": {
+    "dependency_group": "org.jetbrains.kotlin",
+    "version_before": "2.3.0",
+    "version_after": "2.3.21",
+    "seed_files": [
+      "/tmp/output/phase1/before/app/src/main/kotlin/co/touchlab/kampkit/android/ui/Composables.kt",
+      "/tmp/output/phase1/before/shared/src/androidUnitTest/kotlin/co/touchlab/kampkit/KoinTest.kt",
+      "/tmp/output/phase1/before/shared/src/commonMain/kotlin/co/touchlab/kampkit/DatabaseHelper.kt",
+      "/tmp/output/phase1/before/shared/src/commonMain/kotlin/co/touchlab/kampkit/Koin.kt",
+      "/tmp/output/phase1/before/shared/src/commonMain/kotlin/co/touchlab/kampkit/models/BreedRepository.kt",
+      "/tmp/output/phase1/before/shared/src/commonMain/kotlin/co/touchlab/kampkit/models/BreedViewModel.kt",
+      "/tmp/output/phase1/before/shared/src/commonMain/kotlin/co/touchlab/kampkit/response/BreedResult.kt",
+      "/tmp/output/phase1/before/shared/src/commonMain/kotlin/co/touchlab/kampkit/sqldelight/CoroutinesExtensions.kt",
+      "/tmp/output/phase1/before/shared/src/commonTest/kotlin/co/touchlab/kampkit/BreedRepositoryTest.kt",
+      "/tmp/output/phase1/before/shared/src/commonTest/kotlin/co/touchlab/kampkit/BreedViewModelTest.kt",
+      "/tmp/output/phase1/before/shared/src/commonTest/kotlin/co/touchlab/kampkit/DogApiTest.kt",
+      "/tmp/output/phase1/before/shared/src/commonTest/kotlin/co/touchlab/kampkit/SqlDelightTest.kt",
+      "/tmp/output/phase1/before/shared/src/commonTest/kotlin/co/touchlab/kampkit/mock/ClockMock.kt",
+      "/tmp/output/phase1/before/shared/src/iosMain/kotlin/co/touchlab/kampkit/KermitExceptionHandler.kt",
+      "/tmp/output/phase1/before/shared/src/iosTest/kotlin/co/touchlab/kampkit/KoinTest.kt"
+    ],
+    "impacted_files": [
+      {
+        "file_path": "/tmp/output/phase1/before/app/src/main/kotlin/co/touchlab/kampkit/android/ui/Composables.kt",
+        "relation": "direct",
+        "distance": 0,
+        "imports_from_dependency": [
+          "androidx.compose.animation.Crossfade",
+          "androidx.compose.animation.core.FastOutSlowInEasing",
+          "androidx.compose.animation.core.TweenSpec",
+          "androidx.compose.foundation.Image",
+          "androidx.compose.foundation.clickable",
+          "androidx.compose.foundation.layout.Arrangement",
+          "androidx.compose.foundation.layout.Box",
+          "androidx.compose.foundation.layout.Column",
+          "androidx.compose.foundation.layout.Row",
+          "androidx.compose.foundation.layout.fillMaxSize",
+          "androidx.compose.foundation.layout.padding",
+          "androidx.compose.foundation.lazy.LazyColumn",
+          "androidx.compose.foundation.lazy.items",
+          "androidx.compose.foundation.rememberScrollState",
+          "androidx.compose.foundation.verticalScroll",
+          "androidx.compose.material.Divider",
+          "androidx.compose.material.ExperimentalMaterialApi",
+          "androidx.compose.material.MaterialTheme",
+          "androidx.compose.material.Surface",
+          "androidx.compose.material.Text",
+          "androidx.compose.material.pullrefresh.PullRefreshIndicator",
+          "androidx.compose.material.pullrefresh.pullRefresh",
+          "androidx.compose.material.pullrefresh.rememberPullRefreshState",
+          "androidx.compose.runtime.Composable",
+          "androidx.compose.runtime.LaunchedEffect",
+          "androidx.compose.runtime.getValue",
+          "androidx.compose.runtime.rememberCoroutineScope",
+          "androidx.compose.ui.Alignment",
+          "androidx.compose.ui.Modifier",
+          "androidx.compose.ui.res.painterResource",
+          "androidx.compose.ui.res.stringResource",
+          "androidx.compose.ui.tooling.preview.Preview",
+          "androidx.compose.ui.unit.dp",
+          "androidx.lifecycle.compose.collectAsStateWithLifecycle",
+          "co.touchlab.kampkit.android.R",
+          "co.touchlab.kampkit.db.Breed",
+          "co.touchlab.kampkit.models.BreedViewModel",
+          "co.touchlab.kampkit.models.BreedViewState",
+          "co.touchlab.kermit.Logger",
+          "kotlinx.coroutines.launch"
+        ],
+        "metrics": {
+          "rloc": 194,
+          "functions": 12,
+          "mcc": 14,
+          "detekt_findings": 13,
+          "test_coverage": 0.0,
+          "metrics_source": "detekt"
+        },
+        "declarations": [
+          "co.touchlab.kampkit.android.ui.MainScreen",
+          "co.touchlab.kampkit.android.ui.MainScreenContent",
+          "co.touchlab.kampkit.android.ui.Empty",
+          "co.touchlab.kampkit.android.ui.Error",
+          "co.touchlab.kampkit.android.ui.Success",
+          "co.touchlab.kampkit.android.ui.DogList",
+          "co.touchlab.kampkit.android.ui.DogRow",
+          "co.touchlab.kampkit.android.ui.FavoriteIcon",
+          "co.touchlab.kampkit.android.ui.MainScreenContentPreview_Success",
+          "co.touchlab.kampkit.android.ui.MainScreenContentPreview_Initial",
+          "co.touchlab.kampkit.android.ui.MainScreenContentPreview_Empty",
+          "co.touchlab.kampkit.android.ui.MainScreenContentPreview_Error"
+        ],
+        "source_set": "main"
+      },
+      {
+        "file_path": "/tmp/output/phase1/before/shared/src/androidUnitTest/kotlin/co/touchlab/kampkit/KoinTest.kt",
+        "relation": "direct",
+        "distance": 0,
+        "imports_from_dependency": [
+          "android.app.Application",
+          "android.content.Context",
+          "androidx.test.core.app.ApplicationProvider.getApplicationContext",
+          "androidx.test.ext.junit.runners.AndroidJUnit4",
+          "co.touchlab.kermit.Logger",
+          "kotlin.test.AfterTest",
+          "kotlin.test.Test",
+          "org.junit.runner.RunWith",
+          "org.koin.core.context.stopKoin",
+          "org.koin.core.parameter.parametersOf",
+          "org.koin.dsl.module",
+          "org.koin.test.check.checkModules",
+          "org.robolectric.annotation.Config"
+        ],
+        "metrics": {
+          "rloc": 35,
+          "functions": 2,
+          "mcc": 1,
+          "detekt_findings": 0,
+          "test_coverage": -1.0,
+          "metrics_source": "heuristic"
+        },
+        "declarations": [
+          "co.touchlab.kampkit.KoinTest"
+        ],
+        "source_set": "androidUnitTest"
+      },
+      {
+        "file_path": "/tmp/output/phase1/before/shared/src/commonMain/kotlin/co/touchlab/kampkit/DatabaseHelper.kt",
+        "relation": "direct",
+        "distance": 0,
+        "imports_from_dependency": [
+          "app.cash.sqldelight.coroutines.asFlow",
+          "app.cash.sqldelight.coroutines.mapToList",
+          "app.cash.sqldelight.db.SqlDriver",
+          "co.touchlab.kampkit.db.Breed",
+          "co.touchlab.kampkit.db.KaMPKitDb",
+          "co.touchlab.kampkit.sqldelight.transactionWithContext",
+          "co.touchlab.kermit.Logger",
+          "kotlinx.coroutines.CoroutineDispatcher",
+          "kotlinx.coroutines.Dispatchers",
+          "kotlinx.coroutines.flow.Flow",
+          "kotlinx.coroutines.flow.flowOn"
+        ],
+        "metrics": {
+          "rloc": 45,
+          "functions": 2,
+          "mcc": 1,
+          "detekt_findings": 0,
+          "test_coverage": 100.0,
+          "metrics_source": "heuristic"
+        },
+        "declarations": [
+          "co.touchlab.kampkit.DatabaseHelper"
+        ],
+        "source_set": "commonMain"
+      },
+      {
+        "file_path": "/tmp/output/phase1/before/shared/src/commonMain/kotlin/co/touchlab/kampkit/Koin.kt",
+        "relation": "direct",
+        "distance": 0,
+        "imports_from_dependency": [
+          "co.touchlab.kampkit.ktor.DogApi",
+          "co.touchlab.kampkit.ktor.DogApiImpl",
+          "co.touchlab.kampkit.models.BreedRepository",
+          "co.touchlab.kermit.Logger",
+          "co.touchlab.kermit.StaticConfig",
+          "co.touchlab.kermit.platformLogWriter",
+          "kotlin.time.Clock",
+          "kotlinx.coroutines.Dispatchers",
+          "org.koin.core.KoinApplication",
+          "org.koin.core.component.KoinComponent",
+          "org.koin.core.component.inject",
+          "org.koin.core.context.startKoin",
+          "org.koin.core.module.Module",
+          "org.koin.core.parameter.parametersOf",
+          "org.koin.core.scope.Scope",
+          "org.koin.dsl.module"
+        ],
+        "metrics": {
+          "rloc": 66,
+          "functions": 2,
+          "mcc": 5,
+          "detekt_findings": 0,
+          "test_coverage": 97.3,
+          "metrics_source": "heuristic"
+        },
+        "declarations": [
+          "co.touchlab.kampkit.initKoin",
+          "co.touchlab.kampkit.getWith",
+          "co.touchlab.kampkit.injectLogger"
+        ],
+        "source_set": "commonMain"
+      },
+      {
+        "file_path": "/tmp/output/phase1/before/shared/src/commonMain/kotlin/co/touchlab/kampkit/models/BreedRepository.kt",
+        "relation": "direct",
+        "distance": 0,
+        "imports_from_dependency": [
+          "co.touchlab.kampkit.DatabaseHelper",
+          "co.touchlab.kampkit.db.Breed",
+          "co.touchlab.kampkit.ktor.DogApi",
+          "co.touchlab.kermit.Logger",
+          "com.russhwolf.settings.Settings",
+          "kotlinx.coroutines.flow.Flow",
+          "kotlinx.datetime.Clock"
+        ],
+        "metrics": {
+          "rloc": 48,
+          "functions": 1,
+          "mcc": 4,
+          "detekt_findings": 0,
+          "test_coverage": 100.0,
+          "metrics_source": "heuristic"
+        },
+        "declarations": [
+          "co.touchlab.kampkit.models.BreedRepository"
+        ],
+        "source_set": "commonMain"
+      },
+      {
+        "file_path": "/tmp/output/phase1/before/shared/src/commonMain/kotlin/co/touchlab/kampkit/models/BreedViewModel.kt",
+        "relation": "direct",
+        "distance": 0,
+        "imports_from_dependency": [
+          "co.touchlab.kampkit.db.Breed",
+          "co.touchlab.kermit.Logger",
+          "co.touchlab.skie.configuration.annotations.DefaultArgumentInterop",
+          "kotlinx.coroutines.flow.MutableStateFlow",
+          "kotlinx.coroutines.flow.StateFlow",
+          "kotlinx.coroutines.flow.asStateFlow",
+          "kotlinx.coroutines.flow.combine",
+          "kotlinx.coroutines.flow.flow",
+          "kotlinx.coroutines.flow.update"
+        ],
+        "metrics": {
+          "rloc": 99,
+          "functions": 1,
+          "mcc": 15,
+          "detekt_findings": 0,
+          "test_coverage": 90.7,
+          "metrics_source": "heuristic"
+        },
+        "declarations": [
+          "co.touchlab.kampkit.models.BreedViewModel",
+          "co.touchlab.kampkit.models.BreedViewState"
+        ],
+        "source_set": "commonMain"
+      },
+      {
+        "file_path": "/tmp/output/phase1/before/shared/src/commonMain/kotlin/co/touchlab/kampkit/response/BreedResult.kt",
+        "relation": "direct",
+        "distance": 0,
+        "imports_from_dependency": [
+          "kotlinx.serialization.Serializable"
+        ],
+        "metrics": {
+          "rloc": 4,
+          "functions": 0,
+          "mcc": 1,
+          "detekt_findings": 0,
+          "test_coverage": 100.0,
+          "metrics_source": "heuristic"
+        },
+        "declarations": [
+          "co.touchlab.kampkit.response.BreedResult"
+        ],
+        "source_set": "commonMain"
+      },
+      {
+        "file_path": "/tmp/output/phase1/before/shared/src/commonMain/kotlin/co/touchlab/kampkit/sqldelight/CoroutinesExtensions.kt",
+        "relation": "direct",
+        "distance": 0,
+        "imports_from_dependency": [
+          "app.cash.sqldelight.Transacter",
+          "app.cash.sqldelight.TransactionWithoutReturn",
+          "kotlin.coroutines.CoroutineContext",
+          "kotlinx.coroutines.withContext"
+        ],
+        "metrics": {
+          "rloc": 16,
+          "functions": 0,
+          "mcc": 1,
+          "detekt_findings": 0,
+          "test_coverage": 100.0,
+          "metrics_source": "heuristic"
+        },
+        "declarations": [
+          "co.touchlab.kampkit.sqldelight.transactionWithContext"
+        ],
+        "source_set": "commonMain"
+      },
+      {
+        "file_path": "/tmp/output/phase1/before/shared/src/commonTest/kotlin/co/touchlab/kampkit/BreedRepositoryTest.kt",
+        "relation": "direct",
+        "distance": 0,
+        "imports_from_dependency": [
+          "app.cash.turbine.test",
+          "co.touchlab.kampkit.db.Breed",
+          "co.touchlab.kampkit.mock.ClockMock",
+          "co.touchlab.kampkit.mock.DogApiMock",
+          "co.touchlab.kampkit.models.BreedRepository",
+          "co.touchlab.kermit.Logger",
+          "co.touchlab.kermit.StaticConfig",
+          "com.russhwolf.settings.MapSettings",
+          "kotlin.test.AfterTest",
+          "kotlin.test.Test",
+          "kotlin.test.assertEquals",
+          "kotlin.test.assertFails",
+          "kotlin.time.Clock.System",
+          "kotlin.time.Duration.Companion.hours",
+          "kotlinx.coroutines.Dispatchers",
+          "kotlinx.coroutines.test.runTest"
+        ],
+        "metrics": {
+          "rloc": 128,
+          "functions": 8,
+          "mcc": 7,
+          "detekt_findings": 0,
+          "test_coverage": -1.0,
+          "metrics_source": "heuristic"
+        },
+        "declarations": [
+          "co.touchlab.kampkit.BreedRepositoryTest"
+        ],
+        "source_set": "commonTest"
+      },
+      {
+        "file_path": "/tmp/output/phase1/before/shared/src/commonTest/kotlin/co/touchlab/kampkit/BreedViewModelTest.kt",
+        "relation": "direct",
+        "distance": 0,
+        "imports_from_dependency": [
+          "app.cash.turbine.ReceiveTurbine",
+          "app.cash.turbine.test",
+          "co.touchlab.kampkit.db.Breed",
+          "co.touchlab.kampkit.mock.ClockMock",
+          "co.touchlab.kampkit.mock.DogApiMock",
+          "co.touchlab.kampkit.models.BreedRepository",
+          "co.touchlab.kampkit.models.BreedViewModel",
+          "co.touchlab.kampkit.models.BreedViewState",
+          "co.touchlab.kampkit.response.BreedResult",
+          "co.touchlab.kermit.Logger",
+          "co.touchlab.kermit.StaticConfig",
+          "com.russhwolf.settings.MapSettings",
+          "kotlin.test.AfterTest",
+          "kotlin.test.BeforeTest",
+          "kotlin.test.Test",
+          "kotlin.test.assertEquals",
+          "kotlin.time.Clock.System",
+          "kotlin.time.Duration.Companion.hours",
+          "kotlinx.coroutines.DelicateCoroutinesApi",
+          "kotlinx.coroutines.Dispatchers",
+          "kotlinx.coroutines.GlobalScope",
+          "kotlinx.coroutines.launch",
+          "kotlinx.coroutines.test.resetMain",
+          "kotlinx.coroutines.test.runTest",
+          "kotlinx.coroutines.test.setMain"
+        ],
+        "metrics": {
+          "rloc": 249,
+          "functions": 12,
+          "mcc": 9,
+          "detekt_findings": 0,
+          "test_coverage": -1.0,
+          "metrics_source": "heuristic"
+        },
+        "declarations": [
+          "co.touchlab.kampkit.BreedViewModelTest",
+          "co.touchlab.kampkit.awaitItemPrecededBy"
+        ],
+        "source_set": "commonTest"
+      },
+      {
+        "file_path": "/tmp/output/phase1/before/shared/src/commonTest/kotlin/co/touchlab/kampkit/DogApiTest.kt",
+        "relation": "direct",
+        "distance": 0,
+        "imports_from_dependency": [
+          "co.touchlab.kampkit.ktor.DogApiImpl",
+          "co.touchlab.kampkit.response.BreedResult",
+          "co.touchlab.kermit.LogWriter",
+          "co.touchlab.kermit.Logger",
+          "co.touchlab.kermit.LoggerConfig",
+          "co.touchlab.kermit.Severity",
+          "io.ktor.client.engine.mock.MockEngine",
+          "io.ktor.client.engine.mock.respond",
+          "io.ktor.client.plugins.ClientRequestException",
+          "io.ktor.http.ContentType",
+          "io.ktor.http.HttpHeaders",
+          "io.ktor.http.HttpStatusCode",
+          "io.ktor.http.headersOf",
+          "kotlin.test.Test",
+          "kotlin.test.assertEquals",
+          "kotlin.test.assertFailsWith",
+          "kotlinx.coroutines.test.runTest"
+        ],
+        "metrics": {
+          "rloc": 67,
+          "functions": 2,
+          "mcc": 1,
+          "detekt_findings": 0,
+          "test_coverage": -1.0,
+          "metrics_source": "heuristic"
+        },
+        "declarations": [
+          "co.touchlab.kampkit.DogApiTest"
+        ],
+        "source_set": "commonTest"
+      },
+      {
+        "file_path": "/tmp/output/phase1/before/shared/src/commonTest/kotlin/co/touchlab/kampkit/SqlDelightTest.kt",
+        "relation": "direct",
+        "distance": 0,
+        "imports_from_dependency": [
+          "co.touchlab.kermit.Logger",
+          "co.touchlab.kermit.StaticConfig",
+          "kotlin.test.BeforeTest",
+          "kotlin.test.Test",
+          "kotlin.test.assertNotNull",
+          "kotlin.test.assertTrue",
+          "kotlinx.coroutines.Dispatchers",
+          "kotlinx.coroutines.flow.first",
+          "kotlinx.coroutines.test.runTest"
+        ],
+        "metrics": {
+          "rloc": 69,
+          "functions": 5,
+          "mcc": 1,
+          "detekt_findings": 0,
+          "test_coverage": -1.0,
+          "metrics_source": "heuristic"
+        },
+        "declarations": [
+          "co.touchlab.kampkit.SqlDelightTest"
+        ],
+        "source_set": "commonTest"
+      },
+      {
+        "file_path": "/tmp/output/phase1/before/shared/src/commonTest/kotlin/co/touchlab/kampkit/mock/ClockMock.kt",
+        "relation": "direct",
+        "distance": 0,
+        "imports_from_dependency": [
+          "kotlin.time.Clock",
+          "kotlin.time.Instant"
+        ],
+        "metrics": {
+          "rloc": 6,
+          "functions": 1,
+          "mcc": 1,
+          "detekt_findings": 0,
+          "test_coverage": -1.0,
+          "metrics_source": "heuristic"
+        },
+        "declarations": [
+          "co.touchlab.kampkit.mock.ClockMock"
+        ],
+        "source_set": "commonTest"
+      },
+      {
+        "file_path": "/tmp/output/phase1/before/shared/src/iosMain/kotlin/co/touchlab/kampkit/KermitExceptionHandler.kt",
+        "relation": "direct",
+        "distance": 0,
+        "imports_from_dependency": [
+          "co.touchlab.kermit.Logger",
+          "kotlinx.coroutines.CoroutineExceptionHandler"
+        ],
+        "metrics": {
+          "rloc": 7,
+          "functions": 1,
+          "mcc": 1,
+          "detekt_findings": 0,
+          "test_coverage": -1.0,
+          "metrics_source": "heuristic"
+        },
+        "declarations": [
+          "co.touchlab.kampkit.kermitExceptionHandler"
+        ],
+        "source_set": "ios"
+      },
+      {
+        "file_path": "/tmp/output/phase1/before/shared/src/iosTest/kotlin/co/touchlab/kampkit/KoinTest.kt",
+        "relation": "direct",
+        "distance": 0,
+        "imports_from_dependency": [
+          "co.touchlab.kermit.Logger",
+          "kotlin.test.AfterTest",
+          "kotlin.test.Test",
+          "org.koin.core.context.stopKoin",
+          "org.koin.core.parameter.parametersOf",
+          "org.koin.test.check.checkModules",
+          "platform.Foundation.NSUserDefaults"
+        ],
+        "metrics": {
+          "rloc": 24,
+          "functions": 2,
+          "mcc": 1,
+          "detekt_findings": 0,
+          "test_coverage": -1.0,
+          "metrics_source": "heuristic"
+        },
+        "declarations": [
+          "co.touchlab.kampkit.KoinTest"
+        ],
+        "source_set": "iosTest"
+      },
+      {
+        "file_path": "/tmp/output/phase1/before/app/src/main/kotlin/co/touchlab/kampkit/android/MainActivity.kt",
+        "relation": "transitive",
+        "distance": 1,
+        "imports_from_dependency": [],
+        "metrics": {
+          "rloc": 25,
+          "functions": 1,
+          "mcc": 1,
+          "detekt_findings": 0,
+          "test_coverage": 0.0,
+          "metrics_source": "heuristic"
+        },
+        "declarations": [
+          "co.touchlab.kampkit.android.MainActivity"
+        ],
+        "source_set": "main"
+      },
+      {
+        "file_path": "/tmp/output/phase1/before/app/src/main/kotlin/co/touchlab/kampkit/android/MainApp.kt",
+        "relation": "transitive",
+        "distance": 1,
+        "imports_from_dependency": [],
+        "metrics": {
+          "rloc": 35,
+          "functions": 1,
+          "mcc": 1,
+          "detekt_findings": 0,
+          "test_coverage": 0.0,
+          "metrics_source": "heuristic"
+        },
+        "declarations": [
+          "co.touchlab.kampkit.android.MainApp",
+          "co.touchlab.kampkit.android.AndroidAppInfo"
+        ],
+        "source_set": "main"
+      },
+      {
+        "file_path": "/tmp/output/phase1/before/shared/src/iosMain/kotlin/co/touchlab/kampkit/KoinIOS.kt",
+        "relation": "transitive",
+        "distance": 1,
+        "imports_from_dependency": [],
+        "metrics": {
+          "rloc": 33,
+          "functions": 3,
+          "mcc": 1,
+          "detekt_findings": 0,
+          "test_coverage": -1.0,
+          "metrics_source": "heuristic"
+        },
+        "declarations": [
+          "co.touchlab.kampkit.initKoinIos",
+          "co.touchlab.kampkit.loggerWithTag",
+          "co.touchlab.kampkit.KotlinDependencies"
+        ],
+        "source_set": "ios"
+      },
+      {
+        "file_path": "/tmp/output/phase1/before/shared/src/commonTest/kotlin/co/touchlab/kampkit/mock/DogApiMock.kt",
+        "relation": "transitive",
+        "distance": 1,
+        "imports_from_dependency": [],
+        "metrics": {
+          "rloc": 26,
+          "functions": 3,
+          "mcc": 1,
+          "detekt_findings": 0,
+          "test_coverage": -1.0,
+          "metrics_source": "heuristic"
+        },
+        "declarations": [
+          "co.touchlab.kampkit.mock.DogApiMock"
+        ],
+        "source_set": "commonTest"
+      },
+      {
+        "file_path": "/tmp/output/phase1/before/shared/src/commonMain/kotlin/co/touchlab/kampkit/ktor/DogApi.kt",
+        "relation": "transitive",
+        "distance": 1,
+        "imports_from_dependency": [],
+        "metrics": {
+          "rloc": 5,
+          "functions": 0,
+          "mcc": 1,
+          "detekt_findings": 0,
+          "test_coverage": -1.0,
+          "metrics_source": "heuristic"
+        },
+        "declarations": [
+          "co.touchlab.kampkit.ktor.DogApi"
+        ],
+        "source_set": "commonMain"
+      },
+      {
+        "file_path": "/tmp/output/phase1/before/shared/src/commonMain/kotlin/co/touchlab/kampkit/ktor/DogApiImpl.kt",
+        "relation": "transitive",
+        "distance": 1,
+        "imports_from_dependency": [],
+        "metrics": {
+          "rloc": 50,
+          "functions": 1,
+          "mcc": 1,
+          "detekt_findings": 0,
+          "test_coverage": 100.0,
+          "metrics_source": "heuristic"
+        },
+        "declarations": [
+          "co.touchlab.kampkit.ktor.DogApiImpl"
+        ],
+        "source_set": "commonMain"
+      }
+    ],
+    "expect_actual_pairs": [
+      {
+        "expect_fqcn": "co.touchlab.kampkit.models.ViewModel",
+        "expect_file": "/tmp/output/phase1/before/shared/src/commonMain/kotlin/co/touchlab/kampkit/models/ViewModel.kt",
+        "actual_files": [
+          "/tmp/output/phase1/before/shared/src/androidMain/kotlin/co/touchlab/kampkit/models/ViewModel.kt",
+          "/tmp/output/phase1/before/shared/src/iosMain/kotlin/co/touchlab/kampkit/models/ViewModel.kt"
+        ]
+      },
+      {
+        "expect_fqcn": "co.touchlab.kampkit.testDbConnection",
+        "expect_file": "/tmp/output/phase1/before/shared/src/commonTest/kotlin/co/touchlab/kampkit/TestUtil.kt",
+        "actual_files": [
+          "/tmp/output/phase1/before/shared/src/androidUnitTest/kotlin/co/touchlab/kampkit/TestUtilAndroid.kt",
+          "/tmp/output/phase1/before/shared/src/iosTest/kotlin/co/touchlab/kampkit/TestUtilIOS.kt"
+        ]
+      },
+      {
+        "expect_fqcn": "com.example.common.DatabaseDriverFactory",
+        "expect_file": "/tmp/output/phase1/before/tools/kmp-impact-analyzer/tools/kmp-impact-analyzer/tests/fixtures/sample_kotlin/ExpectClass.kt",
+        "actual_files": [
+          "/tmp/output/phase1/before/tools/kmp-impact-analyzer/tests/fixtures/sample_kotlin/ActualAndroid.kt",
+          "/tmp/output/phase1/before/tools/kmp-impact-analyzer/tools/kmp-impact-analyzer/tests/fixtures/sample_kotlin/ActualAndroid.kt"
+        ]
+      }
+    ],
+    "total_project_files": 44,
+    "total_impacted": 21,
+    "ksp_edges_added": 9
+  },
+  "dynamic_regressions": {
+    "status": "completed",
+    "blocked_reason": "",
+    "before_screens": [
+      "QuickstepLauncher",
+      "Main",
+      "Main"
+    ],
+    "after_screens": [
+      "QuickstepLauncher",
+      "Main",
+      "Main"
+    ],
+    "diffs": []
+  },
+  "screen_mappings": [
+    {
+      "screen_name": "MainScreen",
+      "mapped_files": [
+        "/tmp/output/phase1/before/app/src/main/kotlin/co/touchlab/kampkit/android/ui/Composables.kt"
+      ],
+      "confidence": 0.9,
+      "method": "composable_declaration"
+    },
+    {
+      "screen_name": "MainScreenContent",
+      "mapped_files": [
+        "/tmp/output/phase1/before/app/src/main/kotlin/co/touchlab/kampkit/android/ui/Composables.kt"
+      ],
+      "confidence": 0.9,
+      "method": "composable_declaration"
+    },
+    {
+      "screen_name": "Empty",
+      "mapped_files": [
+        "/tmp/output/phase1/before/app/src/main/kotlin/co/touchlab/kampkit/android/ui/Composables.kt"
+      ],
+      "confidence": 0.9,
+      "method": "composable_declaration"
+    },
+    {
+      "screen_name": "Error",
+      "mapped_files": [
+        "/tmp/output/phase1/before/app/src/main/kotlin/co/touchlab/kampkit/android/ui/Composables.kt"
+      ],
+      "confidence": 0.9,
+      "method": "composable_declaration"
+    },
+    {
+      "screen_name": "Success",
+      "mapped_files": [
+        "/tmp/output/phase1/before/app/src/main/kotlin/co/touchlab/kampkit/android/ui/Composables.kt"
+      ],
+      "confidence": 0.9,
+      "method": "composable_declaration"
+    },
+    {
+      "screen_name": "DogList",
+      "mapped_files": [
+        "/tmp/output/phase1/before/app/src/main/kotlin/co/touchlab/kampkit/android/ui/Composables.kt"
+      ],
+      "confidence": 0.9,
+      "method": "composable_declaration"
+    },
+    {
+      "screen_name": "DogRow",
+      "mapped_files": [
+        "/tmp/output/phase1/before/app/src/main/kotlin/co/touchlab/kampkit/android/ui/Composables.kt"
+      ],
+      "confidence": 0.9,
+      "method": "composable_declaration"
+    },
+    {
+      "screen_name": "FavoriteIcon",
+      "mapped_files": [
+        "/tmp/output/phase1/before/app/src/main/kotlin/co/touchlab/kampkit/android/ui/Composables.kt"
+      ],
+      "confidence": 0.9,
+      "method": "composable_declaration"
+    },
+    {
+      "screen_name": "MainScreenContentPreview_Success",
+      "mapped_files": [
+        "/tmp/output/phase1/before/app/src/main/kotlin/co/touchlab/kampkit/android/ui/Composables.kt"
+      ],
+      "confidence": 0.9,
+      "method": "composable_declaration"
+    },
+    {
+      "screen_name": "MainScreenContentPreview_Initial",
+      "mapped_files": [
+        "/tmp/output/phase1/before/app/src/main/kotlin/co/touchlab/kampkit/android/ui/Composables.kt"
+      ],
+      "confidence": 0.9,
+      "method": "composable_declaration"
+    },
+    {
+      "screen_name": "MainScreenContentPreview_Empty",
+      "mapped_files": [
+        "/tmp/output/phase1/before/app/src/main/kotlin/co/touchlab/kampkit/android/ui/Composables.kt"
+      ],
+      "confidence": 0.9,
+      "method": "composable_declaration"
+    },
+    {
+      "screen_name": "MainScreenContentPreview_Error",
+      "mapped_files": [
+        "/tmp/output/phase1/before/app/src/main/kotlin/co/touchlab/kampkit/android/ui/Composables.kt"
+      ],
+      "confidence": 0.9,
+      "method": "composable_declaration"
+    },
+    {
+      "screen_name": "Breed",
+      "mapped_files": [
+        "/tmp/output/phase1/before/shared/src/commonMain/kotlin/co/touchlab/kampkit/models/BreedViewModel.kt"
+      ],
+      "confidence": 0.8,
+      "method": "viewmodel_association"
+    },
+    {
+      "screen_name": "Main",
+      "mapped_files": [
+        "/tmp/output/phase1/before/app/src/main/kotlin/co/touchlab/kampkit/android/MainActivity.kt"
+      ],
+      "confidence": 0.7,
+      "method": "activity_manifest"
+    },
+    {
+      "screen_name": "MainApp",
+      "mapped_files": [
+        "/tmp/output/phase1/before/app/src/main/kotlin/co/touchlab/kampkit/android/MainApp.kt"
+      ],
+      "confidence": 0.7,
+      "method": "activity_manifest"
+    }
+  ],
+  "trace": [
+    {
+      "file_path": "/tmp/output/phase1/before/app/src/main/kotlin/co/touchlab/kampkit/android/ui/Composables.kt",
+      "relation": "direct",
+      "distance": 0,
+      "screens": [
+        "MainScreen",
+        "MainScreenContent",
+        "Empty",
+        "Error",
+        "Success",
+        "DogList",
+        "DogRow",
+        "FavoriteIcon",
+        "MainScreenContentPreview_Success",
+        "MainScreenContentPreview_Initial",
+        "MainScreenContentPreview_Empty",
+        "MainScreenContentPreview_Error"
+      ],
+      "metrics": {
+        "rloc": 194,
+        "functions": 12,
+        "mcc": 14,
+        "detekt_findings": 13,
+        "test_coverage": 0.0,
+        "metrics_source": "detekt"
+      }
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/shared/src/androidUnitTest/kotlin/co/touchlab/kampkit/KoinTest.kt",
+      "relation": "direct",
+      "distance": 0,
+      "screens": [],
+      "metrics": {
+        "rloc": 35,
+        "functions": 2,
+        "mcc": 1,
+        "detekt_findings": 0,
+        "test_coverage": -1.0,
+        "metrics_source": "heuristic"
+      }
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/shared/src/commonMain/kotlin/co/touchlab/kampkit/DatabaseHelper.kt",
+      "relation": "direct",
+      "distance": 0,
+      "screens": [],
+      "metrics": {
+        "rloc": 45,
+        "functions": 2,
+        "mcc": 1,
+        "detekt_findings": 0,
+        "test_coverage": 100.0,
+        "metrics_source": "heuristic"
+      }
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/shared/src/commonMain/kotlin/co/touchlab/kampkit/Koin.kt",
+      "relation": "direct",
+      "distance": 0,
+      "screens": [],
+      "metrics": {
+        "rloc": 66,
+        "functions": 2,
+        "mcc": 5,
+        "detekt_findings": 0,
+        "test_coverage": 97.3,
+        "metrics_source": "heuristic"
+      }
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/shared/src/commonMain/kotlin/co/touchlab/kampkit/models/BreedRepository.kt",
+      "relation": "direct",
+      "distance": 0,
+      "screens": [],
+      "metrics": {
+        "rloc": 48,
+        "functions": 1,
+        "mcc": 4,
+        "detekt_findings": 0,
+        "test_coverage": 100.0,
+        "metrics_source": "heuristic"
+      }
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/shared/src/commonMain/kotlin/co/touchlab/kampkit/models/BreedViewModel.kt",
+      "relation": "direct",
+      "distance": 0,
+      "screens": [
+        "Breed"
+      ],
+      "metrics": {
+        "rloc": 99,
+        "functions": 1,
+        "mcc": 15,
+        "detekt_findings": 0,
+        "test_coverage": 90.7,
+        "metrics_source": "heuristic"
+      }
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/shared/src/commonMain/kotlin/co/touchlab/kampkit/response/BreedResult.kt",
+      "relation": "direct",
+      "distance": 0,
+      "screens": [],
+      "metrics": {
+        "rloc": 4,
+        "functions": 0,
+        "mcc": 1,
+        "detekt_findings": 0,
+        "test_coverage": 100.0,
+        "metrics_source": "heuristic"
+      }
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/shared/src/commonMain/kotlin/co/touchlab/kampkit/sqldelight/CoroutinesExtensions.kt",
+      "relation": "direct",
+      "distance": 0,
+      "screens": [],
+      "metrics": {
+        "rloc": 16,
+        "functions": 0,
+        "mcc": 1,
+        "detekt_findings": 0,
+        "test_coverage": 100.0,
+        "metrics_source": "heuristic"
+      }
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/shared/src/commonTest/kotlin/co/touchlab/kampkit/BreedRepositoryTest.kt",
+      "relation": "direct",
+      "distance": 0,
+      "screens": [],
+      "metrics": {
+        "rloc": 128,
+        "functions": 8,
+        "mcc": 7,
+        "detekt_findings": 0,
+        "test_coverage": -1.0,
+        "metrics_source": "heuristic"
+      }
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/shared/src/commonTest/kotlin/co/touchlab/kampkit/BreedViewModelTest.kt",
+      "relation": "direct",
+      "distance": 0,
+      "screens": [],
+      "metrics": {
+        "rloc": 249,
+        "functions": 12,
+        "mcc": 9,
+        "detekt_findings": 0,
+        "test_coverage": -1.0,
+        "metrics_source": "heuristic"
+      }
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/shared/src/commonTest/kotlin/co/touchlab/kampkit/DogApiTest.kt",
+      "relation": "direct",
+      "distance": 0,
+      "screens": [],
+      "metrics": {
+        "rloc": 67,
+        "functions": 2,
+        "mcc": 1,
+        "detekt_findings": 0,
+        "test_coverage": -1.0,
+        "metrics_source": "heuristic"
+      }
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/shared/src/commonTest/kotlin/co/touchlab/kampkit/SqlDelightTest.kt",
+      "relation": "direct",
+      "distance": 0,
+      "screens": [],
+      "metrics": {
+        "rloc": 69,
+        "functions": 5,
+        "mcc": 1,
+        "detekt_findings": 0,
+        "test_coverage": -1.0,
+        "metrics_source": "heuristic"
+      }
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/shared/src/commonTest/kotlin/co/touchlab/kampkit/mock/ClockMock.kt",
+      "relation": "direct",
+      "distance": 0,
+      "screens": [],
+      "metrics": {
+        "rloc": 6,
+        "functions": 1,
+        "mcc": 1,
+        "detekt_findings": 0,
+        "test_coverage": -1.0,
+        "metrics_source": "heuristic"
+      }
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/shared/src/iosMain/kotlin/co/touchlab/kampkit/KermitExceptionHandler.kt",
+      "relation": "direct",
+      "distance": 0,
+      "screens": [],
+      "metrics": {
+        "rloc": 7,
+        "functions": 1,
+        "mcc": 1,
+        "detekt_findings": 0,
+        "test_coverage": -1.0,
+        "metrics_source": "heuristic"
+      }
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/shared/src/iosTest/kotlin/co/touchlab/kampkit/KoinTest.kt",
+      "relation": "direct",
+      "distance": 0,
+      "screens": [],
+      "metrics": {
+        "rloc": 24,
+        "functions": 2,
+        "mcc": 1,
+        "detekt_findings": 0,
+        "test_coverage": -1.0,
+        "metrics_source": "heuristic"
+      }
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/app/src/main/kotlin/co/touchlab/kampkit/android/MainActivity.kt",
+      "relation": "transitive",
+      "distance": 1,
+      "screens": [
+        "Main"
+      ],
+      "metrics": {
+        "rloc": 25,
+        "functions": 1,
+        "mcc": 1,
+        "detekt_findings": 0,
+        "test_coverage": 0.0,
+        "metrics_source": "heuristic"
+      }
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/app/src/main/kotlin/co/touchlab/kampkit/android/MainApp.kt",
+      "relation": "transitive",
+      "distance": 1,
+      "screens": [
+        "MainApp"
+      ],
+      "metrics": {
+        "rloc": 35,
+        "functions": 1,
+        "mcc": 1,
+        "detekt_findings": 0,
+        "test_coverage": 0.0,
+        "metrics_source": "heuristic"
+      }
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/shared/src/iosMain/kotlin/co/touchlab/kampkit/KoinIOS.kt",
+      "relation": "transitive",
+      "distance": 1,
+      "screens": [],
+      "metrics": {
+        "rloc": 33,
+        "functions": 3,
+        "mcc": 1,
+        "detekt_findings": 0,
+        "test_coverage": -1.0,
+        "metrics_source": "heuristic"
+      }
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/shared/src/commonTest/kotlin/co/touchlab/kampkit/mock/DogApiMock.kt",
+      "relation": "transitive",
+      "distance": 1,
+      "screens": [],
+      "metrics": {
+        "rloc": 26,
+        "functions": 3,
+        "mcc": 1,
+        "detekt_findings": 0,
+        "test_coverage": -1.0,
+        "metrics_source": "heuristic"
+      }
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/shared/src/commonMain/kotlin/co/touchlab/kampkit/ktor/DogApi.kt",
+      "relation": "transitive",
+      "distance": 1,
+      "screens": [],
+      "metrics": {
+        "rloc": 5,
+        "functions": 0,
+        "mcc": 1,
+        "detekt_findings": 0,
+        "test_coverage": -1.0,
+        "metrics_source": "heuristic"
+      }
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/shared/src/commonMain/kotlin/co/touchlab/kampkit/ktor/DogApiImpl.kt",
+      "relation": "transitive",
+      "distance": 1,
+      "screens": [],
+      "metrics": {
+        "rloc": 50,
+        "functions": 1,
+        "mcc": 1,
+        "detekt_findings": 0,
+        "test_coverage": 100.0,
+        "metrics_source": "heuristic"
+      }
+    }
+  ],
+  "impacted_screens": [
+    "Breed",
+    "DogList",
+    "DogRow",
+    "Empty",
+    "Error",
+    "FavoriteIcon",
+    "Main",
+    "MainApp",
+    "MainScreen",
+    "MainScreenContent",
+    "MainScreenContentPreview_Empty",
+    "MainScreenContentPreview_Error",
+    "MainScreenContentPreview_Initial",
+    "MainScreenContentPreview_Success",
+    "Success"
+  ],
+  "total_impacted_files": 21,
+  "total_impacted_screens": 15
+}

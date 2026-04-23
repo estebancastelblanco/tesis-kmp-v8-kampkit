@@ -1,0 +1,55 @@
+{
+  "tag": "2026-04-23_224253",
+  "event": {
+    "event_type": "touch",
+    "log_lines": null,
+    "x": null,
+    "y": null,
+    "view": {
+      "package": "co.touchlab.kampkit",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          10,
+          439
+        ],
+        [
+          286,
+          458
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": "bluetick",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 52,
+      "temp_id": 53,
+      "size": "276*19",
+      "signature": "[class]android.widget.TextView[resource_id]None[text]bluetick[enabled,,]",
+      "view_str": "2bf5ab6aade04a3f59846ba4a66feee0",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]None",
+      "allowed_actions": [
+        "touch"
+      ],
+      "special_attrs": [],
+      "local_id": "19",
+      "desc": "<button bound_box=10,439,286,458>bluetick</button>"
+    }
+  },
+  "start_state": "84c6b42b9b745c70f16d87e5b4d05152",
+  "stop_state": "4c621c0fac56e5a25f11f192a2fdb095",
+  "event_str": "TouchEvent(state=84c6b42b9b745c70f16d87e5b4d05152, view=2bf5ab6aade04a3f59846ba4a66feee0(MainActivity/TextView-bluetick))"
+}

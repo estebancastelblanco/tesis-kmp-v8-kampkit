@@ -1,0 +1,15 @@
+{
+  "status": "completed",
+  "blocked_reason": "",
+  "before_screens": [
+    "QuickstepLauncher",
+    "Main",
+    "Main"
+  ],
+  "after_screens": [
+    "QuickstepLauncher",
+    "Main",
+    "Main"
+  ],
+  "diffs": []
+}

@@ -1,0 +1,4 @@
+report.file=/tmp/output/phase1/before/shared/build/kover/bin-reports/testReleaseUnitTest.ic
+exclude=android.*
+exclude=com.android.*
+exclude=jdk.internal.*

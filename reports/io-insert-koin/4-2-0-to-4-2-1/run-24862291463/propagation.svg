@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 413" width="860" height="413" font-family="system-ui,sans-serif">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="135" y="30" text-anchor="middle" fill="#4338ca" font-size="11" font-weight="700">DEPENDENCY</text>
+<text x="315" y="30" text-anchor="middle" fill="#dc2626" font-size="11" font-weight="700">DIRECT</text>
+<text x="515" y="30" text-anchor="middle" fill="#f59e0b" font-size="11" font-weight="700">TRANSITIVE (dist 1: 2)</text>
+<text x="735" y="30" text-anchor="middle" fill="#f97316" font-size="11" font-weight="700">TRANSITIVE (dist 2+: 3)</text>
+<rect x="60" y="209" width="150" height="50" rx="8" fill="#4338ca"/>
+<text x="135" y="231" text-anchor="middle" fill="white" font-size="13" font-weight="700">INSERT-KOIN</text>
+<text x="135" y="247" text-anchor="middle" fill="#e5e7eb" font-size="10">4.2.0 -&gt; 4.2.1</text>
+<rect x="240" y="65" width="150" height="40" rx="6" fill="#dc2626"/>
+<text x="315" y="89" text-anchor="middle" fill="white" font-size="11" font-weight="600">MainActivity</text>
+<text x="315" y="101" text-anchor="middle" fill="#ffffff" opacity="0.7" font-size="9">.kt</text>
+<rect x="240" y="113" width="150" height="40" rx="6" fill="#dc2626"/>
+<text x="315" y="137" text-anchor="middle" fill="white" font-size="11" font-weight="600">MainApp</text>
+<text x="315" y="149" text-anchor="middle" fill="#ffffff" opacity="0.7" font-size="9">.kt</text>
+<rect x="240" y="161" width="150" height="40" rx="6" fill="#dc2626"/>
+<text x="315" y="185" text-anchor="middle" fill="white" font-size="11" font-weight="600">KoinAndroid</text>
+<text x="315" y="197" text-anchor="middle" fill="#ffffff" opacity="0.7" font-size="9">.kt</text>
+<rect x="240" y="209" width="150" height="40" rx="6" fill="#dc2626"/>
+<text x="315" y="233" text-anchor="middle" fill="white" font-size="11" font-weight="600">KoinTest</text>
+<text x="315" y="245" text-anchor="middle" fill="#ffffff" opacity="0.7" font-size="9">.kt</text>
+<rect x="240" y="257" width="150" height="40" rx="6" fill="#dc2626"/>
+<text x="315" y="281" text-anchor="middle" fill="white" font-size="11" font-weight="600">Koin</text>
+<text x="315" y="293" text-anchor="middle" fill="#ffffff" opacity="0.7" font-size="9">.kt</text>
+<rect x="240" y="305" width="150" height="40" rx="6" fill="#dc2626"/>
+<text x="315" y="329" text-anchor="middle" fill="white" font-size="11" font-weight="600">KoinIOS</text>
+<text x="315" y="341" text-anchor="middle" fill="#ffffff" opacity="0.7" font-size="9">.kt</text>
+<rect x="240" y="353" width="150" height="40" rx="6" fill="#dc2626"/>
+<text x="315" y="377" text-anchor="middle" fill="white" font-size="11" font-weight="600">KoinTest</text>
+<text x="315" y="389" text-anchor="middle" fill="#ffffff" opacity="0.7" font-size="9">.kt</text>
+<rect x="440" y="65" width="150" height="40" rx="6" fill="#f59e0b"/>
+<text x="515" y="89" text-anchor="middle" fill="white" font-size="11" font-weight="600">Composables</text>
+<text x="515" y="101" text-anchor="middle" fill="#ffffff" opacity="0.7" font-size="9">.kt</text>
+<rect x="440" y="113" width="150" height="40" rx="6" fill="#f59e0b"/>
+<text x="515" y="137" text-anchor="middle" fill="white" font-size="11" font-weight="600">BreedRepository</text>
+<text x="515" y="149" text-anchor="middle" fill="#ffffff" opacity="0.7" font-size="9">.kt</text>
+<rect x="660" y="65" width="150" height="40" rx="6" fill="#f97316"/>
+<text x="735" y="89" text-anchor="middle" fill="white" font-size="11" font-weight="600">BreedRepositoryTes</text>
+<text x="735" y="101" text-anchor="middle" fill="#ffffff" opacity="0.7" font-size="9">.kt</text>
+<rect x="660" y="113" width="150" height="40" rx="6" fill="#f97316"/>
+<text x="735" y="137" text-anchor="middle" fill="white" font-size="11" font-weight="600">BreedViewModel</text>
+<text x="735" y="149" text-anchor="middle" fill="#ffffff" opacity="0.7" font-size="9">.kt</text>
+<rect x="660" y="161" width="150" height="40" rx="6" fill="#f97316"/>
+<text x="735" y="185" text-anchor="middle" fill="white" font-size="11" font-weight="600">BreedViewModelTest</text>
+<text x="735" y="197" text-anchor="middle" fill="#ffffff" opacity="0.7" font-size="9">.kt</text>
+<line x1="210" y1="234" x2="240" y2="85" stroke="#4338ca" stroke-width="1.5" opacity="0.4"/>
+<line x1="210" y1="234" x2="240" y2="133" stroke="#4338ca" stroke-width="1.5" opacity="0.4"/>
+<line x1="210" y1="234" x2="240" y2="181" stroke="#4338ca" stroke-width="1.5" opacity="0.4"/>
+<line x1="210" y1="234" x2="240" y2="229" stroke="#4338ca" stroke-width="1.5" opacity="0.4"/>
+<line x1="210" y1="234" x2="240" y2="277" stroke="#4338ca" stroke-width="1.5" opacity="0.4"/>
+<line x1="210" y1="234" x2="240" y2="325" stroke="#4338ca" stroke-width="1.5" opacity="0.4"/>
+<line x1="210" y1="234" x2="240" y2="373" stroke="#4338ca" stroke-width="1.5" opacity="0.4"/>
+<line x1="390" y1="85" x2="440" y2="85" stroke="#f59e0b" stroke-width="1" opacity="0.25"/>
+<line x1="390" y1="85" x2="440" y2="133" stroke="#f59e0b" stroke-width="1" opacity="0.25"/>
+<line x1="390" y1="133" x2="440" y2="85" stroke="#f59e0b" stroke-width="1" opacity="0.25"/>
+<line x1="390" y1="133" x2="440" y2="133" stroke="#f59e0b" stroke-width="1" opacity="0.25"/>
+<line x1="390" y1="181" x2="440" y2="85" stroke="#f59e0b" stroke-width="1" opacity="0.25"/>
+<line x1="390" y1="181" x2="440" y2="133" stroke="#f59e0b" stroke-width="1" opacity="0.25"/>
+<line x1="390" y1="229" x2="440" y2="85" stroke="#f59e0b" stroke-width="1" opacity="0.25"/>
+<line x1="390" y1="229" x2="440" y2="133" stroke="#f59e0b" stroke-width="1" opacity="0.25"/>
+<line x1="390" y1="277" x2="440" y2="85" stroke="#f59e0b" stroke-width="1" opacity="0.25"/>
+<line x1="390" y1="277" x2="440" y2="133" stroke="#f59e0b" stroke-width="1" opacity="0.25"/>
+<line x1="390" y1="325" x2="440" y2="85" stroke="#f59e0b" stroke-width="1" opacity="0.25"/>
+<line x1="390" y1="325" x2="440" y2="133" stroke="#f59e0b" stroke-width="1" opacity="0.25"/>
+<line x1="390" y1="373" x2="440" y2="85" stroke="#f59e0b" stroke-width="1" opacity="0.25"/>
+<line x1="390" y1="373" x2="440" y2="133" stroke="#f59e0b" stroke-width="1" opacity="0.25"/>
+<line x1="590" y1="85" x2="660" y2="85" stroke="#f97316" stroke-width="1" opacity="0.2"/>
+<line x1="590" y1="85" x2="660" y2="133" stroke="#f97316" stroke-width="1" opacity="0.2"/>
+<line x1="590" y1="85" x2="660" y2="181" stroke="#f97316" stroke-width="1" opacity="0.2"/>
+<line x1="590" y1="133" x2="660" y2="85" stroke="#f97316" stroke-width="1" opacity="0.2"/>
+<line x1="590" y1="133" x2="660" y2="133" stroke="#f97316" stroke-width="1" opacity="0.2"/>
+<line x1="590" y1="133" x2="660" y2="181" stroke="#f97316" stroke-width="1" opacity="0.2"/>
+</svg>

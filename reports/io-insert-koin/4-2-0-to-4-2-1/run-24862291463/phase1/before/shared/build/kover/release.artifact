@@ -1,0 +1,14 @@
+:shared
+shared/src/androidRelease/kotlin
+shared/src/release/java
+shared/src/release/kotlin
+shared/src/androidMain/kotlin
+shared/src/main/java
+shared/src/main/kotlin
+shared/src/commonMain/kotlin
+shared/build/generated/sqldelight/code/KaMPKitDb/commonMain
+
+shared/build/tmp/kotlin-classes/release
+shared/build/intermediates/javac/release/compileReleaseJavaWithJavac/classes
+
+shared/build/kover/bin-reports/testReleaseUnitTest.ic

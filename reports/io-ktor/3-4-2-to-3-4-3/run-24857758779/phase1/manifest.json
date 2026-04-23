@@ -1,0 +1,25 @@
+{
+  "before_dir": "/tmp/output/phase1/before",
+  "after_dir": "/tmp/output/phase1/after",
+  "version_change": {
+    "dependency_group": "io.ktor",
+    "version_key": "ktor",
+    "before": "3.4.2",
+    "after": "3.4.3"
+  },
+  "init_script_injected": false,
+  "detekt_reports": {},
+  "kover_reports": {
+    "shared": "/tmp/output/phase1/before/shared/build/reports/kover/report.xml",
+    "app": "/tmp/output/phase1/before/app/build/reports/kover/report.xml"
+  },
+  "compilation_after": {
+    "status": "success",
+    "errors": [],
+    "tasks": [
+      "shared:compileKotlinIosArm64",
+      "shared:compileKotlinIosSimulatorArm64",
+      "shared:compileKotlinMetadata"
+    ]
+  }
+}

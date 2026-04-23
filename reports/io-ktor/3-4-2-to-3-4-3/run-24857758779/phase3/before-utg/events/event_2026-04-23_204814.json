@@ -1,0 +1,49 @@
+{
+  "tag": "2026-04-23_204814",
+  "event": {
+    "event_type": "touch",
+    "log_lines": null,
+    "x": null,
+    "y": null,
+    "view": {
+      "package": "com.android.quicksearchbox",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": true,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": true,
+      "bounds": [
+        [
+          0,
+          31
+        ],
+        [
+          272,
+          73
+        ]
+      ],
+      "resource_id": "com.android.quicksearchbox:id/search_src_text",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.EditText",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": true,
+      "parent": 4,
+      "temp_id": 5,
+      "size": "272*42",
+      "signature": "[class]android.widget.EditText[resource_id]com.android.quicksearchbox:id/search_src_text[text]None[enabled,,]",
+      "view_str": "b8ea587f83090c4c4b5405fe1871bf69",
+      "content_free_signature": "[class]android.widget.EditText[resource_id]com.android.quicksearchbox:id/search_src_text"
+    }
+  },
+  "start_state": "9c37663e73cc4bbdee339e8cc9150441",
+  "stop_state": "9c37663e73cc4bbdee339e8cc9150441",
+  "event_str": "TouchEvent(state=9c37663e73cc4bbdee339e8cc9150441, view=b8ea587f83090c4c4b5405fe1871bf69(SearchActivity/EditText-))"
+}

@@ -1,0 +1,10 @@
+:app
+app/src/release/kotlin
+app/src/release/java
+app/src/main/kotlin
+app/src/main/java
+
+app/build/tmp/kotlin-classes/release
+app/build/intermediates/javac/release/compileReleaseJavaWithJavac/classes
+
+app/build/kover/bin-reports/testReleaseUnitTest.ic

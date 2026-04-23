@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="co.touchlab.kampkit.BreedRepositoryTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-04-23T20:45:32.173Z" hostname="runnervmeorf1" time="1.01">
+  <properties/>
+  <testcase name="Get updated breeds when stale and preserve favorites" classname="co.touchlab.kampkit.BreedRepositoryTest" time="0.933"/>
+  <testcase name="Rethrow on API error" classname="co.touchlab.kampkit.BreedRepositoryTest" time="0.004"/>
+  <testcase name="Get breeds without cache" classname="co.touchlab.kampkit.BreedRepositoryTest" time="0.032"/>
+  <testcase name="Get updated breeds with cache and preserve favorites" classname="co.touchlab.kampkit.BreedRepositoryTest" time="0.013"/>
+  <testcase name="Toggle favorite cached breed" classname="co.touchlab.kampkit.BreedRepositoryTest" time="0.013"/>
+  <testcase name="Rethrow on API error when stale" classname="co.touchlab.kampkit.BreedRepositoryTest" time="0.004"/>
+  <testcase name="No web call if data is not stale" classname="co.touchlab.kampkit.BreedRepositoryTest" time="0.005"/>
+  <system-out><![CDATA[Debug: Inserting 2 breeds into database
+Info: Breed 2: Favorited true
+Verbose: (BreedModel) Breed network result: success
+Verbose: (BreedModel) Fetched 3 breeds from network
+Debug: Inserting 3 breeds into database
+Verbose: (BreedModel) Breed network result: success
+Verbose: (BreedModel) Fetched 2 breeds from network
+Debug: Inserting 2 breeds into database
+Debug: Inserting 2 breeds into database
+Info: Breed 2: Favorited true
+Verbose: (BreedModel) Breed network result: success
+Verbose: (BreedModel) Fetched 3 breeds from network
+Debug: Inserting 3 breeds into database
+Debug: Inserting 2 breeds into database
+Info: Breed 2: Favorited true
+Info: Breed 2: Favorited false
+Info: (BreedModel) Breeds not fetched from network. Recently updated
+Verbose: (BreedModel) Breed network result: success
+Verbose: (BreedModel) Fetched 2 breeds from network
+Debug: Inserting 2 breeds into database
+]]></system-out>
+  <system-err><![CDATA[SLF4J(W): No SLF4J providers were found.
+SLF4J(W): Defaulting to no-operation (NOP) logger implementation
+SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.
+]]></system-err>
+</testsuite>

@@ -1,0 +1,86 @@
+{
+  "tag": "2026-04-23_224222",
+  "event": {
+    "event_type": "scroll",
+    "log_lines": null,
+    "x": null,
+    "y": null,
+    "view": {
+      "package": "co.touchlab.kampkit",
+      "visible": true,
+      "checkable": false,
+      "child_count": 28,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        7,
+        11,
+        12,
+        16,
+        17,
+        21,
+        22,
+        26,
+        27,
+        31,
+        32,
+        36,
+        37,
+        41,
+        42,
+        46,
+        47,
+        51,
+        52,
+        56,
+        57,
+        61,
+        62,
+        66,
+        67,
+        71,
+        72,
+        76
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          24
+        ],
+        [
+          320,
+          640
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": true,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 5,
+      "temp_id": 6,
+      "size": "320*616",
+      "signature": "[class]android.view.View[resource_id]None[text]None[enabled,,]",
+      "view_str": "93affb9511d727c0489663fe35277f09",
+      "content_free_signature": "[class]android.view.View[resource_id]None",
+      "allowed_actions": [
+        "scroll up",
+        "scroll down"
+      ],
+      "special_attrs": [],
+      "local_id": "0",
+      "desc": "<scrollbar bound_box=0,24,320,640></scrollbar>"
+    },
+    "direction": "right"
+  },
+  "start_state": "84c6b42b9b745c70f16d87e5b4d05152",
+  "stop_state": "84c6b42b9b745c70f16d87e5b4d05152",
+  "event_str": "ScrollEvent(state=84c6b42b9b745c70f16d87e5b4d05152, view=93affb9511d727c0489663fe35277f09(MainActivity/View-), direction=right)"
+}

@@ -1,0 +1,55 @@
+{
+  "tag": "2026-04-23_204318",
+  "event": {
+    "event_type": "touch",
+    "log_lines": null,
+    "x": null,
+    "y": null,
+    "view": {
+      "package": "co.touchlab.kampkit",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          10,
+          484
+        ],
+        [
+          286,
+          503
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": "borzoi",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 57,
+      "temp_id": 58,
+      "size": "276*19",
+      "signature": "[class]android.widget.TextView[resource_id]None[text]borzoi[enabled,,]",
+      "view_str": "ef38a7bc1b8bdf187b716900166d7e2f",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]None",
+      "allowed_actions": [
+        "touch"
+      ],
+      "special_attrs": [],
+      "local_id": "21",
+      "desc": "<button bound_box=10,484,286,503>borzoi</button>"
+    }
+  },
+  "start_state": "84c6b42b9b745c70f16d87e5b4d05152",
+  "stop_state": "4c621c0fac56e5a25f11f192a2fdb095",
+  "event_str": "TouchEvent(state=84c6b42b9b745c70f16d87e5b4d05152, view=ef38a7bc1b8bdf187b716900166d7e2f(MainActivity/TextView-borzoi))"
+}

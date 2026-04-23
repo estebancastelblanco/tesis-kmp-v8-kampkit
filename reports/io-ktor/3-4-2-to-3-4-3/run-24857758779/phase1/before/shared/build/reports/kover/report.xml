@@ -1,0 +1,1063 @@
+<?xml version="1.0" ?>
+<report name="Kover Gradle Plugin XML report for :shared">
+<package name="co/touchlab/kampkit/db">
+<class name="co/touchlab/kampkit/db/Breed" sourcefilename="Breed.kt">
+<method name="&lt;init&gt;" desc="(JLjava/lang/String;Z)V">
+<counter type="INSTRUCTION" missed="0" covered="17"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="4"/>
+</method>
+<counter type="INSTRUCTION" missed="0" covered="17"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="4"/>
+<counter type="METHOD" missed="0" covered="1"/>
+</class>
+<class name="co/touchlab/kampkit/db/KaMPKitDb$Companion" sourcefilename="KaMPKitDb.kt">
+<method name="invoke" desc="(Lapp/cash/sqldelight/db/SqlDriver;)Lco/touchlab/kampkit/db/KaMPKitDb;">
+<counter type="INSTRUCTION" missed="0" covered="2"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+</method>
+<method name="getSchema" desc="()Lapp/cash/sqldelight/db/SqlSchema;">
+<counter type="INSTRUCTION" missed="0" covered="1"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+</method>
+<counter type="INSTRUCTION" missed="0" covered="3"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="2"/>
+<counter type="METHOD" missed="0" covered="2"/>
+</class>
+<class name="co/touchlab/kampkit/db/TableQueries" sourcefilename="TableQueries.kt">
+<method name="selectByName$lambda$0" desc="(Lkotlin/jvm/functions/Function3;Lapp/cash/sqldelight/db/SqlCursor;)Ljava/lang/Object;">
+<counter type="INSTRUCTION" missed="17" covered="0"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="4" covered="0"/>
+</method>
+<method name="insertBreed" desc="(Ljava/lang/String;)Lapp/cash/sqldelight/db/QueryResult;">
+<counter type="INSTRUCTION" missed="0" covered="15"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="4"/>
+</method>
+<method name="deleteAll" desc="()Lapp/cash/sqldelight/db/QueryResult;">
+<counter type="INSTRUCTION" missed="0" covered="16"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="3"/>
+</method>
+<method name="&lt;init&gt;" desc="(Lapp/cash/sqldelight/db/SqlDriver;)V">
+<counter type="INSTRUCTION" missed="0" covered="3"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="2"/>
+</method>
+<method name="selectById" desc="(JLkotlin/jvm/functions/Function3;)Lapp/cash/sqldelight/Query;">
+<counter type="INSTRUCTION" missed="0" covered="8"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+</method>
+<method name="selectAll" desc="()Lapp/cash/sqldelight/Query;">
+<counter type="INSTRUCTION" missed="0" covered="4"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+</method>
+<method name="insertBreed$lambda$0" desc="(Ljava/lang/String;Lapp/cash/sqldelight/db/SqlPreparedStatement;)Lkotlin/Unit;">
+<counter type="INSTRUCTION" missed="0" covered="7"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="2"/>
+</method>
+<method name="updateFavorite" desc="(ZJ)Lapp/cash/sqldelight/db/QueryResult;">
+<counter type="INSTRUCTION" missed="0" covered="16"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="3"/>
+</method>
+<method name="selectAll" desc="(Lkotlin/jvm/functions/Function3;)Lapp/cash/sqldelight/Query;">
+<counter type="INSTRUCTION" missed="0" covered="17"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+</method>
+<method name="updateFavorite$lambda$1" desc="(Lkotlin/jvm/functions/Function1;)Lkotlin/Unit;">
+<counter type="INSTRUCTION" missed="0" covered="4"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+</method>
+<method name="selectByName" desc="(Ljava/lang/String;Lkotlin/jvm/functions/Function3;)Lapp/cash/sqldelight/Query;">
+<counter type="INSTRUCTION" missed="8" covered="0"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="1" covered="0"/>
+</method>
+<method name="selectByName" desc="(Ljava/lang/String;)Lapp/cash/sqldelight/Query;">
+<counter type="INSTRUCTION" missed="5" covered="0"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="1" covered="0"/>
+</method>
+<method name="selectById$lambda$0" desc="(Lkotlin/jvm/functions/Function3;Lapp/cash/sqldelight/db/SqlCursor;)Ljava/lang/Object;">
+<counter type="INSTRUCTION" missed="0" covered="17"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="4"/>
+</method>
+<method name="insertBreed$lambda$1" desc="(Lkotlin/jvm/functions/Function1;)Lkotlin/Unit;">
+<counter type="INSTRUCTION" missed="0" covered="4"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+</method>
+<method name="deleteAll$lambda$0" desc="(Lkotlin/jvm/functions/Function1;)Lkotlin/Unit;">
+<counter type="INSTRUCTION" missed="0" covered="4"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+</method>
+<method name="updateFavorite$lambda$0" desc="(ZJLapp/cash/sqldelight/db/SqlPreparedStatement;)Lkotlin/Unit;">
+<counter type="INSTRUCTION" missed="0" covered="14"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="3"/>
+</method>
+<method name="selectAll$lambda$0" desc="(Lkotlin/jvm/functions/Function3;Lapp/cash/sqldelight/db/SqlCursor;)Ljava/lang/Object;">
+<counter type="INSTRUCTION" missed="0" covered="17"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="4"/>
+</method>
+<method name="selectById" desc="(J)Lapp/cash/sqldelight/Query;">
+<counter type="INSTRUCTION" missed="0" covered="5"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+</method>
+<counter type="INSTRUCTION" missed="30" covered="151"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="6" covered="32"/>
+<counter type="METHOD" missed="3" covered="15"/>
+</class>
+<class name="co/touchlab/kampkit/db/TableQueries$SelectByIdQuery" sourcefilename="TableQueries.kt">
+<method name="execute$lambda$0" desc="(Lco/touchlab/kampkit/db/TableQueries$SelectByIdQuery;Lapp/cash/sqldelight/db/SqlPreparedStatement;)Lkotlin/Unit;">
+<counter type="INSTRUCTION" missed="0" covered="9"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="2"/>
+</method>
+<method name="toString" desc="()Ljava/lang/String;">
+<counter type="INSTRUCTION" missed="1" covered="0"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="1" covered="0"/>
+</method>
+<method name="removeListener" desc="(Lapp/cash/sqldelight/Query$Listener;)V">
+<counter type="INSTRUCTION" missed="0" covered="13"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+</method>
+<method name="&lt;init&gt;" desc="(Lco/touchlab/kampkit/db/TableQueries;JLkotlin/jvm/functions/Function1;)V">
+<counter type="INSTRUCTION" missed="0" covered="11"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="3"/>
+</method>
+<method name="execute" desc="(Lkotlin/jvm/functions/Function1;)Lapp/cash/sqldelight/db/QueryResult;">
+<counter type="INSTRUCTION" missed="0" covered="11"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+</method>
+<method name="addListener" desc="(Lapp/cash/sqldelight/Query$Listener;)V">
+<counter type="INSTRUCTION" missed="0" covered="13"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+</method>
+<counter type="INSTRUCTION" missed="1" covered="57"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="1" covered="8"/>
+<counter type="METHOD" missed="1" covered="5"/>
+</class>
+<class name="co/touchlab/kampkit/db/TableQueries$SelectByNameQuery" sourcefilename="TableQueries.kt">
+<method name="execute$lambda$0" desc="(Lco/touchlab/kampkit/db/TableQueries$SelectByNameQuery;Lapp/cash/sqldelight/db/SqlPreparedStatement;)Lkotlin/Unit;">
+<counter type="INSTRUCTION" missed="8" covered="0"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="2" covered="0"/>
+</method>
+<method name="&lt;init&gt;" desc="(Lco/touchlab/kampkit/db/TableQueries;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V">
+<counter type="INSTRUCTION" missed="11" covered="0"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="3" covered="0"/>
+</method>
+<method name="toString" desc="()Ljava/lang/String;">
+<counter type="INSTRUCTION" missed="1" covered="0"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="1" covered="0"/>
+</method>
+<method name="removeListener" desc="(Lapp/cash/sqldelight/Query$Listener;)V">
+<counter type="INSTRUCTION" missed="13" covered="0"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="1" covered="0"/>
+</method>
+<method name="execute" desc="(Lkotlin/jvm/functions/Function1;)Lapp/cash/sqldelight/db/QueryResult;">
+<counter type="INSTRUCTION" missed="11" covered="0"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="1" covered="0"/>
+</method>
+<method name="addListener" desc="(Lapp/cash/sqldelight/Query$Listener;)V">
+<counter type="INSTRUCTION" missed="13" covered="0"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="1" covered="0"/>
+</method>
+<counter type="INSTRUCTION" missed="57" covered="0"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="9" covered="0"/>
+<counter type="METHOD" missed="6" covered="0"/>
+</class>
+<sourcefile name="TableQueries.kt">
+<line nr="13" mi="0" ci="2" mb="0" cb="0"/>
+<line nr="15" mi="0" ci="1" mb="0" cb="0"/>
+<line nr="20" mi="0" ci="17" mb="0" cb="0"/>
+<line nr="21" mi="0" ci="2" mb="0" cb="0"/>
+<line nr="22" mi="0" ci="5" mb="0" cb="0"/>
+<line nr="23" mi="0" ci="5" mb="0" cb="0"/>
+<line nr="24" mi="0" ci="5" mb="0" cb="0"/>
+<line nr="28" mi="0" ci="4" mb="0" cb="0"/>
+<line nr="34" mi="0" ci="8" mb="0" cb="0"/>
+<line nr="35" mi="0" ci="2" mb="0" cb="0"/>
+<line nr="36" mi="0" ci="5" mb="0" cb="0"/>
+<line nr="37" mi="0" ci="5" mb="0" cb="0"/>
+<line nr="38" mi="0" ci="5" mb="0" cb="0"/>
+<line nr="42" mi="0" ci="5" mb="0" cb="0"/>
+<line nr="48" mi="8" ci="0" mb="0" cb="0"/>
+<line nr="49" mi="2" ci="0" mb="0" cb="0"/>
+<line nr="50" mi="5" ci="0" mb="0" cb="0"/>
+<line nr="51" mi="5" ci="0" mb="0" cb="0"/>
+<line nr="52" mi="5" ci="0" mb="0" cb="0"/>
+<line nr="56" mi="5" ci="0" mb="0" cb="0"/>
+<line nr="62" mi="0" ci="8" mb="0" cb="0"/>
+<line nr="65" mi="0" ci="2" mb="0" cb="0"/>
+<line nr="66" mi="0" ci="2" mb="0" cb="0"/>
+<line nr="67" mi="0" ci="5" mb="0" cb="0"/>
+<line nr="69" mi="0" ci="4" mb="0" cb="0"/>
+<line nr="70" mi="0" ci="4" mb="0" cb="0"/>
+<line nr="72" mi="0" ci="1" mb="0" cb="0"/>
+<line nr="79" mi="0" ci="11" mb="0" cb="0"/>
+<line nr="80" mi="0" ci="4" mb="0" cb="0"/>
+<line nr="81" mi="0" ci="4" mb="0" cb="0"/>
+<line nr="83" mi="0" ci="1" mb="0" cb="0"/>
+<line nr="90" mi="0" ci="11" mb="0" cb="0"/>
+<line nr="91" mi="0" ci="2" mb="0" cb="0"/>
+<line nr="92" mi="0" ci="6" mb="0" cb="0"/>
+<line nr="93" mi="0" ci="6" mb="0" cb="0"/>
+<line nr="95" mi="0" ci="4" mb="0" cb="0"/>
+<line nr="96" mi="0" ci="4" mb="0" cb="0"/>
+<line nr="98" mi="0" ci="1" mb="0" cb="0"/>
+<line nr="101" mi="0" ci="5" mb="0" cb="0"/>
+<line nr="102" mi="0" ci="5" mb="0" cb="0"/>
+<line nr="104" mi="0" ci="1" mb="0" cb="0"/>
+<line nr="106" mi="0" ci="13" mb="0" cb="0"/>
+<line nr="110" mi="0" ci="13" mb="0" cb="0"/>
+<line nr="113" mi="0" ci="11" mb="0" cb="0"/>
+<line nr="114" mi="0" ci="2" mb="0" cb="0"/>
+<line nr="115" mi="0" ci="7" mb="0" cb="0"/>
+<line nr="118" mi="1" ci="0" mb="0" cb="0"/>
+<line nr="121" mi="5" ci="0" mb="0" cb="0"/>
+<line nr="122" mi="5" ci="0" mb="0" cb="0"/>
+<line nr="124" mi="1" ci="0" mb="0" cb="0"/>
+<line nr="126" mi="13" ci="0" mb="0" cb="0"/>
+<line nr="130" mi="13" ci="0" mb="0" cb="0"/>
+<line nr="133" mi="11" ci="0" mb="0" cb="0"/>
+<line nr="134" mi="2" ci="0" mb="0" cb="0"/>
+<line nr="135" mi="6" ci="0" mb="0" cb="0"/>
+<line nr="138" mi="1" ci="0" mb="0" cb="0"/>
+<counter type="INSTRUCTION" missed="88" covered="208"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="16" covered="40"/>
+</sourcefile>
+<sourcefile name="Breed.kt">
+<line nr="7" mi="0" ci="2" mb="0" cb="0"/>
+<line nr="8" mi="0" ci="5" mb="0" cb="0"/>
+<line nr="9" mi="0" ci="5" mb="0" cb="0"/>
+<line nr="10" mi="0" ci="5" mb="0" cb="0"/>
+<counter type="INSTRUCTION" missed="0" covered="17"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="4"/>
+</sourcefile>
+<sourcefile name="KaMPKitDb.kt">
+<line nr="16" mi="0" ci="1" mb="0" cb="0"/>
+<line nr="18" mi="0" ci="2" mb="0" cb="0"/>
+<counter type="INSTRUCTION" missed="0" covered="3"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="2"/>
+</sourcefile>
+<counter type="INSTRUCTION" missed="88" covered="228"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="16" covered="46"/>
+<counter type="METHOD" missed="10" covered="23"/>
+<counter type="CLASS" missed="1" covered="4"/>
+</package>
+<package name="co/touchlab/kampkit/db/shared">
+<class name="co/touchlab/kampkit/db/shared/KaMPKitDbImpl" sourcefilename="KaMPKitDbImpl.kt">
+<method name="&lt;init&gt;" desc="(Lapp/cash/sqldelight/db/SqlDriver;)V">
+<counter type="INSTRUCTION" missed="0" covered="11"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="3"/>
+</method>
+<counter type="INSTRUCTION" missed="0" covered="11"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="3"/>
+<counter type="METHOD" missed="0" covered="1"/>
+</class>
+<class name="co/touchlab/kampkit/db/shared/KaMPKitDbImpl$Schema" sourcefilename="KaMPKitDbImpl.kt">
+<method name="create-0iQ1-z0" desc="(Lapp/cash/sqldelight/db/SqlDriver;)Ljava/lang/Object;">
+<counter type="INSTRUCTION" missed="0" covered="11"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="3"/>
+</method>
+<method name="migrate-zeHU3Mk" desc="(Lapp/cash/sqldelight/db/SqlDriver;JJ[Lapp/cash/sqldelight/db/AfterVersion;)Ljava/lang/Object;">
+<counter type="INSTRUCTION" missed="2" covered="0"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="1" covered="0"/>
+</method>
+<method name="getVersion" desc="()J">
+<counter type="INSTRUCTION" missed="0" covered="1"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+</method>
+<counter type="INSTRUCTION" missed="2" covered="12"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="1" covered="4"/>
+<counter type="METHOD" missed="1" covered="2"/>
+</class>
+<class name="co/touchlab/kampkit/db/shared/KaMPKitDbImplKt" sourcefilename="KaMPKitDbImpl.kt">
+<method name="newInstance" desc="(Lkotlin/reflect/KClass;Lapp/cash/sqldelight/db/SqlDriver;)Lco/touchlab/kampkit/db/KaMPKitDb;">
+<counter type="INSTRUCTION" missed="0" covered="5"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+</method>
+<method name="getSchema" desc="(Lkotlin/reflect/KClass;)Lapp/cash/sqldelight/db/SqlSchema;">
+<counter type="INSTRUCTION" missed="0" covered="2"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+</method>
+<counter type="INSTRUCTION" missed="0" covered="7"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="2"/>
+<counter type="METHOD" missed="0" covered="2"/>
+</class>
+<sourcefile name="KaMPKitDbImpl.kt">
+<line nr="15" mi="0" ci="2" mb="0" cb="0"/>
+<line nr="17" mi="0" ci="5" mb="0" cb="0"/>
+<line nr="19" mi="0" ci="2" mb="0" cb="0"/>
+<line nr="21" mi="0" ci="1" mb="0" cb="0"/>
+<line nr="23" mi="0" ci="8" mb="0" cb="0"/>
+<line nr="27" mi="0" ci="1" mb="0" cb="0"/>
+<line nr="30" mi="0" ci="7" mb="0" cb="0"/>
+<line nr="36" mi="0" ci="2" mb="0" cb="0"/>
+<line nr="37" mi="0" ci="2" mb="0" cb="0"/>
+<line nr="45" mi="2" ci="0" mb="0" cb="0"/>
+<counter type="INSTRUCTION" missed="2" covered="30"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="1" covered="9"/>
+</sourcefile>
+<counter type="INSTRUCTION" missed="2" covered="30"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="1" covered="9"/>
+<counter type="METHOD" missed="1" covered="5"/>
+<counter type="CLASS" missed="0" covered="3"/>
+</package>
+<package name="co/touchlab/kampkit/ktor">
+<class name="co/touchlab/kampkit/ktor/DogApiImpl" sourcefilename="DogApiImpl.kt">
+<method name="dogs$lambda$0" desc="(Ljava/lang/String;Lio/ktor/http/URLBuilder;Lio/ktor/http/URLBuilder;)Lkotlin/Unit;">
+<counter type="INSTRUCTION" missed="0" covered="7"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="2"/>
+</method>
+<method name="client$lambda$0$2" desc="(Lio/ktor/client/plugins/HttpTimeoutConfig;)Lkotlin/Unit;">
+<counter type="INSTRUCTION" missed="0" covered="14"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="4"/>
+</method>
+<method name="getJsonFromApi" desc="(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;">
+<counter type="INSTRUCTION" missed="0" covered="23"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="4"/>
+</method>
+<method name="client$lambda$0$0" desc="(Lio/ktor/client/plugins/contentnegotiation/ContentNegotiationConfig;)Lkotlin/Unit;">
+<counter type="INSTRUCTION" missed="0" covered="7"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+</method>
+<method name="&lt;init&gt;" desc="(Lco/touchlab/kermit/Logger;Lio/ktor/client/engine/HttpClientEngine;)V">
+<counter type="INSTRUCTION" missed="0" covered="11"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="2"/>
+</method>
+<method name="client$lambda$0" desc="(Lco/touchlab/kampkit/ktor/DogApiImpl;Lio/ktor/client/HttpClientConfig;)Lkotlin/Unit;">
+<counter type="INSTRUCTION" missed="0" covered="19"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="4"/>
+</method>
+<method name="dogs" desc="(Lio/ktor/client/request/HttpRequestBuilder;Ljava/lang/String;)V">
+<counter type="INSTRUCTION" missed="0" covered="4"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+</method>
+<method name="client$lambda$0$1" desc="(Lco/touchlab/kampkit/ktor/DogApiImpl;Lio/ktor/client/plugins/logging/LoggingConfig;)Lkotlin/Unit;">
+<counter type="INSTRUCTION" missed="0" covered="10"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="2"/>
+</method>
+<counter type="INSTRUCTION" missed="0" covered="95"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="20"/>
+<counter type="METHOD" missed="0" covered="8"/>
+</class>
+<class name="co/touchlab/kampkit/ktor/DogApiImpl$client$1$2$1" sourcefilename="DogApiImpl.kt">
+<method name="log" desc="(Ljava/lang/String;)V">
+<counter type="INSTRUCTION" missed="0" covered="11"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+</method>
+<method name="&lt;init&gt;" desc="(Lco/touchlab/kampkit/ktor/DogApiImpl;)V">
+<counter type="INSTRUCTION" missed="0" covered="2"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+</method>
+<counter type="INSTRUCTION" missed="0" covered="13"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="2"/>
+<counter type="METHOD" missed="0" covered="2"/>
+</class>
+<sourcefile name="DogApiImpl.kt">
+<line nr="19" mi="0" ci="5" mb="0" cb="0"/>
+<line nr="21" mi="0" ci="6" mb="0" cb="0"/>
+<line nr="22" mi="0" ci="3" mb="0" cb="0"/>
+<line nr="23" mi="0" ci="5" mb="0" cb="0"/>
+<line nr="24" mi="0" ci="7" mb="0" cb="0"/>
+<line nr="26" mi="0" ci="6" mb="0" cb="0"/>
+<line nr="27" mi="0" ci="9" mb="0" cb="0"/>
+<line nr="29" mi="0" ci="11" mb="0" cb="0"/>
+<line nr="33" mi="0" ci="3" mb="0" cb="0"/>
+<line nr="35" mi="0" ci="5" mb="0" cb="0"/>
+<line nr="36" mi="0" ci="2" mb="0" cb="0"/>
+<line nr="37" mi="0" ci="4" mb="0" cb="0"/>
+<line nr="38" mi="0" ci="4" mb="0" cb="0"/>
+<line nr="39" mi="0" ci="4" mb="0" cb="0"/>
+<line nr="44" mi="0" ci="10" mb="0" cb="0"/>
+<line nr="45" mi="0" ci="5" mb="0" cb="0"/>
+<line nr="46" mi="0" ci="4" mb="0" cb="0"/>
+<line nr="47" mi="0" ci="4" mb="0" cb="0"/>
+<line nr="51" mi="0" ci="4" mb="0" cb="0"/>
+<line nr="52" mi="0" ci="4" mb="0" cb="0"/>
+<line nr="53" mi="0" ci="3" mb="0" cb="0"/>
+<counter type="INSTRUCTION" missed="0" covered="108"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="22"/>
+</sourcefile>
+<counter type="INSTRUCTION" missed="0" covered="108"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="22"/>
+<counter type="METHOD" missed="0" covered="10"/>
+<counter type="CLASS" missed="0" covered="2"/>
+</package>
+<package name="co/touchlab/kampkit/models">
+<class name="co/touchlab/kampkit/models/BreedRepository" sourcefilename="BreedRepository.kt">
+<method name="&lt;init&gt;" desc="(Lco/touchlab/kampkit/DatabaseHelper;Lcom/russhwolf/settings/Settings;Lco/touchlab/kampkit/ktor/DogApi;Lco/touchlab/kermit/Logger;Lkotlin/time/Clock;)V">
+<counter type="INSTRUCTION" missed="0" covered="19"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="6"/>
+</method>
+<method name="isBreedListStale" desc="()Z">
+<counter type="INSTRUCTION" missed="0" covered="35"/>
+<counter type="BRANCH" missed="0" covered="4"/>
+<counter type="LINE" missed="0" covered="6"/>
+</method>
+<method name="refreshBreedsIfStale" desc="(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;">
+<counter type="INSTRUCTION" missed="0" covered="11"/>
+<counter type="BRANCH" missed="0" covered="2"/>
+<counter type="LINE" missed="0" covered="2"/>
+</method>
+<method name="getBreeds" desc="()Lkotlinx/coroutines/flow/Flow;">
+<counter type="INSTRUCTION" missed="0" covered="3"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+</method>
+<method name="refreshBreeds" desc="(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;">
+<counter type="INSTRUCTION" missed="0" covered="74"/>
+<counter type="BRANCH" missed="0" covered="2"/>
+<counter type="LINE" missed="0" covered="7"/>
+</method>
+<method name="updateBreedFavorite" desc="(Lco/touchlab/kampkit/db/Breed;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;">
+<counter type="INSTRUCTION" missed="0" covered="14"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+</method>
+<counter type="INSTRUCTION" missed="0" covered="156"/>
+<counter type="BRANCH" missed="0" covered="8"/>
+<counter type="LINE" missed="0" covered="23"/>
+<counter type="METHOD" missed="0" covered="6"/>
+</class>
+<class name="co/touchlab/kampkit/models/BreedViewModel" sourcefilename="BreedViewModel.kt">
+<method name="activate" desc="(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;">
+<counter type="INSTRUCTION" missed="0" covered="8"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+</method>
+<method name="&lt;init&gt;" desc="(Lco/touchlab/kampkit/models/BreedRepository;Lco/touchlab/kermit/Logger;)V">
+<counter type="INSTRUCTION" missed="0" covered="19"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="3"/>
+</method>
+<method name="onCleared" desc="()V">
+<counter type="INSTRUCTION" missed="5" covered="0"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="1" covered="0"/>
+</method>
+<method name="refreshBreeds" desc="(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;">
+<counter type="INSTRUCTION" missed="5" covered="62"/>
+<counter type="BRANCH" missed="2" covered="4"/>
+<counter type="LINE" missed="1" covered="9"/>
+</method>
+<method name="observeBreeds" desc="(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;">
+<counter type="INSTRUCTION" missed="0" covered="30"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="5"/>
+</method>
+<method name="updateBreedFavorite" desc="(Lco/touchlab/kampkit/db/Breed;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;">
+<counter type="INSTRUCTION" missed="0" covered="10"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+</method>
+<method name="handleBreedError" desc="(Ljava/lang/Throwable;)V">
+<counter type="INSTRUCTION" missed="6" covered="48"/>
+<counter type="BRANCH" missed="3" covered="3"/>
+<counter type="LINE" missed="2" covered="9"/>
+</method>
+<counter type="INSTRUCTION" missed="16" covered="177"/>
+<counter type="BRANCH" missed="5" covered="7"/>
+<counter type="LINE" missed="4" covered="28"/>
+<counter type="METHOD" missed="1" covered="6"/>
+</class>
+<class name="co/touchlab/kampkit/models/BreedViewModel$observeBreeds$2" sourcefilename="BreedViewModel.kt">
+<method name="invokeSuspend" desc="(Ljava/lang/Object;)Ljava/lang/Object;">
+<counter type="INSTRUCTION" missed="0" covered="8"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+</method>
+<counter type="INSTRUCTION" missed="0" covered="8"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+<counter type="METHOD" missed="0" covered="1"/>
+</class>
+<class name="co/touchlab/kampkit/models/BreedViewModel$observeBreeds$3" sourcefilename="BreedViewModel.kt">
+<method name="emit" desc="(Lkotlin/Pair;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;">
+<counter type="INSTRUCTION" missed="4" covered="48"/>
+<counter type="BRANCH" missed="1" covered="7"/>
+<counter type="LINE" missed="1" covered="11"/>
+</method>
+<counter type="INSTRUCTION" missed="4" covered="48"/>
+<counter type="BRANCH" missed="1" covered="7"/>
+<counter type="LINE" missed="1" covered="11"/>
+<counter type="METHOD" missed="0" covered="1"/>
+</class>
+<class name="co/touchlab/kampkit/models/BreedViewModel$observeBreeds$refreshFlow$1" sourcefilename="BreedViewModel.kt">
+<method name="invokeSuspend" desc="(Ljava/lang/Object;)Ljava/lang/Object;">
+<counter type="INSTRUCTION" missed="0" covered="51"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="3"/>
+</method>
+<counter type="INSTRUCTION" missed="0" covered="51"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="3"/>
+<counter type="METHOD" missed="0" covered="1"/>
+</class>
+<class name="co/touchlab/kampkit/models/BreedViewState" sourcefilename="BreedViewModel.kt">
+<method name="&lt;init&gt;" desc="()V">
+<counter type="INSTRUCTION" missed="0" covered="2"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+</method>
+<counter type="INSTRUCTION" missed="0" covered="2"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+<counter type="METHOD" missed="0" covered="1"/>
+</class>
+<class name="co/touchlab/kampkit/models/BreedViewState$Content" sourcefilename="BreedViewModel.kt">
+<method name="&lt;init&gt;" desc="(Ljava/util/List;Z)V">
+<counter type="INSTRUCTION" missed="0" covered="23"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+</method>
+<counter type="INSTRUCTION" missed="0" covered="23"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+<counter type="METHOD" missed="0" covered="1"/>
+</class>
+<class name="co/touchlab/kampkit/models/BreedViewState$Empty" sourcefilename="BreedViewModel.kt">
+<method name="&lt;init&gt;" desc="(Z)V">
+<counter type="INSTRUCTION" missed="0" covered="17"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+</method>
+<counter type="INSTRUCTION" missed="0" covered="17"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+<counter type="METHOD" missed="0" covered="1"/>
+</class>
+<class name="co/touchlab/kampkit/models/BreedViewState$Error" sourcefilename="BreedViewModel.kt">
+<method name="&lt;init&gt;" desc="(Ljava/lang/String;Z)V">
+<counter type="INSTRUCTION" missed="0" covered="23"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+</method>
+<counter type="INSTRUCTION" missed="0" covered="23"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+<counter type="METHOD" missed="0" covered="1"/>
+</class>
+<class name="co/touchlab/kampkit/models/BreedViewState$Initial" sourcefilename="BreedViewModel.kt">
+<method name="isLoading" desc="()Z">
+<counter type="INSTRUCTION" missed="0" covered="3"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+</method>
+<method name="&lt;init&gt;" desc="()V">
+<counter type="INSTRUCTION" missed="0" covered="3"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+</method>
+<counter type="INSTRUCTION" missed="0" covered="6"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="2"/>
+<counter type="METHOD" missed="0" covered="2"/>
+</class>
+<class name="co/touchlab/kampkit/models/ViewModel" sourcefilename="ViewModel.kt">
+<method name="onCleared" desc="()V">
+<counter type="INSTRUCTION" missed="2" covered="0"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="1" covered="0"/>
+</method>
+<method name="&lt;init&gt;" desc="()V">
+<counter type="INSTRUCTION" missed="0" covered="2"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+</method>
+<counter type="INSTRUCTION" missed="2" covered="2"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="1" covered="1"/>
+<counter type="METHOD" missed="1" covered="1"/>
+</class>
+<sourcefile name="BreedRepository.kt">
+<line nr="11" mi="0" ci="2" mb="0" cb="0"/>
+<line nr="12" mi="0" ci="3" mb="0" cb="0"/>
+<line nr="13" mi="0" ci="3" mb="0" cb="0"/>
+<line nr="14" mi="0" ci="3" mb="0" cb="0"/>
+<line nr="16" mi="0" ci="3" mb="0" cb="0"/>
+<line nr="19" mi="0" ci="5" mb="0" cb="0"/>
+<line nr="25" mi="0" ci="3" mb="0" cb="0"/>
+<line nr="28" mi="0" ci="3" mb="0" cb="2"/>
+<line nr="29" mi="0" ci="8" mb="0" cb="0"/>
+<line nr="34" mi="0" ci="10" mb="0" cb="0"/>
+<line nr="35" mi="0" ci="12" mb="0" cb="0"/>
+<line nr="36" mi="0" ci="8" mb="0" cb="0"/>
+<line nr="37" mi="0" ci="12" mb="0" cb="0"/>
+<line nr="38" mi="0" ci="8" mb="0" cb="0"/>
+<line nr="40" mi="0" ci="5" mb="0" cb="2"/>
+<line nr="41" mi="0" ci="19" mb="0" cb="0"/>
+<line nr="46" mi="0" ci="14" mb="0" cb="0"/>
+<line nr="50" mi="0" ci="6" mb="0" cb="0"/>
+<line nr="51" mi="0" ci="2" mb="0" cb="0"/>
+<line nr="52" mi="0" ci="14" mb="0" cb="2"/>
+<line nr="53" mi="0" ci="2" mb="0" cb="2"/>
+<line nr="54" mi="0" ci="10" mb="0" cb="0"/>
+<line nr="56" mi="0" ci="1" mb="0" cb="0"/>
+<counter type="INSTRUCTION" missed="0" covered="156"/>
+<counter type="BRANCH" missed="0" covered="8"/>
+<counter type="LINE" missed="0" covered="23"/>
+</sourcefile>
+<sourcefile name="ViewModel.kt">
+<line nr="5" mi="0" ci="2" mb="0" cb="0"/>
+<line nr="7" mi="2" ci="0" mb="0" cb="0"/>
+<counter type="INSTRUCTION" missed="2" covered="2"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="1" covered="1"/>
+</sourcefile>
+<sourcefile name="BreedViewModel.kt">
+<line nr="13" mi="0" ci="8" mb="0" cb="0"/>
+<line nr="16" mi="0" ci="4" mb="0" cb="0"/>
+<line nr="18" mi="0" ci="7" mb="0" cb="0"/>
+<line nr="25" mi="0" ci="8" mb="0" cb="0"/>
+<line nr="29" mi="5" ci="0" mb="0" cb="0"/>
+<line nr="34" mi="0" ci="8" mb="0" cb="0"/>
+<line nr="36" mi="0" ci="15" mb="0" cb="0"/>
+<line nr="37" mi="0" ci="17" mb="0" cb="0"/>
+<line nr="39" mi="0" ci="19" mb="0" cb="0"/>
+<line nr="43" mi="0" ci="6" mb="0" cb="0"/>
+<line nr="44" mi="0" ci="1" mb="0" cb="0"/>
+<line nr="45" mi="0" ci="3" mb="0" cb="0"/>
+<line nr="46" mi="0" ci="8" mb="0" cb="0"/>
+<line nr="47" mi="0" ci="12" mb="0" cb="0"/>
+<line nr="48" mi="0" ci="6" mb="0" cb="0"/>
+<line nr="49" mi="0" ci="3" mb="0" cb="2"/>
+<line nr="50" mi="0" ci="2" mb="0" cb="0"/>
+<line nr="51" mi="0" ci="3" mb="1" cb="1"/>
+<line nr="52" mi="4" ci="0" mb="0" cb="0"/>
+<line nr="54" mi="0" ci="1" mb="0" cb="0"/>
+<line nr="57" mi="0" ci="5" mb="0" cb="2"/>
+<line nr="58" mi="0" ci="9" mb="0" cb="0"/>
+<line nr="59" mi="0" ci="2" mb="0" cb="2"/>
+<line nr="60" mi="0" ci="9" mb="0" cb="0"/>
+<line nr="62" mi="0" ci="7" mb="0" cb="0"/>
+<line nr="63" mi="0" ci="1" mb="0" cb="0"/>
+<line nr="70" mi="0" ci="5" mb="0" cb="0"/>
+<line nr="71" mi="0" ci="6" mb="0" cb="0"/>
+<line nr="72" mi="2" ci="3" mb="1" cb="1"/>
+<line nr="73" mi="0" ci="12" mb="0" cb="2"/>
+<line nr="74" mi="0" ci="9" mb="1" cb="1"/>
+<line nr="75" mi="3" ci="0" mb="0" cb="0"/>
+<line nr="76" mi="0" ci="1" mb="0" cb="0"/>
+<line nr="79" mi="0" ci="10" mb="0" cb="0"/>
+<line nr="81" mi="0" ci="12" mb="0" cb="0"/>
+<line nr="83" mi="0" ci="4" mb="0" cb="0"/>
+<line nr="88" mi="0" ci="10" mb="0" cb="0"/>
+<line nr="92" mi="0" ci="12" mb="0" cb="0"/>
+<line nr="93" mi="0" ci="5" mb="0" cb="0"/>
+<line nr="94" mi="0" ci="6" mb="0" cb="0"/>
+<line nr="95" mi="0" ci="11" mb="0" cb="2"/>
+<line nr="96" mi="0" ci="1" mb="0" cb="0"/>
+<line nr="98" mi="0" ci="3" mb="1" cb="1"/>
+<line nr="99" mi="3" ci="0" mb="2" cb="0"/>
+<line nr="100" mi="3" ci="0" mb="0" cb="0"/>
+<line nr="101" mi="0" ci="8" mb="0" cb="0"/>
+<line nr="102" mi="0" ci="1" mb="0" cb="0"/>
+<line nr="104" mi="0" ci="1" mb="0" cb="0"/>
+<line nr="109" mi="0" ci="2" mb="0" cb="0"/>
+<line nr="112" mi="0" ci="3" mb="0" cb="0"/>
+<line nr="113" mi="0" ci="3" mb="0" cb="0"/>
+<line nr="116" mi="0" ci="17" mb="0" cb="0"/>
+<line nr="118" mi="0" ci="23" mb="0" cb="0"/>
+<line nr="121" mi="0" ci="23" mb="0" cb="0"/>
+<counter type="INSTRUCTION" missed="20" covered="355"/>
+<counter type="BRANCH" missed="6" covered="14"/>
+<counter type="LINE" missed="5" covered="49"/>
+</sourcefile>
+<counter type="INSTRUCTION" missed="22" covered="513"/>
+<counter type="BRANCH" missed="6" covered="22"/>
+<counter type="LINE" missed="6" covered="73"/>
+<counter type="METHOD" missed="2" covered="22"/>
+<counter type="CLASS" missed="0" covered="11"/>
+</package>
+<package name="co/touchlab/kampkit/response">
+<class name="co/touchlab/kampkit/response/BreedResult" sourcefilename="BreedResult.kt">
+<method name="&lt;init&gt;" desc="(Ljava/util/Map;Ljava/lang/String;)V">
+<counter type="INSTRUCTION" missed="5" covered="62"/>
+<counter type="BRANCH" missed="1" covered="1"/>
+<counter type="LINE" missed="0" covered="2"/>
+</method>
+<counter type="INSTRUCTION" missed="5" covered="62"/>
+<counter type="BRANCH" missed="1" covered="1"/>
+<counter type="LINE" missed="0" covered="2"/>
+<counter type="METHOD" missed="0" covered="1"/>
+</class>
+<class name="co/touchlab/kampkit/response/BreedResult$Companion" sourcefilename="BreedResult.kt">
+<method name="&lt;init&gt;" desc="()V">
+<counter type="INSTRUCTION" missed="0" covered="4"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+</method>
+<counter type="INSTRUCTION" missed="0" covered="4"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+<counter type="METHOD" missed="0" covered="1"/>
+</class>
+<sourcefile name="BreedResult.kt">
+<line nr="5" mi="5" ci="53" mb="1" cb="1"/>
+<line nr="6" mi="0" ci="13" mb="0" cb="0"/>
+<counter type="INSTRUCTION" missed="5" covered="66"/>
+<counter type="BRANCH" missed="1" covered="1"/>
+<counter type="LINE" missed="0" covered="3"/>
+</sourcefile>
+<counter type="INSTRUCTION" missed="5" covered="66"/>
+<counter type="BRANCH" missed="1" covered="1"/>
+<counter type="LINE" missed="0" covered="3"/>
+<counter type="METHOD" missed="0" covered="2"/>
+<counter type="CLASS" missed="0" covered="2"/>
+</package>
+<package name="co/touchlab/kampkit">
+<class name="co/touchlab/kampkit/DatabaseHelper" sourcefilename="DatabaseHelper.kt">
+<method name="&lt;init&gt;" desc="(Lapp/cash/sqldelight/db/SqlDriver;Lco/touchlab/kermit/Logger;Lkotlinx/coroutines/CoroutineDispatcher;)V">
+<counter type="INSTRUCTION" missed="0" covered="13"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="2"/>
+</method>
+<method name="deleteAll$lambda$1" desc="(Lco/touchlab/kampkit/DatabaseHelper;Lapp/cash/sqldelight/TransactionWithoutReturn;)Lkotlin/Unit;">
+<counter type="INSTRUCTION" missed="0" covered="5"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+</method>
+<method name="insertBreeds$lambda$1" desc="(Ljava/util/List;Lco/touchlab/kampkit/DatabaseHelper;Lapp/cash/sqldelight/TransactionWithoutReturn;)Lkotlin/Unit;">
+<counter type="INSTRUCTION" missed="0" covered="12"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="3"/>
+</method>
+<method name="updateFavorite" desc="(JZLkotlin/coroutines/Continuation;)Ljava/lang/Object;">
+<counter type="INSTRUCTION" missed="0" covered="32"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="2"/>
+</method>
+<method name="deleteAll" desc="(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;">
+<counter type="INSTRUCTION" missed="0" covered="28"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="2"/>
+</method>
+<method name="insertBreeds" desc="(Ljava/util/List;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;">
+<counter type="INSTRUCTION" missed="0" covered="31"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="2"/>
+</method>
+<method name="selectById" desc="(J)Lkotlinx/coroutines/flow/Flow;">
+<counter type="INSTRUCTION" missed="0" covered="13"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="5"/>
+</method>
+<method name="updateFavorite$lambda$1" desc="(Lco/touchlab/kampkit/DatabaseHelper;ZJLapp/cash/sqldelight/TransactionWithoutReturn;)Lkotlin/Unit;">
+<counter type="INSTRUCTION" missed="0" covered="7"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+</method>
+<method name="selectAllItems" desc="()Lkotlinx/coroutines/flow/Flow;">
+<counter type="INSTRUCTION" missed="0" covered="12"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="5"/>
+</method>
+<counter type="INSTRUCTION" missed="0" covered="153"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="23"/>
+<counter type="METHOD" missed="0" covered="9"/>
+</class>
+<class name="co/touchlab/kampkit/KoinAndroidKt" sourcefilename="KoinAndroid.kt">
+<method name="platformModule$lambda$0$0" desc="(Lorg/koin/core/scope/Scope;Lorg/koin/core/parameter/ParametersHolder;)Lapp/cash/sqldelight/db/SqlDriver;">
+<counter type="INSTRUCTION" missed="0" covered="16"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="4"/>
+</method>
+<method name="getPlatformModule" desc="()Lorg/koin/core/module/Module;">
+<counter type="INSTRUCTION" missed="0" covered="7"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+</method>
+<method name="platformModule$lambda$0$1" desc="(Lorg/koin/core/scope/Scope;Lorg/koin/core/parameter/ParametersHolder;)Lcom/russhwolf/settings/Settings;">
+<counter type="INSTRUCTION" missed="0" covered="9"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+</method>
+<method name="platformModule$lambda$0" desc="(Lorg/koin/core/module/Module;)Lkotlin/Unit;">
+<counter type="INSTRUCTION" missed="0" covered="12"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="3"/>
+</method>
+<method name="platformModule$lambda$0$2" desc="(Lorg/koin/core/scope/Scope;Lorg/koin/core/parameter/ParametersHolder;)Lio/ktor/client/engine/HttpClientEngine;">
+<counter type="INSTRUCTION" missed="0" covered="6"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+</method>
+<counter type="INSTRUCTION" missed="0" covered="50"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="10"/>
+<counter type="METHOD" missed="0" covered="5"/>
+</class>
+<class name="co/touchlab/kampkit/KoinKt" sourcefilename="Koin.kt">
+<method name="initKoin$lambda$0" desc="(Lorg/koin/core/module/Module;Lorg/koin/core/KoinApplication;)Lkotlin/Unit;">
+<counter type="INSTRUCTION" missed="0" covered="19"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="4"/>
+</method>
+<method name="coreModule$lambda$0$1" desc="(Lorg/koin/core/scope/Scope;Lorg/koin/core/parameter/ParametersHolder;)Lco/touchlab/kampkit/ktor/DogApi;">
+<counter type="INSTRUCTION" missed="0" covered="19"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="3"/>
+</method>
+<method name="coreModule$lambda$0$3" desc="(Lco/touchlab/kermit/Logger;Lorg/koin/core/scope/Scope;Lorg/koin/core/parameter/ParametersHolder;)Lco/touchlab/kermit/Logger;">
+<counter type="INSTRUCTION" missed="0" covered="14"/>
+<counter type="BRANCH" missed="0" covered="2"/>
+<counter type="LINE" missed="0" covered="1"/>
+</method>
+<method name="getWith" desc="(Lorg/koin/core/scope/Scope;[Ljava/lang/Object;)Ljava/lang/Object;">
+<counter type="INSTRUCTION" missed="0" covered="8"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+</method>
+<method name="initKoin" desc="(Lorg/koin/core/module/Module;)Lorg/koin/core/KoinApplication;">
+<counter type="INSTRUCTION" missed="0" covered="45"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="8"/>
+</method>
+<method name="coreModule$lambda$0$4" desc="(Lorg/koin/core/scope/Scope;Lorg/koin/core/parameter/ParametersHolder;)Lco/touchlab/kampkit/models/BreedRepository;">
+<counter type="INSTRUCTION" missed="0" covered="24"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="6"/>
+</method>
+<method name="&lt;clinit&gt;" desc="()V">
+<counter type="INSTRUCTION" missed="0" covered="6"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+</method>
+<method name="injectLogger" desc="(Lorg/koin/core/component/KoinComponent;Ljava/lang/String;)Lkotlin/Lazy;">
+<counter type="INSTRUCTION" missed="14" covered="0"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="1" covered="0"/>
+</method>
+<method name="coreModule$lambda$0" desc="(Lorg/koin/core/module/Module;)Lkotlin/Unit;">
+<counter type="INSTRUCTION" missed="0" covered="33"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="6"/>
+</method>
+<method name="coreModule$lambda$0$2" desc="(Lorg/koin/core/scope/Scope;Lorg/koin/core/parameter/ParametersHolder;)Lkotlin/time/Clock;">
+<counter type="INSTRUCTION" missed="0" covered="2"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+</method>
+<method name="coreModule$lambda$0$0" desc="(Lorg/koin/core/scope/Scope;Lorg/koin/core/parameter/ParametersHolder;)Lco/touchlab/kampkit/DatabaseHelper;">
+<counter type="INSTRUCTION" missed="0" covered="19"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="4"/>
+</method>
+<counter type="INSTRUCTION" missed="14" covered="189"/>
+<counter type="BRANCH" missed="0" covered="2"/>
+<counter type="LINE" missed="1" covered="35"/>
+<counter type="METHOD" missed="1" covered="10"/>
+</class>
+<class name="co/touchlab/kampkit/KoinKt$getWith$1" sourcefilename="Koin.kt">
+<method name="invoke" desc="()Lorg/koin/core/parameter/ParametersHolder;">
+<counter type="INSTRUCTION" missed="0" covered="7"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+</method>
+<counter type="INSTRUCTION" missed="0" covered="7"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+<counter type="METHOD" missed="0" covered="1"/>
+</class>
+<sourcefile name="KoinAndroid.kt">
+<line nr="12" mi="0" ci="7" mb="0" cb="0"/>
+<line nr="13" mi="0" ci="4" mb="0" cb="0"/>
+<line nr="14" mi="0" ci="11" mb="0" cb="0"/>
+<line nr="15" mi="0" ci="2" mb="0" cb="0"/>
+<line nr="16" mi="0" ci="2" mb="0" cb="0"/>
+<line nr="17" mi="0" ci="1" mb="0" cb="0"/>
+<line nr="21" mi="0" ci="4" mb="0" cb="0"/>
+<line nr="22" mi="0" ci="9" mb="0" cb="0"/>
+<line nr="25" mi="0" ci="4" mb="0" cb="0"/>
+<line nr="26" mi="0" ci="6" mb="0" cb="0"/>
+<counter type="INSTRUCTION" missed="0" covered="50"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="10"/>
+</sourcefile>
+<sourcefile name="Koin.kt">
+<line nr="21" mi="0" ci="4" mb="0" cb="0"/>
+<line nr="22" mi="0" ci="3" mb="0" cb="0"/>
+<line nr="23" mi="0" ci="12" mb="0" cb="0"/>
+<line nr="24" mi="0" ci="2" mb="0" cb="0"/>
+<line nr="25" mi="0" ci="2" mb="0" cb="0"/>
+<line nr="30" mi="0" ci="3" mb="0" cb="0"/>
+<line nr="32" mi="0" ci="4" mb="0" cb="0"/>
+<line nr="33" mi="0" ci="3" mb="0" cb="0"/>
+<line nr="35" mi="0" ci="15" mb="0" cb="0"/>
+<line nr="37" mi="0" ci="4" mb="0" cb="0"/>
+<line nr="38" mi="0" ci="11" mb="0" cb="0"/>
+<line nr="40" mi="0" ci="1" mb="0" cb="0"/>
+<line nr="43" mi="0" ci="6" mb="0" cb="0"/>
+<line nr="44" mi="0" ci="4" mb="0" cb="0"/>
+<line nr="45" mi="0" ci="3" mb="0" cb="0"/>
+<line nr="46" mi="0" ci="2" mb="0" cb="0"/>
+<line nr="47" mi="0" ci="13" mb="0" cb="0"/>
+<line nr="48" mi="0" ci="1" mb="0" cb="0"/>
+<line nr="51" mi="0" ci="4" mb="0" cb="0"/>
+<line nr="52" mi="0" ci="4" mb="0" cb="0"/>
+<line nr="53" mi="0" ci="13" mb="0" cb="0"/>
+<line nr="54" mi="0" ci="2" mb="0" cb="0"/>
+<line nr="57" mi="0" ci="4" mb="0" cb="0"/>
+<line nr="58" mi="0" ci="2" mb="0" cb="0"/>
+<line nr="65" mi="0" ci="1" mb="0" cb="0"/>
+<line nr="66" mi="0" ci="16" mb="0" cb="0"/>
+<line nr="67" mi="0" ci="14" mb="0" cb="2"/>
+<line nr="69" mi="0" ci="4" mb="0" cb="0"/>
+<line nr="70" mi="0" ci="3" mb="0" cb="0"/>
+<line nr="71" mi="0" ci="2" mb="0" cb="0"/>
+<line nr="72" mi="0" ci="2" mb="0" cb="0"/>
+<line nr="73" mi="0" ci="2" mb="0" cb="0"/>
+<line nr="74" mi="0" ci="13" mb="0" cb="0"/>
+<line nr="75" mi="0" ci="2" mb="0" cb="0"/>
+<line nr="80" mi="0" ci="15" mb="0" cb="0"/>
+<line nr="83" mi="14" ci="0" mb="0" cb="0"/>
+<counter type="INSTRUCTION" missed="14" covered="196"/>
+<counter type="BRANCH" missed="0" covered="2"/>
+<counter type="LINE" missed="1" covered="36"/>
+</sourcefile>
+<sourcefile name="DatabaseHelper.kt">
+<line nr="15" mi="0" ci="8" mb="0" cb="0"/>
+<line nr="16" mi="0" ci="5" mb="0" cb="0"/>
+<line nr="18" mi="0" ci="3" mb="0" cb="0"/>
+<line nr="19" mi="0" ci="1" mb="0" cb="0"/>
+<line nr="20" mi="0" ci="1" mb="0" cb="0"/>
+<line nr="21" mi="0" ci="3" mb="0" cb="0"/>
+<line nr="22" mi="0" ci="4" mb="0" cb="0"/>
+<line nr="25" mi="0" ci="12" mb="0" cb="0"/>
+<line nr="26" mi="0" ci="19" mb="0" cb="0"/>
+<line nr="27" mi="0" ci="5" mb="0" cb="0"/>
+<line nr="28" mi="0" ci="6" mb="0" cb="0"/>
+<line nr="29" mi="0" ci="1" mb="0" cb="0"/>
+<line nr="33" mi="0" ci="3" mb="0" cb="0"/>
+<line nr="34" mi="0" ci="2" mb="0" cb="0"/>
+<line nr="35" mi="0" ci="1" mb="0" cb="0"/>
+<line nr="36" mi="0" ci="3" mb="0" cb="0"/>
+<line nr="37" mi="0" ci="4" mb="0" cb="0"/>
+<line nr="40" mi="0" ci="10" mb="0" cb="0"/>
+<line nr="41" mi="0" ci="18" mb="0" cb="0"/>
+<line nr="42" mi="0" ci="5" mb="0" cb="0"/>
+<line nr="47" mi="0" ci="12" mb="0" cb="0"/>
+<line nr="48" mi="0" ci="20" mb="0" cb="0"/>
+<line nr="49" mi="0" ci="7" mb="0" cb="0"/>
+<counter type="INSTRUCTION" missed="0" covered="153"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="23"/>
+</sourcefile>
+<counter type="INSTRUCTION" missed="14" covered="399"/>
+<counter type="BRANCH" missed="0" covered="2"/>
+<counter type="LINE" missed="1" covered="69"/>
+<counter type="METHOD" missed="1" covered="25"/>
+<counter type="CLASS" missed="0" covered="4"/>
+</package>
+<package name="co/touchlab/kampkit/sqldelight">
+<class name="co/touchlab/kampkit/sqldelight/CoroutinesExtensionsKt" sourcefilename="CoroutinesExtensions.kt">
+<method name="transactionWithContext" desc="(Lapp/cash/sqldelight/Transacter;Lkotlin/coroutines/CoroutineContext;ZLkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;">
+<counter type="INSTRUCTION" missed="0" covered="18"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="2"/>
+</method>
+<counter type="INSTRUCTION" missed="0" covered="18"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="2"/>
+<counter type="METHOD" missed="0" covered="1"/>
+</class>
+<class name="co/touchlab/kampkit/sqldelight/CoroutinesExtensionsKt$transactionWithContext$2" sourcefilename="CoroutinesExtensions.kt">
+<method name="invokeSuspend$lambda$0" desc="(Lkotlin/jvm/functions/Function1;Lapp/cash/sqldelight/TransactionWithoutReturn;)Lkotlin/Unit;">
+<counter type="INSTRUCTION" missed="0" covered="4"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+</method>
+<method name="invokeSuspend" desc="(Ljava/lang/Object;)Ljava/lang/Object;">
+<counter type="INSTRUCTION" missed="0" covered="8"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="1"/>
+</method>
+<counter type="INSTRUCTION" missed="0" covered="12"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="2"/>
+<counter type="METHOD" missed="0" covered="2"/>
+</class>
+<sourcefile name="CoroutinesExtensions.kt">
+<line nr="10" mi="0" ci="2" mb="0" cb="0"/>
+<line nr="13" mi="0" ci="16" mb="0" cb="0"/>
+<line nr="14" mi="0" ci="8" mb="0" cb="0"/>
+<line nr="15" mi="0" ci="4" mb="0" cb="0"/>
+<counter type="INSTRUCTION" missed="0" covered="30"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="4"/>
+</sourcefile>
+<counter type="INSTRUCTION" missed="0" covered="30"/>
+<counter type="BRANCH" missed="0" covered="0"/>
+<counter type="LINE" missed="0" covered="4"/>
+<counter type="METHOD" missed="0" covered="3"/>
+<counter type="CLASS" missed="0" covered="2"/>
+</package>
+<counter type="INSTRUCTION" missed="131" covered="1374"/>
+<counter type="BRANCH" missed="7" covered="25"/>
+<counter type="LINE" missed="24" covered="226"/>
+<counter type="METHOD" missed="14" covered="90"/>
+<counter type="CLASS" missed="1" covered="28"/>
+</report>

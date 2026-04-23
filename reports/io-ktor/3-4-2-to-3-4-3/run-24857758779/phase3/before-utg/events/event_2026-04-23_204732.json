@@ -1,0 +1,11 @@
+{
+  "tag": "2026-04-23_204732",
+  "event": {
+    "event_type": "intent",
+    "log_lines": null,
+    "intent": "am force-stop co.touchlab.kampkit"
+  },
+  "start_state": "b4568daed2e04a8085dec1876af2bf73",
+  "stop_state": "052812ac517ede05d7cb4f98a078dbb4",
+  "event_str": "IntentEvent(intent='am force-stop co.touchlab.kampkit')"
+}

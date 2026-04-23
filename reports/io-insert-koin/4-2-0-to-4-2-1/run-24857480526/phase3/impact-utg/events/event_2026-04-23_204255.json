@@ -1,0 +1,55 @@
+{
+  "tag": "2026-04-23_204255",
+  "event": {
+    "event_type": "touch",
+    "log_lines": null,
+    "x": null,
+    "y": null,
+    "view": {
+      "package": "co.touchlab.kampkit",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          10,
+          79
+        ],
+        [
+          286,
+          98
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": "african",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 12,
+      "temp_id": 13,
+      "size": "276*19",
+      "signature": "[class]android.widget.TextView[resource_id]None[text]african[enabled,,]",
+      "view_str": "c263d79c0ca3a98ef9842543a6fb0d5b",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]None",
+      "allowed_actions": [
+        "touch"
+      ],
+      "special_attrs": [],
+      "local_id": "3",
+      "desc": "<button bound_box=10,79,286,98>african</button>"
+    }
+  },
+  "start_state": "84c6b42b9b745c70f16d87e5b4d05152",
+  "stop_state": "84c6b42b9b745c70f16d87e5b4d05152",
+  "event_str": "TouchEvent(state=84c6b42b9b745c70f16d87e5b4d05152, view=c263d79c0ca3a98ef9842543a6fb0d5b(MainActivity/TextView-african))"
+}

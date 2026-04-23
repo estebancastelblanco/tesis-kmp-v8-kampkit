@@ -1,0 +1,49 @@
+{
+  "tag": "2026-04-23_204819",
+  "event": {
+    "event_type": "touch",
+    "log_lines": null,
+    "x": null,
+    "y": null,
+    "view": {
+      "package": "co.touchlab.kampkit",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          150,
+          50
+        ],
+        [
+          170,
+          70
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ProgressBar",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 7,
+      "temp_id": 8,
+      "size": "20*20",
+      "signature": "[class]android.widget.ProgressBar[resource_id]None[text]None[enabled,,]",
+      "view_str": "e2ba815e231b82f136b4fc8f4e7b4217",
+      "content_free_signature": "[class]android.widget.ProgressBar[resource_id]None"
+    }
+  },
+  "start_state": "b4568daed2e04a8085dec1876af2bf73",
+  "stop_state": "b4568daed2e04a8085dec1876af2bf73",
+  "event_str": "TouchEvent(state=b4568daed2e04a8085dec1876af2bf73, view=e2ba815e231b82f136b4fc8f4e7b4217(MainActivity/ProgressBar-))"
+}

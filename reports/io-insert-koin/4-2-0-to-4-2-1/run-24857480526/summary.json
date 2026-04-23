@@ -1,0 +1,177 @@
+{
+  "dependency_group": "io.insert-koin",
+  "version_before": "4.2.0",
+  "version_after": "4.2.1",
+  "risk_level": "high",
+  "recommendation": "Hold merge until impacted files are reviewed and targeted regression checks pass.",
+  "report_url": "",
+  "total_impacted_files": 12,
+  "total_impacted_screens": 15,
+  "direct_impacts": 7,
+  "transitive_impacts": 5,
+  "expect_actual_impacts": 0,
+  "total_project_files": 44,
+  "dynamic_status": "completed",
+  "dynamic_summary": "completed (0 screen diffs)",
+  "dynamic_diffs": 0,
+  "before_screens": 3,
+  "after_screens": 3,
+  "screen_mappings": 15,
+  "trace_entries": 12,
+  "seed_files": [
+    "/tmp/output/phase1/before/app/src/main/kotlin/co/touchlab/kampkit/android/MainActivity.kt",
+    "/tmp/output/phase1/before/app/src/main/kotlin/co/touchlab/kampkit/android/MainApp.kt",
+    "/tmp/output/phase1/before/shared/src/androidMain/kotlin/co/touchlab/kampkit/KoinAndroid.kt",
+    "/tmp/output/phase1/before/shared/src/androidUnitTest/kotlin/co/touchlab/kampkit/KoinTest.kt",
+    "/tmp/output/phase1/before/shared/src/commonMain/kotlin/co/touchlab/kampkit/Koin.kt",
+    "/tmp/output/phase1/before/shared/src/iosMain/kotlin/co/touchlab/kampkit/KoinIOS.kt",
+    "/tmp/output/phase1/before/shared/src/iosTest/kotlin/co/touchlab/kampkit/KoinTest.kt"
+  ],
+  "impacted_screens": [
+    "Breed",
+    "DogList",
+    "DogRow",
+    "Empty",
+    "Error",
+    "FavoriteIcon",
+    "Main",
+    "MainApp",
+    "MainScreen",
+    "MainScreenContent",
+    "MainScreenContentPreview_Empty",
+    "MainScreenContentPreview_Error",
+    "MainScreenContentPreview_Initial",
+    "MainScreenContentPreview_Success",
+    "Success"
+  ],
+  "top_impacted_files": [
+    {
+      "file_path": "/tmp/output/phase1/before/shared/src/commonMain/kotlin/co/touchlab/kampkit/Koin.kt",
+      "relation": "direct",
+      "distance": 0,
+      "source_set": "commonMain",
+      "rloc": 66,
+      "mcc": 5,
+      "declarations": [
+        "co.touchlab.kampkit.initKoin",
+        "co.touchlab.kampkit.getWith",
+        "co.touchlab.kampkit.injectLogger"
+      ]
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/app/src/main/kotlin/co/touchlab/kampkit/android/MainApp.kt",
+      "relation": "direct",
+      "distance": 0,
+      "source_set": "main",
+      "rloc": 35,
+      "mcc": 1,
+      "declarations": [
+        "co.touchlab.kampkit.android.MainApp",
+        "co.touchlab.kampkit.android.AndroidAppInfo"
+      ]
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/shared/src/androidUnitTest/kotlin/co/touchlab/kampkit/KoinTest.kt",
+      "relation": "direct",
+      "distance": 0,
+      "source_set": "androidUnitTest",
+      "rloc": 35,
+      "mcc": 1,
+      "declarations": [
+        "co.touchlab.kampkit.KoinTest"
+      ]
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/shared/src/iosMain/kotlin/co/touchlab/kampkit/KoinIOS.kt",
+      "relation": "direct",
+      "distance": 0,
+      "source_set": "ios",
+      "rloc": 33,
+      "mcc": 1,
+      "declarations": [
+        "co.touchlab.kampkit.initKoinIos",
+        "co.touchlab.kampkit.loggerWithTag",
+        "co.touchlab.kampkit.KotlinDependencies"
+      ]
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/app/src/main/kotlin/co/touchlab/kampkit/android/MainActivity.kt",
+      "relation": "direct",
+      "distance": 0,
+      "source_set": "main",
+      "rloc": 25,
+      "mcc": 1,
+      "declarations": [
+        "co.touchlab.kampkit.android.MainActivity"
+      ]
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/shared/src/androidMain/kotlin/co/touchlab/kampkit/KoinAndroid.kt",
+      "relation": "direct",
+      "distance": 0,
+      "source_set": "androidMain",
+      "rloc": 24,
+      "mcc": 1,
+      "declarations": []
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/shared/src/iosTest/kotlin/co/touchlab/kampkit/KoinTest.kt",
+      "relation": "direct",
+      "distance": 0,
+      "source_set": "iosTest",
+      "rloc": 24,
+      "mcc": 1,
+      "declarations": [
+        "co.touchlab.kampkit.KoinTest"
+      ]
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/shared/src/commonMain/kotlin/co/touchlab/kampkit/models/BreedViewModel.kt",
+      "relation": "transitive",
+      "distance": 2,
+      "source_set": "commonMain",
+      "rloc": 99,
+      "mcc": 15,
+      "declarations": [
+        "co.touchlab.kampkit.models.BreedViewModel",
+        "co.touchlab.kampkit.models.BreedViewState"
+      ]
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/shared/src/commonTest/kotlin/co/touchlab/kampkit/BreedViewModelTest.kt",
+      "relation": "transitive",
+      "distance": 2,
+      "source_set": "commonTest",
+      "rloc": 249,
+      "mcc": 9,
+      "declarations": [
+        "co.touchlab.kampkit.BreedViewModelTest",
+        "co.touchlab.kampkit.awaitItemPrecededBy"
+      ]
+    },
+    {
+      "file_path": "/tmp/output/phase1/before/shared/src/commonTest/kotlin/co/touchlab/kampkit/BreedRepositoryTest.kt",
+      "relation": "transitive",
+      "distance": 2,
+      "source_set": "commonTest",
+      "rloc": 128,
+      "mcc": 7,
+      "declarations": [
+        "co.touchlab.kampkit.BreedRepositoryTest"
+      ]
+    }
+  ],
+  "version_key": "koin",
+  "compilation_after": "success",
+  "compile_errors": 0,
+  "has_detekt": false,
+  "has_kover": true,
+  "tools_used": {
+    "tree_sitter": true,
+    "ksp": true,
+    "detekt": false,
+    "kover": true,
+    "droidbot": true,
+    "codecharta": true
+  }
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="co.touchlab.kampkit.SqlDelightTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-04-23T20:46:35.106Z" hostname="runnervmeorf1" time="0.044">
+  <properties/>
+  <testcase name="Select All Items Success" classname="co.touchlab.kampkit.SqlDelightTest" time="0.012"/>
+  <testcase name="Update Favorite Success" classname="co.touchlab.kampkit.SqlDelightTest" time="0.016"/>
+  <testcase name="Select Item by Id Success" classname="co.touchlab.kampkit.SqlDelightTest" time="0.007"/>
+  <testcase name="Delete All Success" classname="co.touchlab.kampkit.SqlDelightTest" time="0.008"/>
+  <system-out><![CDATA[Info: Database Cleared
+Debug: Inserting 1 breeds into database
+Info: Database Cleared
+Debug: Inserting 1 breeds into database
+Info: Breed 1: Favorited true
+Info: Database Cleared
+Debug: Inserting 1 breeds into database
+Info: Database Cleared
+Debug: Inserting 1 breeds into database
+Debug: Inserting 1 breeds into database
+Debug: Inserting 1 breeds into database
+Info: Database Cleared
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,55 @@
+{
+  "tag": "2026-04-23_224405",
+  "event": {
+    "event_type": "touch",
+    "log_lines": null,
+    "x": null,
+    "y": null,
+    "view": {
+      "package": "co.touchlab.kampkit",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          10,
+          124
+        ],
+        [
+          286,
+          143
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": "airedale",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 17,
+      "temp_id": 18,
+      "size": "276*19",
+      "signature": "[class]android.widget.TextView[resource_id]None[text]airedale[enabled,,]",
+      "view_str": "1d72e818e16abaed476a1510f9f89121",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]None",
+      "allowed_actions": [
+        "touch"
+      ],
+      "special_attrs": [],
+      "local_id": "5",
+      "desc": "<button bound_box=10,124,286,143>airedale</button>"
+    }
+  },
+  "start_state": "84c6b42b9b745c70f16d87e5b4d05152",
+  "stop_state": "84c6b42b9b745c70f16d87e5b4d05152",
+  "event_str": "TouchEvent(state=84c6b42b9b745c70f16d87e5b4d05152, view=1d72e818e16abaed476a1510f9f89121(MainActivity/TextView-airedale))"
+}

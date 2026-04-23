@@ -1,0 +1,142 @@
+{"files": [
+  {
+    "file_path": "/tmp/output/phase1/before/shared/src/commonMain/kotlin/co/touchlab/kampkit/sqldelight/CoroutinesExtensions.kt",
+    "package": "co.touchlab.kampkit.sqldelight",
+    "declarations": ["co.touchlab.kampkit.sqldelight.transactionWithContext"],
+    "type_references": [],
+    "supertypes": [],
+    "is_expect": false,
+    "is_actual": false,
+    "expect_actual_fqcns": []
+  },
+  {
+    "file_path": "/tmp/output/phase1/before/shared/src/commonMain/kotlin/co/touchlab/kampkit/DatabaseHelper.kt",
+    "package": "co.touchlab.kampkit",
+    "declarations": ["co.touchlab.kampkit.DatabaseHelper"],
+    "type_references": ["kotlinx.coroutines.flow.Flow","app.cash.sqldelight.db.SqlDriver","co.touchlab.kermit.Logger","kotlinx.coroutines.CoroutineDispatcher","co.touchlab.kampkit.DatabaseHelper","co.touchlab.kampkit.db.KaMPKitDb"],
+    "supertypes": [],
+    "is_expect": false,
+    "is_actual": false,
+    "expect_actual_fqcns": []
+  },
+  {
+    "file_path": "/tmp/output/phase1/before/shared/src/commonMain/kotlin/co/touchlab/kampkit/ktor/DogApiImpl.kt",
+    "package": "co.touchlab.kampkit.ktor",
+    "declarations": ["co.touchlab.kampkit.ktor.DogApiImpl"],
+    "type_references": ["co.touchlab.kampkit.ktor.DogApi","co.touchlab.kampkit.response.BreedResult","co.touchlab.kermit.Logger","io.ktor.client.engine.HttpClientEngine","co.touchlab.kampkit.ktor.DogApiImpl","io.ktor.client.HttpClient"],
+    "supertypes": ["co.touchlab.kampkit.ktor.DogApi"],
+    "is_expect": false,
+    "is_actual": false,
+    "expect_actual_fqcns": []
+  },
+  {
+    "file_path": "/tmp/output/phase1/before/shared/src/commonMain/kotlin/co/touchlab/kampkit/ktor/DogApi.kt",
+    "package": "co.touchlab.kampkit.ktor",
+    "declarations": ["co.touchlab.kampkit.ktor.DogApi"],
+    "type_references": ["co.touchlab.kampkit.response.BreedResult"],
+    "supertypes": [],
+    "is_expect": false,
+    "is_actual": false,
+    "expect_actual_fqcns": []
+  },
+  {
+    "file_path": "/tmp/output/phase1/before/shared/src/commonMain/kotlin/co/touchlab/kampkit/Koin.kt",
+    "package": "co.touchlab.kampkit",
+    "declarations": ["co.touchlab.kampkit.initKoin","co.touchlab.kampkit.coreModule","co.touchlab.kampkit.getWith","co.touchlab.kampkit.injectLogger","co.touchlab.kampkit.platformModule"],
+    "type_references": ["org.koin.core.module.Module","org.koin.core.KoinApplication","co.touchlab.kampkit.getWith.T"],
+    "supertypes": [],
+    "is_expect": true,
+    "is_actual": false,
+    "expect_actual_fqcns": ["co.touchlab.kampkit.platformModule"]
+  },
+  {
+    "file_path": "/tmp/output/phase1/before/shared/src/commonMain/kotlin/co/touchlab/kampkit/AppInfo.kt",
+    "package": "co.touchlab.kampkit",
+    "declarations": ["co.touchlab.kampkit.AppInfo"],
+    "type_references": [],
+    "supertypes": [],
+    "is_expect": false,
+    "is_actual": false,
+    "expect_actual_fqcns": []
+  },
+  {
+    "file_path": "/tmp/output/phase1/before/shared/src/commonMain/kotlin/co/touchlab/kampkit/response/BreedResult.kt",
+    "package": "co.touchlab.kampkit.response",
+    "declarations": ["co.touchlab.kampkit.response.BreedResult"],
+    "type_references": ["co.touchlab.kampkit.response.BreedResult"],
+    "supertypes": [],
+    "is_expect": false,
+    "is_actual": false,
+    "expect_actual_fqcns": []
+  },
+  {
+    "file_path": "/tmp/output/phase1/before/shared/src/commonMain/kotlin/co/touchlab/kampkit/models/BreedRepository.kt",
+    "package": "co.touchlab.kampkit.models",
+    "declarations": ["co.touchlab.kampkit.models.BreedRepository"],
+    "type_references": ["kotlinx.coroutines.flow.Flow","co.touchlab.kampkit.db.Breed","co.touchlab.kampkit.DatabaseHelper","com.russhwolf.settings.Settings","co.touchlab.kampkit.ktor.DogApi","co.touchlab.kermit.Logger","kotlinx.datetime.Clock","co.touchlab.kampkit.models.BreedRepository"],
+    "supertypes": [],
+    "is_expect": false,
+    "is_actual": false,
+    "expect_actual_fqcns": []
+  },
+  {
+    "file_path": "/tmp/output/phase1/before/shared/src/commonMain/kotlin/co/touchlab/kampkit/models/BreedViewModel.kt",
+    "package": "co.touchlab.kampkit.models",
+    "declarations": ["co.touchlab.kampkit.models.BreedViewModel","co.touchlab.kampkit.models.BreedViewState"],
+    "type_references": ["co.touchlab.kampkit.models.ViewModel","co.touchlab.kampkit.db.Breed","co.touchlab.kampkit.models.BreedRepository","co.touchlab.kermit.Logger","co.touchlab.kampkit.models.BreedViewModel","kotlinx.coroutines.flow.MutableStateFlow","kotlinx.coroutines.flow.StateFlow","co.touchlab.kampkit.models.BreedViewState"],
+    "supertypes": ["co.touchlab.kampkit.models.ViewModel"],
+    "is_expect": false,
+    "is_actual": false,
+    "expect_actual_fqcns": []
+  },
+  {
+    "file_path": "/tmp/output/phase1/before/shared/src/commonMain/kotlin/co/touchlab/kampkit/models/ViewModel.kt",
+    "package": "co.touchlab.kampkit.models",
+    "declarations": ["co.touchlab.kampkit.models.ViewModel"],
+    "type_references": ["co.touchlab.kampkit.models.ViewModel"],
+    "supertypes": [],
+    "is_expect": true,
+    "is_actual": false,
+    "expect_actual_fqcns": ["co.touchlab.kampkit.models.ViewModel"]
+  },
+  {
+    "file_path": "/tmp/output/phase1/before/shared/build/generated/sqldelight/code/KaMPKitDb/commonMain/co/touchlab/kampkit/db/TableQueries.kt",
+    "package": "co.touchlab.kampkit.db",
+    "declarations": ["co.touchlab.kampkit.db.TableQueries"],
+    "type_references": ["app.cash.sqldelight.TransacterImpl","app.cash.sqldelight.Query","app.cash.sqldelight.db.QueryResult","app.cash.sqldelight.TransacterImpl.transactionWithResult.R","app.cash.sqldelight.Transacter.Transaction","app.cash.sqldelight.BaseTransacterImpl.postTransactionCleanup.R","app.cash.sqldelight.db.SqlDriver","co.touchlab.kampkit.db.TableQueries"],
+    "supertypes": ["app.cash.sqldelight.TransacterImpl"],
+    "is_expect": false,
+    "is_actual": false,
+    "expect_actual_fqcns": []
+  },
+  {
+    "file_path": "/tmp/output/phase1/before/shared/build/generated/sqldelight/code/KaMPKitDb/commonMain/co/touchlab/kampkit/db/KaMPKitDb.kt",
+    "package": "co.touchlab.kampkit.db",
+    "declarations": ["co.touchlab.kampkit.db.KaMPKitDb"],
+    "type_references": ["app.cash.sqldelight.Transacter","app.cash.sqldelight.Transacter.transactionWithResult.R","co.touchlab.kampkit.db.TableQueries"],
+    "supertypes": ["app.cash.sqldelight.Transacter"],
+    "is_expect": false,
+    "is_actual": false,
+    "expect_actual_fqcns": []
+  },
+  {
+    "file_path": "/tmp/output/phase1/before/shared/build/generated/sqldelight/code/KaMPKitDb/commonMain/co/touchlab/kampkit/db/shared/KaMPKitDbImpl.kt",
+    "package": "co.touchlab.kampkit.db.shared",
+    "declarations": ["co.touchlab.kampkit.db.shared.schema","co.touchlab.kampkit.db.shared.newInstance","co.touchlab.kampkit.db.shared.KaMPKitDbImpl"],
+    "type_references": ["app.cash.sqldelight.db.SqlSchema","app.cash.sqldelight.db.SqlDriver","co.touchlab.kampkit.db.KaMPKitDb","app.cash.sqldelight.TransacterImpl","co.touchlab.kampkit.db.shared.KaMPKitDbImpl.transactionWithResult.R","app.cash.sqldelight.Transacter.Transaction","app.cash.sqldelight.BaseTransacterImpl.postTransactionCleanup.R","co.touchlab.kampkit.db.shared.KaMPKitDbImpl","co.touchlab.kampkit.db.TableQueries"],
+    "supertypes": ["app.cash.sqldelight.TransacterImpl","co.touchlab.kampkit.db.KaMPKitDb"],
+    "is_expect": false,
+    "is_actual": false,
+    "expect_actual_fqcns": []
+  },
+  {
+    "file_path": "/tmp/output/phase1/before/shared/build/generated/sqldelight/code/KaMPKitDb/commonMain/co/touchlab/kampkit/db/Breed.kt",
+    "package": "co.touchlab.kampkit.db",
+    "declarations": ["co.touchlab.kampkit.db.Breed"],
+    "type_references": ["co.touchlab.kampkit.db.Breed"],
+    "supertypes": [],
+    "is_expect": false,
+    "is_actual": false,
+    "expect_actual_fqcns": []
+  }
+]}

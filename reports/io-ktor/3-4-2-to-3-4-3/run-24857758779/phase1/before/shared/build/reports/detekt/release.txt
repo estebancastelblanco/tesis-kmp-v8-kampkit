@@ -1,0 +1,1 @@
+UnnecessaryAbstractClass - [ViewModel] at /tmp/output/phase1/before/shared/src/androidMain/kotlin/co/touchlab/kampkit/models/ViewModel.kt:5:23 - Signature=ViewModel.kt$ViewModel$ViewModel

@@ -1,0 +1,170 @@
+{
+  "nodes": [
+    {
+      "id": "com.github.estebancastelblanco/tesis-kmp-v8-kampkit@main"
+    },
+    {
+      "id": "tree-sitter-kotlin"
+    },
+    {
+      "id": "pydantic"
+    },
+    {
+      "id": "setuptools"
+    },
+    {
+      "id": "pyyaml"
+    },
+    {
+      "id": "tree-sitter"
+    },
+    {
+      "id": "rich"
+    },
+    {
+      "id": "pytest-cov"
+    },
+    {
+      "id": "click"
+    },
+    {
+      "id": "pytest"
+    },
+    {
+      "id": "requests@2.31.0"
+    },
+    {
+      "id": "actions/setup-java@4.*.*"
+    },
+    {
+      "id": "actions/setup-python@5.*.*"
+    },
+    {
+      "id": "actions/cache@4.*.*"
+    },
+    {
+      "id": "reactivecircus/android-emulator-runner@2.*.*"
+    },
+    {
+      "id": "actions/deploy-pages@4.*.*"
+    },
+    {
+      "id": "actions/download-artifact@4.*.*"
+    },
+    {
+      "id": "actions/setup-node@4.*.*"
+    },
+    {
+      "id": "gradle/actions/setup-gradle@4.*.*"
+    },
+    {
+      "id": "actions/upload-pages-artifact@4.*.*"
+    },
+    {
+      "id": "actions/checkout@4.*.*"
+    },
+    {
+      "id": "actions/upload-artifact@4.*.*"
+    },
+    {
+      "id": "actions/github-script@7.*.*"
+    },
+    {
+      "id": "sersoft-gmbh/xcodebuild-action@1.*.*"
+    }
+  ],
+  "links": [
+    {
+      "source": "com.github.estebancastelblanco/tesis-kmp-v8-kampkit@main",
+      "target": "tree-sitter-kotlin"
+    },
+    {
+      "source": "com.github.estebancastelblanco/tesis-kmp-v8-kampkit@main",
+      "target": "pydantic"
+    },
+    {
+      "source": "com.github.estebancastelblanco/tesis-kmp-v8-kampkit@main",
+      "target": "setuptools"
+    },
+    {
+      "source": "com.github.estebancastelblanco/tesis-kmp-v8-kampkit@main",
+      "target": "pyyaml"
+    },
+    {
+      "source": "com.github.estebancastelblanco/tesis-kmp-v8-kampkit@main",
+      "target": "tree-sitter"
+    },
+    {
+      "source": "com.github.estebancastelblanco/tesis-kmp-v8-kampkit@main",
+      "target": "rich"
+    },
+    {
+      "source": "com.github.estebancastelblanco/tesis-kmp-v8-kampkit@main",
+      "target": "pytest-cov"
+    },
+    {
+      "source": "com.github.estebancastelblanco/tesis-kmp-v8-kampkit@main",
+      "target": "click"
+    },
+    {
+      "source": "com.github.estebancastelblanco/tesis-kmp-v8-kampkit@main",
+      "target": "pytest"
+    },
+    {
+      "source": "com.github.estebancastelblanco/tesis-kmp-v8-kampkit@main",
+      "target": "requests@2.31.0"
+    },
+    {
+      "source": "com.github.estebancastelblanco/tesis-kmp-v8-kampkit@main",
+      "target": "actions/setup-java@4.*.*"
+    },
+    {
+      "source": "com.github.estebancastelblanco/tesis-kmp-v8-kampkit@main",
+      "target": "actions/setup-python@5.*.*"
+    },
+    {
+      "source": "com.github.estebancastelblanco/tesis-kmp-v8-kampkit@main",
+      "target": "actions/cache@4.*.*"
+    },
+    {
+      "source": "com.github.estebancastelblanco/tesis-kmp-v8-kampkit@main",
+      "target": "reactivecircus/android-emulator-runner@2.*.*"
+    },
+    {
+      "source": "com.github.estebancastelblanco/tesis-kmp-v8-kampkit@main",
+      "target": "actions/deploy-pages@4.*.*"
+    },
+    {
+      "source": "com.github.estebancastelblanco/tesis-kmp-v8-kampkit@main",
+      "target": "actions/download-artifact@4.*.*"
+    },
+    {
+      "source": "com.github.estebancastelblanco/tesis-kmp-v8-kampkit@main",
+      "target": "actions/setup-node@4.*.*"
+    },
+    {
+      "source": "com.github.estebancastelblanco/tesis-kmp-v8-kampkit@main",
+      "target": "gradle/actions/setup-gradle@4.*.*"
+    },
+    {
+      "source": "com.github.estebancastelblanco/tesis-kmp-v8-kampkit@main",
+      "target": "actions/upload-pages-artifact@4.*.*"
+    },
+    {
+      "source": "com.github.estebancastelblanco/tesis-kmp-v8-kampkit@main",
+      "target": "actions/checkout@4.*.*"
+    },
+    {
+      "source": "com.github.estebancastelblanco/tesis-kmp-v8-kampkit@main",
+      "target": "actions/upload-artifact@4.*.*"
+    },
+    {
+      "source": "com.github.estebancastelblanco/tesis-kmp-v8-kampkit@main",
+      "target": "actions/github-script@7.*.*"
+    },
+    {
+      "source": "com.github.estebancastelblanco/tesis-kmp-v8-kampkit@main",
+      "target": "sersoft-gmbh/xcodebuild-action@1.*.*"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="co.touchlab.kampkit.DogApiTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-04-23T20:45:33.337Z" hostname="runnervmeorf1" time="1.265">
+  <properties/>
+  <testcase name="success" classname="co.touchlab.kampkit.DogApiTest" time="1.239"/>
+  <testcase name="failure" classname="co.touchlab.kampkit.DogApiTest" time="0.026"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

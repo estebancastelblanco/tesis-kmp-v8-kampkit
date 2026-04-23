@@ -1,0 +1,49 @@
+{
+  "tag": "2026-04-23_204825",
+  "event": {
+    "event_type": "touch",
+    "log_lines": null,
+    "x": null,
+    "y": null,
+    "view": {
+      "package": "com.android.quicksearchbox",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          272,
+          25
+        ],
+        [
+          320,
+          79
+        ]
+      ],
+      "resource_id": "com.android.quicksearchbox:id/search_voice_btn",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageButton",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 4,
+      "temp_id": 6,
+      "size": "48*54",
+      "signature": "[class]android.widget.ImageButton[resource_id]com.android.quicksearchbox:id/search_voice_btn[text]None[enabled,,]",
+      "view_str": "b0d86f9eff994688fd91b42abd046b5e",
+      "content_free_signature": "[class]android.widget.ImageButton[resource_id]com.android.quicksearchbox:id/search_voice_btn"
+    }
+  },
+  "start_state": "9c37663e73cc4bbdee339e8cc9150441",
+  "stop_state": "9c37663e73cc4bbdee339e8cc9150441",
+  "event_str": "TouchEvent(state=9c37663e73cc4bbdee339e8cc9150441, view=b0d86f9eff994688fd91b42abd046b5e(SearchActivity/ImageButton-))"
+}

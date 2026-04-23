@@ -1,0 +1,66 @@
+[
+    {
+        "merged": "co.touchlab.kampkit.android.app-debug-38:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "co.touchlab.kampkit.android.app-main-40:/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "co.touchlab.kampkit.android.app-debug-38:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "co.touchlab.kampkit.android.app-main-40:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "co.touchlab.kampkit.android.app-debug-38:/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "co.touchlab.kampkit.android.app-main-40:/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "co.touchlab.kampkit.android.app-debug-38:/drawable_ic_launcher_background.xml.flat",
+        "source": "co.touchlab.kampkit.android.app-main-40:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "co.touchlab.kampkit.android.app-debug-38:/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "co.touchlab.kampkit.android.app-main-40:/mipmap-xhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "co.touchlab.kampkit.android.app-debug-38:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "co.touchlab.kampkit.android.app-main-40:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "co.touchlab.kampkit.android.app-debug-38:/drawable_ic_favorite_border_24px.xml.flat",
+        "source": "co.touchlab.kampkit.android.app-main-40:/drawable/ic_favorite_border_24px.xml"
+    },
+    {
+        "merged": "co.touchlab.kampkit.android.app-debug-38:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "co.touchlab.kampkit.android.app-main-40:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "co.touchlab.kampkit.android.app-debug-38:/drawable_ic_favorite_24px.xml.flat",
+        "source": "co.touchlab.kampkit.android.app-main-40:/drawable/ic_favorite_24px.xml"
+    },
+    {
+        "merged": "co.touchlab.kampkit.android.app-debug-38:/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "co.touchlab.kampkit.android.app-main-40:/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "co.touchlab.kampkit.android.app-debug-38:/drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "co.touchlab.kampkit.android.app-pngs-34:/drawable-anydpi-v24/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "co.touchlab.kampkit.android.app-debug-38:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "co.touchlab.kampkit.android.app-main-40:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "co.touchlab.kampkit.android.app-debug-38:/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "co.touchlab.kampkit.android.app-main-40:/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "co.touchlab.kampkit.android.app-debug-38:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "co.touchlab.kampkit.android.app-main-40:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "co.touchlab.kampkit.android.app-debug-38:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "co.touchlab.kampkit.android.app-main-40:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "co.touchlab.kampkit.android.app-debug-38:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "co.touchlab.kampkit.android.app-main-40:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    }
+]

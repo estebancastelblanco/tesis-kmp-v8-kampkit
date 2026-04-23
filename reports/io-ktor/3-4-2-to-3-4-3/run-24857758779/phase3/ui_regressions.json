@@ -1,0 +1,32 @@
+{
+  "status": "completed",
+  "blocked_reason": "",
+  "before_screens": [
+    "QuickstepLauncher",
+    "Main",
+    "Search",
+    "Main"
+  ],
+  "after_screens": [
+    "QuickstepLauncher",
+    "Main",
+    "Main"
+  ],
+  "diffs": [
+    {
+      "screen_name": "Search",
+      "status": "missing",
+      "details": "Screen 'Search' present in before but missing in after"
+    },
+    {
+      "screen_name": "Main",
+      "status": "changed",
+      "details": "Screen 'Main' has different transitions: before=2, after=1"
+    },
+    {
+      "screen_name": "QuickstepLauncher",
+      "status": "changed",
+      "details": "Screen 'QuickstepLauncher' has different transitions: before=2, after=1"
+    }
+  ]
+}

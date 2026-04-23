@@ -1,0 +1,128 @@
+Activity Resolver Table:
+  Non-Data Actions:
+      android.intent.action.MAIN:
+        d25cde1 co.touchlab.kampkit/.android.MainActivity filter ad96706
+          Action: "android.intent.action.MAIN"
+          Category: "android.intent.category.LAUNCHER"
+
+Receiver Resolver Table:
+  Non-Data Actions:
+      androidx.profileinstaller.action.SAVE_PROFILE:
+        98e1c7 co.touchlab.kampkit/androidx.profileinstaller.ProfileInstallReceiver filter 714ed92
+          Action: "androidx.profileinstaller.action.SAVE_PROFILE"
+      androidx.profileinstaller.action.INSTALL_PROFILE:
+        98e1c7 co.touchlab.kampkit/androidx.profileinstaller.ProfileInstallReceiver filter cccf3f4
+          Action: "androidx.profileinstaller.action.INSTALL_PROFILE"
+      androidx.profileinstaller.action.SKIP_FILE:
+        98e1c7 co.touchlab.kampkit/androidx.profileinstaller.ProfileInstallReceiver filter 850671d
+          Action: "androidx.profileinstaller.action.SKIP_FILE"
+      androidx.profileinstaller.action.BENCHMARK_OPERATION:
+        98e1c7 co.touchlab.kampkit/androidx.profileinstaller.ProfileInstallReceiver filter 537d363
+          Action: "androidx.profileinstaller.action.BENCHMARK_OPERATION"
+
+Permissions:
+  Permission [co.touchlab.kampkit.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION] (cbf5b60):
+    sourcePackage=co.touchlab.kampkit
+    uid=10131 gids=null type=0 prot=signature
+    perm=Permission{8a537b8 co.touchlab.kampkit.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION}
+
+Registered ContentProviders:
+  co.touchlab.kampkit/androidx.startup.InitializationProvider:
+    Provider{5a2f991 co.touchlab.kampkit/androidx.startup.InitializationProvider}
+
+ContentProvider Authorities:
+  [co.touchlab.kampkit.androidx-startup]:
+    Provider{5a2f991 co.touchlab.kampkit/androidx.startup.InitializationProvider}
+      applicationInfo=ApplicationInfo{594a0f6 co.touchlab.kampkit}
+
+Key Set Manager:
+  [co.touchlab.kampkit]
+      Signing KeySets: 9
+
+Packages:
+  Package [co.touchlab.kampkit] (565cd5):
+    userId=10131
+    pkg=Package{d97acf7 co.touchlab.kampkit}
+    codePath=/data/app/~~vNiTfoXoxWM6XoxXTePxbg==/co.touchlab.kampkit-fhnM4cLX0g4u4H8Z9hGQGg==
+    resourcePath=/data/app/~~vNiTfoXoxWM6XoxXTePxbg==/co.touchlab.kampkit-fhnM4cLX0g4u4H8Z9hGQGg==
+    legacyNativeLibraryDir=/data/app/~~vNiTfoXoxWM6XoxXTePxbg==/co.touchlab.kampkit-fhnM4cLX0g4u4H8Z9hGQGg==/lib
+    primaryCpuAbi=x86_64
+    secondaryCpuAbi=null
+    versionCode=1 minSdk=23 targetSdk=35
+    versionName=1.0
+    splits=[base]
+    apkSigningVersion=2
+    applicationInfo=ApplicationInfo{d97acf7 co.touchlab.kampkit}
+    flags=[ DEBUGGABLE HAS_CODE ALLOW_CLEAR_USER_DATA ]
+    privateFlags=[ PRIVATE_FLAG_ACTIVITIES_RESIZE_MODE_RESIZEABLE_VIA_SDK_VERSION ALLOW_AUDIO_PLAYBACK_CAPTURE PRIVATE_FLAG_ALLOW_NATIVE_HEAP_POINTER_TAGGING ]
+    forceQueryable=false
+    queriesPackages=[]
+    dataDir=/data/user/0/co.touchlab.kampkit
+    supportsScreens=[small, medium, large, xlarge, resizeable, anyDensity]
+    timeStamp=2026-04-23 20:40:19
+    firstInstallTime=2026-04-23 20:40:19
+    lastUpdateTime=2026-04-23 20:40:19
+    signatures=PackageSignatures{e521764 version:2, signatures:[6cd83ef3], past signatures:[]}
+    installPermissionsFixed=true
+    pkgFlags=[ DEBUGGABLE HAS_CODE ALLOW_CLEAR_USER_DATA ]
+    declared permissions:
+      co.touchlab.kampkit.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: prot=signature, INSTALLED
+    requested permissions:
+      android.permission.INTERNET
+      co.touchlab.kampkit.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+    install permissions:
+      co.touchlab.kampkit.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: granted=true
+      android.permission.INTERNET: granted=true
+    User 0: ceDataInode=123477 installed=true hidden=false suspended=false distractionFlags=0 stopped=true notLaunched=true enabled=0 instant=false virtual=false
+      gids=[3003]
+      runtime permissions:
+
+Queries:
+  system apps queryable: false
+  queries via package name:
+  queries via intent:
+  queryable via interaction:
+    User 0:
+
+Package Changes:
+  Sequence number=22
+  User 0:
+    seq=0, package=com.android.permissioncontroller
+    seq=1, package=com.android.systemui
+    seq=3, package=com.android.cellbroadcastreceiver.module
+    seq=8, package=com.android.messaging
+    seq=9, package=com.android.sdksetup
+    seq=10, package=com.android.provision
+    seq=11, package=com.android.settings
+    seq=12, package=com.android.calendar
+    seq=13, package=com.android.camera2
+    seq=14, package=com.android.gallery3d
+    seq=15, package=com.android.inputmethod.latin
+    seq=16, package=io.github.ylimit.droidbotapp
+    seq=17, package=com.android.nfc
+    seq=18, package=com.android.stk
+    seq=20, package=com.android.traceur
+    seq=21, package=co.touchlab.kampkit
+
+
+Dexopt state:
+  [co.touchlab.kampkit]
+    path: /data/app/~~vNiTfoXoxWM6XoxXTePxbg==/co.touchlab.kampkit-fhnM4cLX0g4u4H8Z9hGQGg==/base.apk
+      x86_64: [status=run-from-apk] [reason=unknown]
+
+
+Compiler stats:
+  [co.touchlab.kampkit]
+    (No recorded stats)
+
+APEX session state:
+
+Active APEX packages:
+
+
+Inactive APEX packages:
+
+
+Factory APEX packages:
+
+
