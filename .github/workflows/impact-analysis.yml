@@ -120,37 +120,49 @@ jobs:
           pip install ./tools/kmp-impact-analyzer
           pip install "cairosvg==2.7.1"
 
-      # ── Per-target compile → PR labels ────────────────────────────────────
+      # ── Per-target compile → PR labels (common / android / ios) ──────────
       - name: Compile Kotlin targets (AFTER)
         id: compile
         continue-on-error: true
         run: |
           chmod +x gradlew
-          common_ok=true; android_ok=true
+          common_ok=true; android_ok=true; ios_ok=true
           ./gradlew :shared:compileCommonMainKotlinMetadata --no-daemon 2>&1 | tail -60 \
             || common_ok=false
-          # KaMPKit Android target: compileDebugKotlinAndroid in :shared,
-          # :app also exercises Android dependencies. Prefer :shared for speed.
           ./gradlew :shared:compileDebugKotlinAndroid --no-daemon 2>&1 | tail -60 \
             || android_ok=false
+          # iOS on ubuntu-latest: compile the Kotlin/Native target only (no
+          # linkage, no Xcode). compileKotlinIosX64 catches KMP source-set
+          # breakage without needing a macOS runner.
+          ./gradlew :shared:compileKotlinIosX64 --no-daemon 2>&1 | tail -60 \
+            || ios_ok=false
           echo "common_ok=$common_ok"  >> "$GITHUB_OUTPUT"
           echo "android_ok=$android_ok" >> "$GITHUB_OUTPUT"
+          echo "ios_ok=$ios_ok"        >> "$GITHUB_OUTPUT"
 
-      - name: Apply PR labels (common / android)
+      - name: Apply PR labels (common / android / ios)
         if: github.event_name == 'pull_request'
         uses: actions/github-script@v7
         env:
           COMMON_OK:  ${{ steps.compile.outputs.common_ok }}
           ANDROID_OK: ${{ steps.compile.outputs.android_ok }}
+          IOS_OK:     ${{ steps.compile.outputs.ios_ok }}
         with:
           script: |
-            const ok   = s => s === 'true';
+            const ok = s => s === 'true';
+            // Plain-text labels; colour alone communicates ok/fail (green/red).
+            // Using distinct names because GitHub labels are unique by name.
             const want = new Set([
-              ok(process.env.COMMON_OK)  ? 'common:✅'  : 'common:❌',
-              ok(process.env.ANDROID_OK) ? 'android:✅' : 'android:❌',
+              ok(process.env.COMMON_OK)  ? 'common-ok'  : 'common-fail',
+              ok(process.env.ANDROID_OK) ? 'android-ok' : 'android-fail',
+              ok(process.env.IOS_OK)     ? 'ios-ok'     : 'ios-fail',
             ]);
-            const all = ['common:✅','common:❌','android:✅','android:❌'];
-            const palette = { '✅': '0E8A16', '❌': 'D93F0B' };
+            const all = [
+              'common-ok','common-fail',
+              'android-ok','android-fail',
+              'ios-ok','ios-fail',
+            ];
+            const colourFor = n => n.endsWith('-ok') ? '0E8A16' : 'D93F0B';
             for (const n of all) {
               try {
                 await github.rest.issues.getLabel({
@@ -160,7 +172,7 @@ jobs:
                 if (e.status === 404) {
                   await github.rest.issues.createLabel({
                     owner: context.repo.owner, repo: context.repo.repo,
-                    name: n, color: palette[n.slice(-1)],
+                    name: n, color: colourFor(n),
                   });
                 }
               }
@@ -169,8 +181,12 @@ jobs:
             const { data: current } = await github.rest.issues.listLabelsOnIssue({
               owner: context.repo.owner, repo: context.repo.repo, issue_number: pr,
             });
+            // Strip both legacy emoji labels and the current-target ones we
+            // don't want this run.
+            const legacy = ['common:✅','common:❌','android:✅','android:❌'];
             for (const l of current) {
-              if (all.includes(l.name) && !want.has(l.name)) {
+              if ((all.includes(l.name) && !want.has(l.name)) ||
+                  legacy.includes(l.name)) {
                 await github.rest.issues.removeLabel({
                   owner: context.repo.owner, repo: context.repo.repo,
                   issue_number: pr, name: l.name,
@@ -546,24 +562,39 @@ jobs:
           generate_report_site(consolidated, manifest, output)
           PY
 
-      - name: Generate sunburst PNG
+      - name: Generate report PNGs (sunburst, propagation, gitgraph)
         run: |
           python3 - <<'PY'
           from pathlib import Path
           import cairosvg
           from kmp_impact_analyzer.contracts import ConsolidatedResult
           from kmp_impact_analyzer.reporting.sunburst import build_sunburst_svg_standalone
+          from kmp_impact_analyzer.reporting.static_images import (
+              build_propagation_svg, build_gitgraph_svg,
+          )
+
           output = Path("/tmp/output")
+          report = output / "report"
           c = ConsolidatedResult.model_validate_json(
               (output / "phase4" / "consolidated.json").read_text()
           )
-          svg = build_sunburst_svg_standalone(c)
-          (output / "report" / "sunburst.svg").write_text(svg, encoding="utf-8")
-          cairosvg.svg2png(
-              bytestring=svg.encode("utf-8"),
-              write_to=str(output / "report" / "sunburst.png"),
-              output_width=720,
-          )
+
+          graph_json = output / "sbom" / "graph.json"
+          diff_json = output / "gitgraph" / "diff.json"
+
+          images = {
+              "sunburst":    build_sunburst_svg_standalone(c),
+              "propagation": build_propagation_svg(c),
+              "gitgraph":    build_gitgraph_svg(graph_json, diff_json),
+          }
+          for name, svg in images.items():
+              (report / f"{name}.svg").write_text(svg, encoding="utf-8")
+              cairosvg.svg2png(
+                  bytestring=svg.encode("utf-8"),
+                  write_to=str(report / f"{name}.png"),
+                  output_width=860,
+              )
+              print(f"{name}.png: {(report / f'{name}.png').stat().st_size} bytes")
           PY
 
       - name: Compute report path
@@ -611,7 +642,7 @@ jobs:
             const fs = require('fs');
             const base      = `https://${process.env.REPO_OWNER}.github.io/${process.env.REPO_NAME}`;
             const reportUrl = `${base}/${process.env.REPORT_PATH}/`;
-            const sunburstUrl = `${reportUrl}sunburst.png`;
+            const img = name => `${reportUrl}${name}.png`;
 
             const s = JSON.parse(fs.readFileSync('/tmp/output/report/summary.json', 'utf8'));
 
@@ -621,35 +652,48 @@ jobs:
               ggMarkdown = gg.markdown;
             } catch (_) {}
 
+            // Strip every emoji and BMP pictograph so the comment stays plain text.
+            // Also drops the flag sequence used by CJK glyphs.
+            const stripEmoji = txt => txt.replace(
+              /[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{2190}-\u{21FF}\u{2300}-\u{23FF}\u{2B00}-\u{2BFF}️]/gu,
+              '',
+            ).replace(/ {2,}/g, ' ');
+
             const lines = [
               '<!-- impact-analysis-bot -->',
               `Bumps \`${s.dependency_group}\` from \`${s.version_before}\` to \`${s.version_after}\`.`,
               '',
-              '### 📦 Dependabot impact companion (kmp-impact-analyzer)',
+              '### Dependabot impact companion (kmp-impact-analyzer)',
               '',
               `- Risk: **${(s.risk_level || 'low').toUpperCase()}**`,
               `- Impacted files: ${s.total_impacted_files ?? 0}`,
               `- Impacted screens: ${s.total_impacted_screens ?? 0}`,
-              `- Dynamic analysis: ${s.dynamic_summary}`,
-              `- Recommendation: ${s.recommendation}`,
+              `- Dynamic analysis: ${stripEmoji(s.dynamic_summary || '').trim()}`,
+              `- Recommendation: ${stripEmoji(s.recommendation || '').trim()}`,
               '',
-              `![Source-set sunburst](${sunburstUrl})`,
+              '#### Static propagation graph',
+              '',
+              `![Static propagation graph](${img('propagation')})`,
+              '',
+              '#### Source-set impact sunburst',
+              '',
+              `![Source-set sunburst](${img('sunburst')})`,
               '',
             ];
 
             if (ggMarkdown) {
               lines.push('---', '');
-              lines.push('### 🕸️ Transitive dependency graph (GitGraph)', '');
-              const cleaned = ggMarkdown
+              lines.push('### Transitive dependency graph (GitGraph)', '');
+              const cleaned = stripEmoji(ggMarkdown
                 .replace(/<!-- dependency-analysis-bot -->\n?/, '')
                 .replace(/^## .+?\n/m, '')
-                .trim();
+              ).trim();
               lines.push(cleaned);
-              lines.push('');
+              lines.push('', `![Transitive dependency graph](${img('gitgraph')})`, '');
             }
 
             lines.push('---', '');
-            lines.push(`📑 Full report: ${reportUrl}`);
+            lines.push(`Full report: ${reportUrl}`);
 
             const body = lines.join('\n');
             const { data: comments } = await github.rest.issues.listComments({

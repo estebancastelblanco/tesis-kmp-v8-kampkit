@@ -38,6 +38,7 @@ src/kmp_impact_analyzer/phase5_visualize/codecharta_builder.py
 src/kmp_impact_analyzer/phase5_visualize/tree_builder.py
 src/kmp_impact_analyzer/reporting/__init__.py
 src/kmp_impact_analyzer/reporting/report_site.py
+src/kmp_impact_analyzer/reporting/static_images.py
 src/kmp_impact_analyzer/reporting/sunburst.py
 src/kmp_impact_analyzer/utils/__init__.py
 src/kmp_impact_analyzer/utils/git_utils.py
